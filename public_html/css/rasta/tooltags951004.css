@@ -1,0 +1,239 @@
+/* font-face */
+
+@font-face {
+  font-family: 'sans';
+        src: url('../../fonts/IranianSans/IRANSans-UltraLight-web.eot');
+    src: url('../../fonts/IranianSans/IRANSans-UltraLight-web.eot?#iefix') format('eot'),  /* IE6â€“8 */
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.woff2') format('woff2'),  /* Chrome36+, Opera24+*/
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.ttf') format('ttf');
+    font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Yekan';
+  src: url('../../fonts/Yekan/Yekan.eot?#') format('eot'),  /* IE6â€“8 */
+       url('../../fonts/Yekan/Yekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../../fonts/Yekan/Yekan.ttf') format('truetype');  /* Saf3â€”5, Chrome4+, FF3.5, Opera 10+ */
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Confirm */
+
+#confirm, #rastaAlert{
+	width:100%;
+	font-family:sans;
+	font-size:13px;
+	line-height:1.5;
+	text-align:right;
+}
+/* Generic context menu styles */
+
+.contextMenu {
+	position: absolute;
+	width: 140px;
+	z-index: 99999;
+	border: solid 1px #CCC;
+	background: #EEE;
+	padding: 0px;
+	margin: 0px;
+	display: none;
+	font-family:"sans";
+}
+
+.contextMenu LI {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	width: 140px;
+	float:right;
+}
+
+.contextMenu A {
+	color: #333;
+	text-decoration: none;
+	display: block;
+	line-height: 20px;
+	height: 25px;
+	background-position: 6px center;
+	background-repeat: no-repeat;
+	outline: none;
+	padding: 1px 5px 1px 5px;
+	text-align: right;
+	width:110px;
+	float:right;
+	cursor: default;
+	font-family:sans;
+	font-size:13px;
+	font-weight:600;
+}
+
+.contextMenu span {font-family:sans;font-size:13px;}
+
+.contextMenu LI.hover ,.contextMenu LI:hover A {
+	color: #FFF;
+	background-color: #3399FF;
+	cursor:pointer;
+}
+
+.contextMenu LI.disabled A {
+	color: #AAA;
+	cursor: default;
+}
+
+.contextMenu LI.hover.disabled A {
+	background-color: transparent;
+}
+
+.contextMenu LI.rasta-separator {
+	border-bottom: solid 1px #CCC;
+}
+
+.contextMenu .rasta-vseparator{
+	width:2px;
+	height:20px;
+	float:right;
+	border-left: solid 1px #CCC;
+    display: block;
+}
+
+.contextMenu .rasta-icon{
+	margin-top:2px;
+	margin-right:3px;
+}
+
+.rasta-icon{
+    background-image: url("../jqui/images/ui-icons_222222_256x240.png");
+    height: 16px;
+    width: 16px;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+	float:right;
+}
+
+/*Page Loader*/
+
+#verticalPanel, .container, #toolbar{display:none}
+
+/*General*/
+
+.dir-rtl{ direction:rtl; }
+
+.float-rtl{ float:right; }
+
+#container{ margin-top:30px;}
+
+.rasta-block-header{cursor:move;}
+
+.rasta-placeholder{height: 2em; line-height: 1.2em;  border:dashed 0.1em; width:100%; }
+
+textarea { resize: none;}
+
+#verticalPanel *{font-family:sans; font-size:12px; font-weight:600; letter-spacing:normal;}
+
+#verticalPanel h3,#verticalPanel h3 *{	font-family:sans; font-size:14px; font-weight:bold; text-align:right; letter-spacing:normal;}
+
+ul{ min-height:20px;}
+
+/*Header Menu
+
+/* admin/mainmenu */
+
+ul#tablist li{float:right;}
+
+div#toolbar{ width:100%; height:2.5em; position:absolute; top:0; left:0; overflow:hidden; z-index:99960; padding:0; font-size:14px;}
+
+div#toolbar a{ float:right; margin-right:.2em;}
+
+/* Page Setting */
+
+fieldset{border:solid 1px #999; padding:10px; width:190px; float:right; direction:rtl;}
+
+#pagesttingPanel textarea{width:187px; height:50px; padding:0; margin:0; outline:0; border:solid 1px #999999;}
+
+/* Paging */
+
+.pagingButtons{text-align:center; direction:ltr; margin:0; margin-top:10px; float:right; width:100%}
+
+.pagingButtons a{ padding:0;}
+
+.pagingButtons .ui-button-text{padding:1px 4px;}
+
+/* tool tags */
+
+#rtclistpanel, #gallerylistpanel, #menulistpanel, #pagethemelistpanel, #mlmthemelistpanel, #pagelistpanel, #scenariolistpanel, #extlinklistpanel, #pagesttingPanel form{ width:210px;}
+
+#accorContentButton, #accorDesignButton, #accorOthersButton{ width:210px; height:30px; margin-bottom:-5px; }
+
+#accorContentButton a, #accorDesignButton a, #accorOthersButton a{ float:right; margin:2px;}
+
+.listtools a{float:left;}
+
+#pagesttingPanel, #accorContent, #accorDesign, #accorOthers{ padding-right:10px; padding-left:10px;  overflow-y: scroll !important;}
+
+#Gallerylist, #pagelist, #RTClist, #menulist, #extlinklist, #scenariolist {	width:100%;	float:right;	margin:0 ;}
+
+#verticalPanel .ui-tabs-panel{padding:0; padding-top:10px;}
+
+#tabs-1{ text-align:left;}
+
+/* rasta-buttonset */
+
+.rasta-buttonset button, .rasta-buttonset a{float:left; }
+
+.rasta-buttonset a{height:25px; overflow:hidden;}
+
+.rasta-buttonset{height:30px;}
+
+#pagelist .rasta-buttonset, #RTClist .rasta-buttonset, #menulist .rasta-buttonset, #extlinklist .rasta-buttonset, #Gallerylist .rasta-buttonset,
+
+#scenariolist .rasta-buttonset{width:100%; margin:0; margin-right:-5px; float:right;}
+
+/* List Titels */
+
+#pagelist .pagetitle{width:58%; margin:0; direction:rtl; text-align:right;}
+
+#RTClist .RTCtitle{width:60%; margin:0; direction:rtl; text-align:right;}
+
+#extlinklist .extlinktitle, #Gallerylist .Gallerytitle, #scenariolist .scenariotitle  {width:73%; margin:0; direction:rtl; text-align:right;}
+
+#menulist .menutitle{width:70%; margin:0; direction:rtl; text-align:right;}
+
+.menutitle input, .pagetitle input { width:100%; background:transparent; border-width:1px;}
+
+#accorContent{height:auto !important; overflow:scroll;}
+
+#rtcsSearch ,#gallerySearch,#menuSearch,#pageSearch,#extLinkSearch, #scenarioSearch{	width:170px;}
+
+#paneldialogAuto ul.ui-autocomplete{width:140px !important;	}
+
+ul.ui-autocomplete{	width:170px !important;	}
+
+ul.ui-autocomplete li{height:25px !important;overflow:hidden !important;direction:rtl;font-family:sans;font-size:12px;}
+
+.attention0{color:#000000;}
+
+#verticalPanel{	position:absolute;	width:auto;	height:98%;	top:32px;	left:0;	z-index:99960;	background:transparent;	}
+
+#verticalPanel_accordion{	width:250px;	background:#777;}
+
+#verticalPanel_silder{ width:7px; height:101%; background:#fff; position:absolute; top:0; left:200px; cursor:pointer; margin-top:2px; border-right: 1px solid #999999; }
+
+#verticalPanel_silder_icon{position:absolute; left:-5px; top:50%;}
+
+#pageeditpanel{ overflow:scroll; }
+
+body > div#verticalPanel, body > div#toolbar {  position: fixed;}
+
+img.icon {cursor:pointer;}
+
+#ImageManager img{ margin:4px;}
+
+#paneldialog span{ display:block; width:140px; float:right;}
+
+#paneldialog input{width:140px;float:right; clear:left; }
+
+#GalleryDialog, #paneldialog{font-family: sans; font-size: 13px;}
+

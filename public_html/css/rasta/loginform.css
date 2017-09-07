@@ -1,0 +1,112 @@
+/* CSS Document */
+
+@font-face {
+  font-family: 'sans';
+        src: url('../../fonts/IranianSans/IRANSans-UltraLight-web.eot');
+    src: url('../../fonts/IranianSans/IRANSans-UltraLight-web.eot?#iefix') format('eot'),  /* IE6â€“8 */
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.woff2') format('woff2'),  /* Chrome36+, Opera24+*/
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.ttf') format('ttf');
+    font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Yekan';
+  src: url('../../fonts/Yekan/Yekan.eot?#') format('eot'),  /* IE6â€“8 */
+       url('../../fonts/Yekan/Yekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../../fonts/Yekan/Yekan.ttf') format('truetype');  /* Saf3â€”5, Chrome4+, FF3.5, Opera 10+ */
+  font-style: normal;
+  font-weight: normal;
+}
+
+body
+{
+	background: -moz-linear-gradient(top,  #fff,  #666);
+	background: -webkit-linear-gradient(top,  #fff,  #666);
+    background: -o-linear-gradient(top,  #fff,  #666);
+    background: linear-gradient(top,  #fff,  #666);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#666666');
+	height: 81%;
+	font-size: 10px;
+	text-align:center;
+}
+td	
+{
+	font-size: 12px;
+	font-weight: 600;
+	width:auto;
+}
+.tdtitle
+{
+	width:60px;
+}
+.frmsection
+{
+	direction: rtl;
+	background: #EEEEEE;
+	border: 1px #999999 solid;
+	margin: 150px auto;
+	width: 50%;
+	padding: 25px;
+	border-style: solid;
+	border-width: 1px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px 15px 15px 15px;
+	text-align: right;
+}
+.frminputtxt
+{
+	border: 1px #999999 solid;
+	width: 180px;
+	height: 25px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px 5px 5px 5px;
+	padding: 0px 4px;
+}
+.frminputtxt:focus
+{
+	border: 1px #0099FF solid;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px 5px 5px 5px;
+}
+.frmcnt2
+{
+	font-family: sans;
+	font-size: 13px;
+	font-weight: 600;
+}
+.frmup
+{
+	margin: 10px 0px;
+}
+.btn 
+{ 
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #999999; 
+	background: #f6f6f6; 
+	color: #333333; 
+	font-family: sans, Yekan, Helvetica, Arial, sans-serif; 
+	font-size: 1.1em;
+	font-weight: bold;
+	display: inline-block; 
+	position: relative; 
+	padding: 5px 7px; 
+	margin: 2% 1% 0 0; 
+	text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; 
+	overflow: visible;
+	width: 15%;
+}
+.btn:hover
+{
+	background: #5D5D5D;
+    color: #fff;
+}
+#description
+{
+	color:#FF0000;
+}

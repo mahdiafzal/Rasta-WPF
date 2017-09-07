@@ -1,0 +1,146 @@
+/**
+ *********************************************
+ * Prototype of styles for horizontal CSS-menu
+ * @data 25.01.2010
+ *********************************************
+ * (X)HTML-scheme:
+ *  <div id="menu">
+ *      <ul class="menu">
+ *          <li><a href="#" class="parent"><span>level 1</span></a>
+ *              <div><ul>
+ *                  <li><a href="#" class="parent"><span>level 2</span></a>
+ *                      <div><ul><li><a href="#"><span>level 3</span></a></li></ul></div>
+ *                  </li>
+ *              </ul></div>
+ *          </li>
+ *          <li class="last"><a href="#"><span>level 1</span></a></li>
+ *      </ul>
+ *  </div>
+ *********************************************
+ */
+
+
+@font-face {
+  font-family: 'sans';
+        src: url('../../fonts/IranianSans/IRANSans-UltraLight-web.eot');
+    src: url('../../fonts/IranianSans/IRANSans-UltraLight-web.eot?#iefix') format('eot'),  /* IE6â€“8 */
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.woff2') format('woff2'),  /* Chrome36+, Opera24+*/
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.ttf') format('ttf');
+    font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Yekan';
+  src: url('../../fonts/Yekan/Yekan.eot?#') format('eot'),  /* IE6â€“8 */
+       url('../../fonts/Yekan/Yekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../../fonts/Yekan/Yekan.ttf') format('truetype');  /* Saf3â€”5, Chrome4+, FF3.5, Opera 10+ */
+  font-style: normal;
+  font-weight: normal;
+}
+
+#createmenu, #createmenu * {
+    list-style:none;
+    border:0;
+    padding:0;
+    margin:0;
+}
+#createmenu {
+    width:173px;
+    position:relative;
+    z-index:999;
+    background:url(images/base.png) -173px 0;
+    padding-top:20px;
+}
+#createmenu ul {
+    background:url(images/base.png) 0 bottom;
+    padding-bottom:11px;
+}
+* html #createmenu, * html #createmenu ul { background-image:url(images/base.gif); }
+#createmenu div {
+    width:180px;
+    position:relative;
+    background:url(images/sub.png) -180px 0;
+    padding-top:9px;
+}
+#createmenu div ul {
+    background:url(images/sub.png) 0 bottom;
+    padding-bottom:5px;
+}
+* html #createmenu div, * html #createmenu div ul { background-image:url(images/sub.gif); }
+*+html #createmenu li { border-bottom:1px solid transparent; }
+#createmenu li div {
+    visibility:hidden;
+    position:absolute;
+    margin:-44px 0 0 -2px;
+    left:100%;
+}
+* html #createmenu li div, *+html #createmenu li div { margin-top:-42px; }
+#createmenu li:hover>div { visibility:visible; }
+* html #createmenu li { height:34px; }
+#createmenu li a {
+    display:block;
+    font-size:14px;
+    font-family:sans,'Trebuchet MS', Arial, Verdana;
+    font-weight:600;
+    text-decoration:none;
+    color:#fff;
+    padding-top:14px;
+    cursor:pointer;
+    position:relative;
+    z-index:9;
+}
+*+html #createmenu li a { padding-top:12px; }
+* html #createmenu li a { padding-top:10px; }
+#createmenu li.current a,
+#createmenu li a:hover { background:url(images/base-select.gif) no-repeat -163px 0; }
+#createmenu li span {
+    line-height:14px;
+    padding:0 19px 11px 17px;
+    display:block;
+}
+*+html #createmenu li span { padding-bottom:10px; }
+* html #createmenu li span {
+    height:24px;
+    padding-bottom:2px;
+}
+#createmenu li.current a span,
+#createmenu li a:hover span { background:url(images/base-select.gif) no-repeat 5px bottom; }
+#createmenu li a:hover span { color:#515151; }
+#createmenu li a.parent:hover span { background:url(images/base-select.gif) no-repeat -331px bottom; }
+#createmenu.js-active li.current a,
+#createmenu.js-active li.current a span,
+#createmenu.js-active li a:hover,
+#createmenu.js-active li a:hover span { background-image:url(images/pix.gif); }
+#createmenu li a.parent span, #createmenu.js-active li a.parent span { background:url(images/base-select.gif) no-repeat -499px bottom; }
+#createmenu li.current li a,
+#createmenu li.current li a span { background-image:url(images/pix.gif); }
+#createmenu li li { border:0; }
+#createmenu li li a span { color:#515151; }
+#createmenu li li a.parent span, #createmenu.js-active li li a.parent span { background:url(images/sub-select.gif) no-repeat -520px bottom; }
+#createmenu li li a:hover, #createmenu.js-active li li a:hover { background:url(images/sub-select.gif) no-repeat -170px 0; }
+#createmenu li li a:hover span,
+#createmenu.js-active li li a:hover span {
+    background:url(images/sub-select.gif) no-repeat 5px bottom;
+    color:#fff;
+}
+#createmenu li li a.parent:hover span, #createmenu.js-active li li a.parent:hover span { background:url(images/sub-select.gif) no-repeat -345px bottom; }
+#createmenu li.back {
+    width:170px;
+    z-index:8;
+    position:absolute;
+    background:url(images/lavalamp.gif) no-repeat 5px bottom;
+}
+#createmenu li.back .left {
+    width:170px;
+    float:none;
+    position:relative;
+    top:0;
+    left:0;
+    height:7px;
+    overflow:hidden;
+    padding:0;
+    margin:0;
+    visibility:visible;
+    background:url(images/lavalamp.gif) no-repeat -163px 0;
+} 

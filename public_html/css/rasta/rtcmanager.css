@@ -1,0 +1,149 @@
+/* CSS Document */
+
+@font-face {
+  font-family: 'sans';
+        src: url('../../fonts/IranianSans/IRANSans-UltraLight-web.eot');
+    src: url('../../fonts/IranianSans/IRANSans-UltraLight-web.eot?#iefix') format('eot'),  /* IE6Ã¢â‚¬â€œ8 */
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.woff2') format('woff2'),  /* Chrome36+, Opera24+*/
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../../fonts/IranianSans/IRANSans-UltraLight-web.ttf') format('ttf');
+    font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Yekan';
+  src: url('../../fonts/Yekan/Yekan.eot?#') format('eot'),  /* IE6Ã¢â‚¬â€œ8 */
+       url('../../fonts/Yekan/Yekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../../fonts/Yekan/Yekan.ttf') format('truetype');  /* Saf3Ã¢â‚¬â€5, Chrome4+, FF3.5, Opera 10+ */
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Mitra';
+  src: url('../../fonts/Mitra/BMitra.eot?#iefix') format('eot'),  /* IE6Ã¢â‚¬â€œ8 */
+       url('../../fonts/Mitra/BMitra.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../../fonts/Mitra/BMitra.ttf') format('truetype');  /* Saf3Ã¢â‚¬â€5, Chrome4+, FF3.5, Opera 10+ */
+  font-style: normal;
+  font-weight: normal;
+}
+
+body
+{
+	height		: 100%;
+	font-family : "sans", Yekan, tahoma;
+	font-size	: 12px;
+	text-align	: center;
+	direction	: rtl;
+}
+#cke_editor1
+{
+	margin-top:4px;
+}
+
+#main_section
+{
+	width:980px;
+	margin:4px auto 4px;
+}
+#menu{
+	width:982px;
+	margin:5px auto;
+
+}	
+#content
+{
+	width:976px;
+	margin:4px auto 0px;
+	padding:2px;
+}
+.inputBox
+{
+	width:200px;
+	font-family:"sans";
+	font-weight: 600;
+	font-size:12px;
+	padding:0 2px;
+	-moz-border-radius:5px 5px 5px 5px;
+	border: 1px solid silver;
+	text-align:right;
+}
+textarea {
+    resize: none;
+	width:200px;
+	padding:0;
+	margin:0;
+} 
+
+.label
+{
+	font-family:sans;
+	font-size:12px;
+	text-align:right;
+}
+.btn
+{
+	margin:2px;
+}
+a
+{
+	text-decoration:none;
+}
+h1
+{	
+	font-size:13px;
+	color:#009900;
+	padding:5px 0 5px;
+	margin:0;
+}
+h2
+{
+	font-size:12px;
+	color:red;
+	padding:6px 0 6px;
+	margin:0;
+}
+h3
+{
+	font-size:12px;
+	padding:6px 0 6px;
+	margin-bottom:5px;
+}
+.cnt_del
+{
+	width:70%;
+	margin:0 auto;
+	color:#FFFFFF;
+}
+table.center
+{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:right; 
+}
+img
+{
+	border:none;
+}
+
+th
+{
+	padding:3px;
+	font-size:12px;
+	font-weight:bold;
+	vertical-align:middle;
+	height:28px;
+}
+td
+{
+	padding:1px;
+	font-size:12px;
+	vertical-align:middle;
+	height:25px;
+}
+.showborder td,.showborder th{
+border:1px solid;
+}
+
+.lnk a:hover{font-weight:bold;}
+.lnk a:active{color:#000099;}

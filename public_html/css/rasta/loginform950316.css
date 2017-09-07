@@ -1,0 +1,67 @@
+/* CSS Document */
+body
+	{
+	background	: -moz-linear-gradient(top,  #fff,  #666);
+	filter		: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#666666');
+	height		: 81%;
+	font-size	: 10px;
+	text-align:center;
+	}
+td	
+	{
+	font-size	: 12px;
+	width:auto;
+	}
+.tdtitle
+	{
+	width:60px;
+	}
+.frmsection
+	{
+	direction	: rtl;
+	background	: #EEEEEE;
+	border		: 1px #999999 solid;
+	margin		: 150px auto;
+	width		: 50%;
+	padding		: 25px;
+	border-style: solid;
+	border-width: 1px;
+	-moz-border-radius		: 15px;
+	-webkit-border-radius	: 15px;
+	border-radius			: 15px 15px 15px 15px;
+	text-align: right;
+	}
+.frminputtxt
+	{
+	border		: 1px #999999 solid;
+	width		: 180px;
+	height		: 25px;
+	-moz-border-radius		: 5px;
+	-webkit-border-radius	: 5px;
+	border-radius			: 5px 5px 5px 5px;
+	}
+.frminputtxt:focus
+	{
+	border		: 1px #0099FF solid;
+	-moz-border-radius		: 5px;
+	-webkit-border-radius	: 5px;
+	border-radius			: 5px 5px 5px 5px;
+	}
+.frmcnt2
+	{
+	font-family	: tahoma;
+	font-size	: 12px;
+	}
+.frmup
+	{
+	margin		: 10px 0px;
+	}
+.btn 
+	{ 
+	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+	border: 1px solid #999999; background: #f6f6f6; font-weight: bold; color: #555555; 
+	font-family: Helvetica, Arial, sans-serif; font-size: 1.1em;
+	display: inline-block; position: relative; padding: 5px 7px; margin-right: 4.5em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; 
+	overflow: visible;
+	}
+#description{color:#FF0000;}

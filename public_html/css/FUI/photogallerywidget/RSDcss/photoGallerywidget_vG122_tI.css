@@ -1,0 +1,13 @@
+/* CSS Document */
+.rsd_photogallery_widget .filmstrip  div{ background-color:#def3ca; margin:3px; margin-top:5px; width:100px; height: auto; float:left;  text-align:center; }
+.filmstrip {width:400px; height:110px; margin:10px auto; margin-top:15px; padding:1px; padding-left:10px;  overflow:hidden; }
+.rsd_photogallery_widget { width:95%; height: auto; background-color:#999999; margin:0 auto; padding:.8em; overflow:hidden; }
+.rsd_photogallery_widget img { border:none; }
+.rsd_photogallery_widget .stndrdszimg_holder {height:60%;background-color:#D7D7D7;font-size:36px; margin:15px auto; margin-top:10px; padding:10px; text-align:center; }
+.rsd_photogallery_widget #separator {width:95%; height:.1em; float:none; padding:0 em; margin:0 auto; outline:0 em; border:0 em; background-color:#000000;}
+.rsd_photogallery_widget #prevbtm, .rsd_photogallery_widget #nextbtm { width:55px; height:auto; text-align:center; font-size:32px; padding:0; margin-top:-5px;}
+.rsd_photogallery_widget #prevbtm {float:left; }
+.rsd_photogallery_widget #nextbtm {float:right;}
+.rsd_photogallery_widget #prevbtm:hover, .rsd_photogallery_widget #nextbtm:hover{ cursor:pointer;}
+.stndrdszimg_holder img{width:95%;}
+#filmcon img { margin: auto auto; }

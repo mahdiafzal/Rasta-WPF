@@ -1,0 +1,14 @@
+/* begin Menu */
+.art-nav .r
+{
+  clip: rect(auto auto auto 874px);
+}
+
+/* end Menu */
+
+/* begin MenuItem */
+.art-menu a .r
+{
+  clip: rect(auto auto auto 407px);
+}
+/* end MenuItem */

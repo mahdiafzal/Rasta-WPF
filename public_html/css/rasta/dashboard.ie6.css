@@ -1,0 +1,134 @@
+/* begin Menu */
+.art-menu ul
+{
+  width: 1px;
+}
+
+.art-menu li.art-menuhover
+{
+  z-index: 10000;
+}
+
+.art-menu .art-menuhoverUL
+{
+  visibility: visible;
+}
+
+.art-menu .art-menuhoverUL
+{
+  top: 100%;
+  left: 0;
+}
+
+.art-menu .art-menuhoverUL .art-menuhoverUL
+{
+  top: 0;
+  left: 100%;
+}
+
+
+.art-menu .art-menuhoverUL .art-menuhoverUL
+{
+  top: 5px;
+  left: 100%;
+}
+
+
+.art-menu, .art-menu ul, .art-menu ul a
+{
+  height: 1%;
+}
+
+.art-menu li.art-menuhover
+{
+  z-index: 10000;
+}
+
+.art-menu .art-menuhoverUL
+{
+  visibility: visible;
+}
+
+.art-menu .art-menuhoverUL
+{
+  top: 100%;
+  left: 0;
+}
+
+.art-menu .art-menuhoverUL .art-menuhoverUL
+{
+  top: 0;
+  left: 100%;
+}
+
+
+.art-menu li li
+{
+  float: left;
+  width: 100%;
+}
+
+.art-nav
+{
+  zoom: 1;
+}
+
+.art-nav .l, .art-nav .r
+{
+  font-size: 1px;
+  background: none;
+  behavior: expression(this.runtimeStyle.filter?'':this.runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/dashboard/nav.png',sizingMethod='crop')");
+}
+
+.art-nav .l
+{
+  width: expression(this.parentNode.offsetWidth-0+'px');
+}
+
+.art-nav .r
+{
+  left: expression(this.parentNode.offsetWidth-874+'px');
+  clip: rect(auto auto auto 874px);
+}
+
+/* end Menu */
+
+/* begin MenuItem */
+.art-menu a
+{
+  float: left;
+}
+
+.art-menu a:hover
+{
+  visibility: visible;
+}
+
+.art-menu a .r, .art-menu a .l
+{
+  font-size: 1px;
+  background: none;
+  behavior: expression(this.runtimeStyle.filter?'':this.runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/dashboard/menuitem.png',sizingMethod='crop')");
+}
+
+.art-menu a .r
+{
+  left: expression(this.parentNode.offsetWidth-414+'px');
+  clip: rect(auto auto auto 407px);
+}
+
+.art-menu a .l
+{
+  width: expression(this.parentNode.offsetWidth-7+'px');
+}
+
+.art-menuhover .art-menuhoverA .t
+{
+  color: #E5ECF5;
+}
+
+.art-menuhover .art-menuhoverA .l, .art-menuhover .art-menuhoverA .r
+{
+  top: -31px;
+}
+/* end MenuItem */
