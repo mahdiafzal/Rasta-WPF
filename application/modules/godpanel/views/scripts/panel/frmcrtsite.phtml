@@ -1,0 +1,136 @@
+<script type="text/javascript">
+//--------------------------
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tb_crtsite").addClass("ui-state-active");
+
+	$('#chk_domain').click(function(){
+		$.ajax({
+		  url: "<?php echo $this->baseUrl(); ?>/godpanel/public/ajaxvalidator/",
+		  type:"post",
+		  data: {'domain':$(":input[name=s_subdomain]").val(), 'act':'subdomain'},
+		  success: function(data) {
+		  $('.err').html(data)
+		  			.addClass('ui-state-error ui-corner-all');
+		  }
+		});
+	})
+})
+
+function submitForm()
+{
+	if ($(':checkbox').attr('checked'))
+	{
+		document.forms[0].submit();
+	}
+	else
+	{
+		alert('فقط در صورت قبول قوانین و مقررات می توانید پورتال خود را ایجاد کنید');
+	}
+}
+</script>
+<style>
+.td_title{width:100px;}
+.td_box{width:420px;}
+#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:650px;border:1px solid;height:auto;}
+</style>
+
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h2>".$msg."</h2>";
+			}
+		 echo'</div>';
+		}
+	?>
+</div>
+
+<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+<form method="post" action="<?php echo $this->baseUrl(); ?>/godpanel/panel/crtsite">
+	<table style="width:540px; margin:0 auto;text-align:right;">
+		<tr title="عنوان پورتال شما در تمامی صفحات پورتال شما به نمایش گذاشته خواهد شد">
+			<td class="td_title"><label class="label">عنوان پورتال:* </label></td>
+			<td class="td_box"><input type="text" name="s_title" maxlength="100" size="35" class="inputBox" > </td>
+		</tr>
+
+		<tr title="عنوان لاتین پورتال شما در صورت استفاده از خاصیت چپ به راست به نمایش در خواهد آمد">
+			<td class="td_title"><label class="label">عنوان لاتین پورتال: </label></td>
+			<td class="td_box"><input type="text" name="s_latintitle" maxlength="100" size="35" class="inputBox" > </td>
+		</tr>
+
+
+
+		<tr title="دامنه پیش فرض خود را وارد کنید(کلمات ممنوعه نباشد و بیش از 3 کاراکتر باشد)">
+			<td class="td_title"><label class="label">دامنه پورتال:* </label></td>
+			<td class="td_box">
+			<?php $configs	= Zend_Registry::get('config'); $domainsuffix = '.'.$configs->base->domain; ?>
+			<div style="float:right;direction:ltr; width:65px;"><label class="label"><strong><?php echo $domainsuffix; ?></strong></label></div>
+			<div style="float:right;direction:ltr; width:132px;"><input type="text" name="s_subdomain" maxlength="50" size="22" class="inputBox" ></div>
+			<div style="float:right;direction:ltr; width:100px;"><label class="label"><strong>http://www.</strong></label></div>
+			<div style="float:right;direction:ltr; width:100px;"><input class='ui-state-default ui-corner-all' type="button" id="chk_domain" value="بررسی دامنه" /></div>	
+		</td>
+		</tr>
+
+		<tr title="شعار مربوط به پورتال شما می باشد">
+			<td class="td_title"><label class="label">شعار پورتال: </label></td>
+			<td class="td_box"><textarea name="s_slogan" size="35"  rows="2" cols="32" class="inputBox"></textarea></td> 
+		</tr>
+		<tr title="در صورت تمایل می توانید نام موِلّفان پورتال خود را ذکر کنید">
+			<td class="td_title"><label class="label">نویسندگان پورتال: </label></td>
+			<td class="td_box"><textarea name="s_authors" size="35"  rows="2" cols="32" class="inputBox"></textarea></td>
+		</tr>
+		<tr title="این توضیحات جهت ارائه به موتور های جستجو می باشد">
+			<td class="td_title"><label class="label">توضیحات: </label></td>
+			<td class="td_box"><textarea name="s_description" size="35"  rows="2" cols="32" class="inputBox"></textarea></td>
+		</tr>
+		<tr title="کلمات کلیدی دسترسی افراد مختلف را از طریق موتور جستجو به پورتال شما آسان می کند">
+			<td class="td_title"><label class="label">کلمات کلیدی: </label></td>
+			<td class="td_box"><textarea name="s_keywords" size="35"  rows="2" cols="32" class="inputBox"></textarea></td> 
+		</tr>
+<?php
+	if ($this->user_id=='1')
+	{
+?>	
+		<tr title="این لیست کاربرانی که فعال هستند و هیچ پورتالی برای هاست خود ثبت نکرده اند نمایش می دهد">
+			<td class="td_title"><label class="label">انتخاب کاربر:* </label></td>
+			<td class="td_box">
+				<select style="width:120px" name="ddown_user">
+<?php 
+foreach ($this->hostlist as $data)
+{
+	echo '<option value="'.$data['id'].'" title="'.$data['username'].'">'.$data['first_name'].' '.$data['last_name'].'</option>';
+}
+?>
+				</select>
+			</td> 
+		</tr>	
+<?php
+	}
+?>		
+		
+	</table>
+</div>
+<div id="div_tbl" class="ui-corner-all ui-state-highlight" style="overflow:scroll; height:200px;text-align:justify;">
+<?php echo '
+<p dir="rtl" style="text-align: center"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">به نام خدا</span></span></p><p dir="rtl" style="text-align: center">	<strong><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">قوانین و مقررات استفاده از پورتال ساز رستاک</span></span></strong></p><p dir="rtl">	<span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">با سلام</span></span></p><p dir="rtl"><span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">جهت استفاده از خدمات پورتال ساز رستاک، به منظور حفظ حقوق مخاطبان و نیز فراهم نمودن زمینه ی فعالیت پورتال شما، رعایت قوانین و مقرراتی که در زیر به آن اشاره شده الزامی میباشد و شرکت رستاک سروش دانش در خصوص عدم رعایت این مقررات از طرف شما هیچگونه مسئولیتی ندارد.</span></span></span></p><p dir="rtl"><span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">1.&nbsp;رستاک ضمن دفاع از آزادی بیان و قلم از شما می خواهد، مطالب ارائه شده با قوانین، مقررات و عرف حاکم بر جمهوری اسلامی ایران مغایرت نداشته باشد.</span></span></span></p><p dir="rtl"><span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">2.&nbsp;درج هرگونه مطلب، عکس و فیلم که موجب توهین به ادیان رسمی کشور یا اشخاص حقیقی و یا حقوقی باشد غیر مجاز است.</span></span></span></p><p dir="rtl">	<span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">3.&nbsp;هرگونه فعالیت سیاسی، اجتماعی، مذهبی، تجاری و... که نیاز به اخذ مجوز از مراجع قانونی و ذیربط داشته باشد بدون اخذ مجوز از این مراجع، مجاز نمی باشد.</span></span></span></p><p dir="rtl"><span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">4.&nbsp;در جهت حفظ منابع پورتال و همچنین جلوگیری از سوء استفاده، پورتال های آزمایشی، غیر فعال و بدون محتوا حذف خواهد شد.</span></span></span></p><p dir="rtl"><span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">5.&nbsp;مسئولیت مطالب و محتوای ارسال شده از سوی شما و کاربران پورتال شما به عهده ی خودتان میباشد و رستاک هیچ گونه مسئولیتی در قبال این قبیل محتوا را ندارد.</span></span></span></p><p dir="rtl"><span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">6.&nbsp;اطلاعات شخصی شما محرمانه تلقی شده و بدون مجوز مراجع قضایی در اختیار اشخاص حقیقی یا حقوقی قرار نخواهد گرفت.</span></span></span></p><p dir="rtl">	<span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">7.&nbsp;رستاک این حق را دارد تا در صورت عدم رعایت هریک از بندهای مندرج فوق، بدون اطلاع قبلی اقدام به تعلیق پورتال شما کند.</span></span></span></p><p dir="rtl"><span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">شما با مطالعه و توافق با مقررات بالا، میتوانید نسبت به ایجاد پورتال خود با امکانات زیر اقدام کنید.</span></span></span></p><p dir="rtl">	<span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">1.&nbsp;فضای اختصاصی به پورتال شما (250 MB) خواهد بود.</span></span></span></p><p dir="rtl">	<span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">2.&nbsp;میتوانید تصاویر و فایل های خود را، در فضای اختصاصی پورتال خود، آپلود و مدیریت کنید.</span></span></span></p><p dir="rtl"><span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">3.&nbsp;یک زیردامنه به پورتال شما اختصاص داده می شود و آدرس پورتال شما به صورت yourname'.$domainsuffix.' میباشد.</span></span></span></p><p dir="rtl">	<span style="font-size: 14px"><span style="font-family: tahoma, geneva, sans-serif"><span dir="rtl">4.&nbsp;همچنین می توانید پورتال خود را در یک دامنه یا پورتال کاملا مستقل نمایش دهید. با استفاده از این امکان محتوای پورتال علاوه بر آنکه از آدرسی مشابه yourname'.$domainsuffix.' در دسترس است،&nbsp; میتواند در یک آدرس مستقل مانند yourname.com یا yourname.ir نیز در دسترس باشد.</span></span></span></p>';
+?>
+</div>
+<div id="div_tbl" class="ui-corner-all">
+<input type="checkbox" name="chkplicy" value="true" /> قوانین حاکم بر پورتال ساز رستاک را می پذیرم
+</div>
+
+<div id="div_tbl" class="ui-corner-all ui-state-highlight">
+<center>
+	<a  class='btn ui-state-default ui-corner-all' href="#"	onclick="javascript :submitForm();" >تایید</a>
+	<a  class='btn ui-state-default ui-corner-all' href="/godpanel/panel/" >انصراف</a>
+</center>
+</div>
+
+
+
+

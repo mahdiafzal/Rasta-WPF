@@ -1,0 +1,58 @@
+﻿<script type="text/javascript">
+function submitForm(){document.forms[0].submit();}
+</script>
+<style>
+.td_title{width:100px;}
+.td_box{width:420px;}
+#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:650px;border:1px solid;height:auto;}
+li{background-image:url(/img/panel/circle.gif);background-position:right center; background-repeat:no-repeat;padding:3px;padding-right:13px;margin-right:20px;}
+p{padding-top:3px;padding-bottom:3px;}
+</style>
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h2>".$msg."</h2>";
+			}
+		 echo'</div>';
+		}
+	?>
+</div>
+<div id="div_tbl" style="margin-bottom:5px;text-align:right;border: #99CCFF 1px solid;" class="ui-corner-all">
+<p><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;"><span style="color: rgb(0, 0, 128);">رستاک در راستای اطمینان خاطر کاربران خود، امکان ایجاد خروجی جهت استفاده در وردپرس را فعال نموده است.</span></span></span></p>
+<p><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;"><strong><span style="color: rgb(178, 34, 34);">توجه: </span></strong></span></span></p>
+<ul>
+	<li><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">در صورتی که پیشوند جداول تان را در ورد پرس تغییر داده اید باید آنرا در فیلد مشخص شده در قسمت پایین وارد کنید.</span></span></li>
+	<li><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">تمامی سناریو های شما، به عنوان دسته در ورد پرس شناخته خواهد شد.<span></span></li>
+	<li><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">مطالب مشخص شده در سناریو ها نیز در دسته ها گنجانده خواهد شد.<span></span></li>
+	<li><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">همچنین تمامی لینکهای شما به عنوان پیوند در وردپرس شناخته خواهد شد.<span></span></li>
+</ul>
+</div>
+
+<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+<form method="post" action="<?php echo $this->baseUrl(); ?>/godpanel/export/wordpress">
+	<table style="width:540px; margin:0 auto;text-align:right;">
+		<tr title="در صورت خالی گذاشتن این فیلد حالت  پیش فرض  اعمال خواهد شد">
+			<td class="td_title"><label class="label">پیشوند جدولها:</label></td>
+			<td class="td_box">
+			<div style="float:right;direction:ltr; width:105px;"><label class="label"></label></div>
+			<div style="float:right;direction:ltr; width:132px;"><input type="text" name="db_prefix" maxlength="50" size="22" class="inputBox" ></div>
+			<div style="float:right;direction:ltr; width:190px;"><label class="label"> wp_ = پیش فرض</label></div>
+			</td>
+		</tr>	
+	</table>
+</div>
+<div id="div_tbl" class="ui-corner-all ui-state-highlight">
+<center>
+	<a  class='btn ui-state-default ui-corner-all' href="#" onclick="javascript: submitForm();">دانلود</a>
+	<a  class='btn ui-state-default ui-corner-all' href="/godpanel/panel/" >بازگشت</a>
+</center>
+</div>
+
+
+
+

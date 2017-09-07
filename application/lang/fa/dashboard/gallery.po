@@ -1,0 +1,129 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-10-21 04:09+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "dir"
+msgstr "rtl"
+
+msgid "title"
+msgstr "عنوان"
+
+msgid "edit"
+msgstr "ویرایش"
+
+msgid "setting"
+msgstr "تنظیمات"
+
+msgid "delete"
+msgstr "حذف"
+
+msgid "select"
+msgstr "انتخاب"
+
+msgid "ok"
+msgstr "تأیید"
+
+msgid "cancel"
+msgstr "انصراف"
+
+msgid "user group"
+msgstr "گروه کاربری"
+
+msgid "previous page"
+msgstr "صفحه قبل"
+
+msgid "next page"
+msgstr "صفحه بعد"
+
+msgid "a"
+msgstr "ایجاد آلبوم جدید"
+
+msgid "b"
+msgstr "لیست آلبوم ها"
+
+msgid "c"
+msgstr "ردیف"
+
+msgid "d"
+msgstr "درصورت انتخاب گروه کاربری فقط کاربران عضو گروه / گروه های انتخاب شده می توانند این آلبوم را مشاهده نمایند. <br />درصورتی که هیچ گروه کاربری انتخاب نشود همه بازدیدکنندگان می توانند این آلبوم را مشاهده کنند."
+
+msgid "e"
+msgstr "درحال حاضر امکان ویرایش محتوای آلبوم در این قسمت فعال نشده است. برای ویرایش محتوای آلبوم به بخش مدیریت محتوای صفحات بروید و از طریق پانل عمودی سمت چپ صفحه، آلبوم مورد نظر خود را ویرایش نمایید."
+
+msgid "f"
+msgstr "آلبوم مورد نظر با موفقیت حذف شد"
+
+msgid "g"
+msgstr "عمل"
+
+msgid "h"
+msgstr "خطا در داده های سیستمی رخ داده است. شاید لازم باشد تا صفحه را دوباره بارگزاری نمایید."
+
+msgid "i"
+msgstr "خطا در فرآیند حذف آلبوم"
+
+msgid "j"
+msgstr "آلبوم مورد نظر یافت نشد"
+
+msgid "k"
+msgstr "هیچ آلبومی یافت نشد!"
+
+msgid "l"
+msgstr "پوسته آلبوم"
+
+msgid "m"
+msgstr "پوسته های عمومی"
+
+msgid "n"
+msgstr "پوسته های اختصاصی"
+
+msgid "o"
+msgstr "فعال"
+
+msgid "p"
+msgstr "غیرفعال"
+
+msgid "q"
+msgstr "وضعیت انتشار"
+
+msgid "r"
+msgstr "گزینه های جاوا اسکریپت<br /><br /> برای پوسته"
+
+msgid "s"
+msgstr ""
+
+msgid "t"
+msgstr "<center><br /><br /><h4 style=\"color:#CC3300;line-height:1.5;direction:rtl;\">درصورت تأیید آلبوم <span id=\"seldcase\">انتخاب شده</span> حذف خواهد شد.<br />آیا تأیید می نمایید؟</h4></center>"
+
+msgid "u"
+msgstr "فیلد عنوان نباید خالی باشد"
+
+msgid "v"
+msgstr "خطا در فرایند ایجاد آلبوم جدید، دوباره تلاش کنید"
+
+msgid "w"
+msgstr ""
+
+msgid "x"
+msgstr "خطا در بروز رسانی آلبوم ، دوباره تلاش نمایید."
+
+msgid "y"
+msgstr "آلبوم با موفقیت بروز رسانی شد"
+
+msgid "z"
+msgstr "آلبوم جدید با موفقیت ایجاد شد"
+
+msgid "stylea"
+msgstr "width:49%;float:right;text-align:right; line-height:1.7;"
+

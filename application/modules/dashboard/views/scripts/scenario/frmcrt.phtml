@@ -1,0 +1,220 @@
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+
+<link href="/lib/facebox/v2/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="/lib/facebox/v2/facebox.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+      $('a[rel*=facebox]').facebox({
+        loadingImage : '/lib/facebox/v2/loading.gif',
+        closeImage   : '/lib/facebox/v2/closelabel.png'
+      });
+    })
+function pageSelectConfirm()
+{
+			if ($('input:radio[name=rdo]:checked').val())
+			{
+				$('input[name=s_page_id]').val($('input:radio[name=rdo]:checked').val());
+				$('#facebox a.close').click();
+			}
+			else	alert('<?php echo $this->translate->_('b');?>');
+			return false;	  
+}
+</script>
+<style>
+.td_title{width:150px;}.td_box{width:420px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+.ppr{width:250px;}
+.pp1{width:30px;}
+.pp2{width:200px;}
+.btn{margin:3px;}
+</style>
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		}
+	?>
+</div>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->escape($this->title_site); ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+	<form action="/dashboard/scenario/crt" method="post">
+	<table style="margin: 0pt auto; text-align: right; direction:rtl;">
+		<tbody>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('c');?></label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" maxlength="200" name="s_title" value="<?php echo $this->data['title']; ?>">
+				</td>
+			</tr>			
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('d');?></label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" maxlength="200" name="s_latin_title" value="<?php echo $this->data['latin_title']; ?>">
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('e');?> </label></td>
+				<td class="td_box"><div style="width:50%;float:right;direction: ltr;"><input type="text" class="inputBox" size="35" maxlength="200" name="s_uri" value="<?php echo substr($this->data['uri'],1); ?>"></div><div style="width:30%;float:right;direction: ltr;"><?php echo $this->translate->_('f');?></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('g');?></label></td>
+				<td class="td_box">
+					<input type="text" value="<?php echo $this->data['page_id']; ?>" size="15" name="s_page_id" readonly="readonly" dir="ltr"/>
+<span class="art-button-wrapper" style="float:none;">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="#dlg_scenario" rel="facebox"><?php echo $this->translate->_('h');?></a>
+</span>
+				</td>
+			</tr>	
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('i');?></label></td>
+				<td class="td_box">
+				<select style="width:160px" name="ddown_action" id="ddown_action">
+					<option value="1"><?php echo $this->translate->_('j');?></option>
+					<option value="2"><?php echo $this->translate->_('s');?></option>
+				</select>
+				</td>
+			</tr>			
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('k');?></label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" value="<?php echo $this->count ?>" name="count" />
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('l');?> </label></td>
+				<td class="td_box">
+					<input type="checkbox" name="paging" <?php if ($this->paging=='1'){ echo 'checked="checked"';}?> />
+				</td>
+			</tr>
+			<?php if(is_array($this->whs_scens)){ ?>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('t');?> </label></td>
+				<td class="td_box" style="padding-bottom:10px;">
+					<?php
+					$subscens	= false;
+					if(!empty($this->data['first_subs']))	$subscens	= array_filter( explode('/', $this->data['first_subs']) );
+
+					foreach($this->whs_scens as $scen)
+					{
+						$chk	= '';
+						if($subscens)	if(in_array($scen['id'],$subscens)) $chk	= 'checked="checked"';
+						echo '<div class="sub_b"><input type="checkbox" name="subscens['.$scen['id'].']" id="sub_'.$scen['id'].'" '.$chk.' /><label for="sub_'
+							. $scen['id'].'">'.$scen['title'].'</label></div>';
+					}
+					
+					?>
+					<style><?php $rorl	= ($this->translate->_('dir')=='rtl')?'right':'left'; ?>
+					.sub_b{width:48%;height:20px;overflow:hidden;float:<?php echo $rorl; ?>;text-align:<?php echo $rorl; ?>;}</style>
+				</td>
+			</tr>
+			<?php } ?>
+			<tr>
+				<td><label class="label"><?php echo $this->translate->_('user group');?></label></td>
+				<td id="userGroups" class="td_box">
+				<style>#userGroups div{<?php echo $this->translate->_('stylea'); ?>}</style>
+				<?php
+					$currentGroups	= array();
+					if(!empty($this->data['user_group'])) $currentGroups	= array_filter(explode('/', $this->data['user_group']));
+					if(is_array($this->wbsUserGroups))
+						foreach($this->wbsUserGroups as $value)
+						{
+							$checkedState = '';
+							if( in_array($value['id'],$currentGroups) ) $checkedState = 'checked="checked"';
+							echo '<div><input type="checkbox" name="ugroup[]" value="'.$value['id'].'" '.$checkedState.' /><label>&nbsp;'.$value['title'].'</label></div>'; 
+						}
+				?>
+					<div style="width:99.9%;float:left;"><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('z');?></span><br /><br /></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="#" onclick="document.forms[0].submit();"><?php echo $this->translate->_('m');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/dashboard/scenario/frmlist#fragment-2" ><?php echo $this->translate->_('n');?></a>
+</span>
+<br />
+<br />
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+
+<div id="dlg_scenario" style="display:none;">
+	<div id="p1" style="width:233px;border:#999966 solid 1px;margin:0 auto; ">
+	<div style="width:100%;text-align:center;background-color:#E0E0E0;height:20px;"><?php echo $this->translate->_('p');?></div>
+	<div style="overflow-y:scroll;width:100%;height:155px;">
+	<table style="margin: 0 auto; text-align: right; direction:rtl;">
+		<tbody>
+		<?php 
+		foreach ($this->pages as $itm)
+		{
+			echo '<tr class="ppr">
+					<td class="pp1"><input  type="radio" name="rdo" value="'.$itm["local_id"].'" /></td>
+					<td class="pp2"><label class="label">' .$itm['wb_page_title'] .'</label></td>
+				</tr>';		
+			}
+		?>
+		</tbody>
+	</table>
+	</div>
+	</div>
+<br />
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a id="confirm"  class='btn art-button' href="#" onclick="pageSelectConfirm()" ><?php echo $this->translate->_('m');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a class='btn art-button' onclick="$('#facebox a.close').click();" ><?php echo $this->translate->_('n');?></a>
+</span>
+<br />
+<br />
+</div>

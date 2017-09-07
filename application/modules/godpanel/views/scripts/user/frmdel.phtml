@@ -1,0 +1,18 @@
+<div id="left_bar">
+	<div id="cnt2_left_help">
+		<div id="cnt2_left_help_up"></div>
+		<div id="cnt2_left_help_inside">
+			<center>
+				<h1>کاربر  <?php echo $this->first_name .'  '. $this->last_name . ' با کلمه کاربری '.$this->username .' حذف خواهد شد <br /> آیا مطمئن هستید؟ ';?></h1>
+			  <table>
+				<tr>
+				 <td> <a href="<?php echo $this->baseUrl(); ?>/godpanel/user/del/id/<?php echo $this->id?> "> تایید </a> - -  </td>
+				 <td> <a href="<?php echo $this->baseUrl(); ?>/godpanel/user/list" > انصراف </a> </td>
+				</tr>	
+			  </table>
+</center>
+
+		</div>
+		<div id="cnt2_left_help_down"></div>				
+	</div>				
+</div>

@@ -1,0 +1,88 @@
+﻿<script type="text/javascript">
+//--------------------------
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tb_crtuser").addClass("ui-state-active");
+})
+
+function submitForm()
+{
+	document.forms[0].submit();
+}
+
+
+</script>
+<style>
+.td_title
+{
+	width:120px;
+	border:solid 1px #0099FF;
+}
+.td_box
+{
+	width:420px;
+	border:solid 1px #0099FF;
+	padding:5px;
+}
+#div_tbl
+{
+margin:0 auto;
+padding:10px;
+margin-top:5px;
+width:650px;
+border:1px solid;
+height:auto;
+}
+</style>  	<?php 
+		if (isset($this->msg))
+		{
+			foreach ($this->msg as $msg)
+  			{
+				echo '<div class="ui-state-error ui-corner-all"	>'.
+				     "<h2>".$msg."</h2>".
+				     '</div>';
+			}
+		}
+	?>
+
+	<div id="div_tbl" class="ui-corner-all ui-widget-header">
+		<center><h1><?php echo $this->escape($this->title).' - '.$this->translate->_($this->content['type']);?></h1></center>
+	</div>
+	<form name="reguser" method="post" autocomplete="off" action="/godpanel/share/register">
+		<input type="hidden" name="unic" value="<?php echo $this->content['unic']; ?>" />
+		<input type="hidden" name="ctype" value="<?php echo $this->content['type']; ?>" />
+		
+	<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+		  <table style="width:540px; margin:0 auto;text-align:right;">
+			<tr>
+			  <td class="td_title"><label class="label"><?php echo $this->translate->_('e').' '.$this->translate->_($this->content['type']); ?>:</label></td>
+			  <td class="td_box">	<label class="label"><?php echo $this->content['title']; ?></label></td>
+			</tr>	
+			<tr>
+			  <td class="td_title"><label class="label"><?php echo $this->translate->_('f'); ?>:</label></td>
+				<td id="userGroups" class="td_box">
+				<style>#userGroups div{<?php echo $this->translate->_('as'); ?>}</style>
+				<?php
+					$currentGroups	= array();
+					if($this->content['wbs_id']==0) $currentGroups	= array_filter(explode('/', $this->content['wbs_group']));
+					if(is_array($this->wbsgrs))
+						foreach($this->wbsgrs as $value)
+						{
+							$checkedState = '';
+							if( in_array($value['gr_id'],$currentGroups) ) $checkedState = 'checked="checked"';
+							echo '<div class="label"><input type="checkbox" name="wbgroup[]" value="'.$value['gr_id']
+								.'" '.$checkedState.' /><label>&nbsp;'.$value['gr_title'].'</label></div>'; 
+						}
+				?>
+				</td>
+			</tr>	
+		  </table>
+	</div>
+	<div id="div_tbl" class="ui-corner-all ui-state-highlight">
+	<center>
+		<a  class='btn ui-state-default ui-corner-all' title="تائید و ارسال فرم" href="#"	onclick="javascript :submitForm();" >تائید </a>
+		<a  class='btn ui-state-default ui-corner-all' title="انصراف و بازگشت به صفحه اصلی" href="/godpanel/panel/" >انصراف</a>
+	</center>
+	</div>
+	</form>
+

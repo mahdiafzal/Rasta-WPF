@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-10-23 14:23+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "dir"
+msgstr "rtl"
+
+msgid "a"
+msgstr "راهنمای موضوعی"
+
+msgid "b"
+msgstr "بازگشت به فهرست"
+
+msgid "c"
+msgstr ""
+
+msgid "d"
+msgstr ""
+
+msgid "e"
+msgstr ""
+
+msgid "f"
+msgstr ""
+
+msgid "g"
+msgstr ""
+
+msgid "h"
+msgstr ""
+
+msgid "i"
+msgstr ""
+
+msgid "j"
+msgstr ""
+
+msgid "k"
+msgstr ""
+
+msgid "login"
+msgstr "<p>	برای ورود به بخش مدیریت سایت می توانید از آدرس هایی که در تصویر زیر نمایش داده شده است، استفاده نمایید.</p><p>	&nbsp;</p><p style=\"text-align: center;\">	<img alt=\"\" src=\"/modules/help/images/login-address.jpg\" style=\"width: 305px; height: 92px;\" /></p><p>	نام کاربری، رمزعبور و کد امنیتی (که ترکیبی از حروف و اعداد است و به صورت تصادفی از طرف سیستم نمایش داده می شود) را در کادرهای مربوط به خودشان وارد کنید. و در آخر روی دکمه <strong>ورود </strong>کلیک کنید.</p><p style=\"text-align: center;\">	<img alt=\"\" src=\"/modules/help/images/login-form.jpg\" /></p><blockquote>	&nbsp;اگر کد امنیتی برایتان قابل تشخیص نیست می توانید روی دکمه ی <img alt=\"\" src=\"/modules/help/images/rasta-help-23(3).gif\" /> کلیک کنید تا کد امنیتی جدید نمایش داده شود.</blockquote><p>	&nbsp;</p><p>	درصورت استفاده از آدرس های اول و دوم، پس از ورود به محیط &laquo;<span style=\"font-weight: bold;\">مدیریت </span><strong>صفحات</strong>&raquo; هدایت خواهید شد. توضیحات محیط ویرایشگر صفحات در همین راهنما آورده شده است و می توانید به آن مراجعه نمایید.</p><p>	درصورت استفاده از آدرس سوم، پس از ورود به محیط &laquo;<strong>داشبورد</strong>&raquo; (میزکار) هدایت خواهید شد. توضیحات بخش های مختلف داشبورد نیز در این راهنما آورده شده است.</p>"
+
+msgid "login-t"
+msgstr "ورود به بخش مدیریت"
+
+msgid "login-nt"
+msgstr "آشنایی با محیط داشبورد"
+
+msgid "login-nl"
+msgstr "/help/directory/parti/season/dashboard-intro#fragment-6"
+
+msgid "dashboard-intro"
+msgstr ""
+
+msgid "dashboard-intro-t"
+msgstr "آشنایی با محیط داشبورد"
+
+msgid "dashboard-intro-nt"
+msgstr "آشنایی با محیط مدیریت صفحات"
+
+msgid "dashboard-intro-nl"
+msgstr "/help/directory/parti/season/pageadmin-intro#fragment-6"
+
+msgid "pageadmin-intro"
+msgstr ""
+
+msgid "pageadmin-intro-t"
+msgstr "آشنایی با محیط مدیریت صفحات"
+
+msgid "pageadmin-intro-nt"
+msgstr "تنظیمات سایت"
+
+msgid "pageadmin-intro-nl"
+msgstr "/help/directory/parti/season/sitesetting#fragment-6"
+
+msgid "sitesetting"
+msgstr "<table style=\"margin: 0pt auto; text-align: right; direction: rtl; width: 700px;\">	<tbody>		<tr>			<td class=\"td_title\" style=\"width: 115px;\">				<label class=\"label\">عنوان سایت:* </label></td>			<td class=\"td_box\">				<p>					عنوان سایت بسته به تنظیمات پوسته، در قسمت های اصلی سایت نمایش داده خواهد شد. معمولا عنوان سایت در عنوان صفحات مرورگر استفاده می گردد که از نظر بهینه سازی برای موتورهای جستجو بسیار مهم می باشد.</p>			</td>		</tr>		<tr>			<td class=\"td_title\">				<label class=\"label\">عنوان لاتین سایت: </label></td>			<td class=\"td_box\">				<p>					عنوان لاتین در صفحات چپ چین، جایگزین عنوان سایت خواهد بود. &nbsp;</p>			</td>		</tr>		<tr>			<td class=\"td_title\">				وضعیت نمایش سایت:</td>			<td class=\"td_box\">				<p>					درصورت غیرفعال بودن سایت، پیغام&nbsp; &laquo;در دست ساخت&raquo; به بازدیدکنندگان نمایش داده خواهد شد &nbsp;</p>			</td>		</tr>		<tr>			<td class=\"td_title\">				صفحه ورودی سایت:</td>			<td class=\"td_box\">				<p>					پس از وارد کردن آدرس سایت (www.your-site-domain) به این صفحه یا سناریو هدایت خواهید شد</p>			</td>		</tr>		<tr>			<td class=\"td_title\">				پوسته پیش فرض:</td>			<td class=\"td_box\">				<p>					پوسته انتخابی بصورت پیش فرض برای صفحاتی که پوسته ندارند استفاده خواهد شد</p>			</td>		</tr>		<tr>			<td class=\"td_title\">				<label class=\"label\">شعار سایت: </label></td>			<td class=\"td_box\">				<p>					شعار سایت، بسته به تنظیمات پوسته در بخش های تعیین شده نمایش داده می شود.</p>				<p>					به عنوان مثال می توان پوسته سایت را به گونه ای تنظیم کرد که شعار سایت در بالای صفحه نمایش داده شود. علاوه بر شعار سایت می توان برای هر صفحه یک شعار انتخاب کرد.&nbsp;</p>			</td>		</tr>		<tr>			<td class=\"td_title\">				<label class=\"label\">نویسندگان سایت: </label></td>			<td class=\"td_box\">				<p>					در صورت تمایل می توانید نام موِلّفان سایت خود را ذکر کنید. نام ها را با علامت ویرگول انگلیسی (,) از هم جدا کنید.</p>				<p>					بسته به تنظیمات پوسته ی سایت شما، این فیلد معمولا برای ارائه به موتورهای جستجو و بصورت فراداده مورد استفاده قرار می گیرد.&nbsp;</p>			</td>		</tr>		<tr>			<td class=\"td_title\" width=\"25\">				<label class=\"label\">توضیحات: </label></td>			<td class=\"td_box\">				<p>					این توضیحات بسته به تنظیمات پوسته ی سایت شما، معمولا برای ارائه به موتورهای جستجو و بصورت فراداده مورد استفاده قرار می گیرد.&nbsp;</p>			</td>		</tr>		<tr>			<td class=\"td_title\">				<label class=\"label\">کلمات کلیدی: </label></td>			<td class=\"td_box\">				<p>					کلمات کلیدی بسته به تنظیمات پوسته ی سایت شما، معمولا برای ارائه به موتورهای جستجو و بصورت فراداده مورد استفاده قرار می گیرد.&nbsp;</p>				<p>					کلمات را با علامت ویرگول انگلیسی (,) از هم جدا کنید.</p>			</td>		</tr>	</tbody></table>"
+
+msgid "sitesetting-t"
+msgstr "تنظیمات سایت"
+
+msgid "sitesetting-nt"
+msgstr ""
+
+msgid "sitesetting-nl"
+msgstr ""
+

@@ -1,0 +1,149 @@
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;/*width:650px;border:1px solid;*/height:auto;}
+td.d1,th.d1{width:5%;} td.d2,th.d2{/*width:25%; */text-align:left;direction:ltr;} td.d3,th.d3{width:70%;text-align:right; padding:10px;}
+th.d1, th.d2, th.d3{ text-align:center;}
+</style>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->translate->_('a');?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+		  <table border="1" cellspacing="0"  class="showborder ui-widget" style="table-layout:fixed;width:100%;">
+			<tr  class="ui-widget-header" >
+			  <th class="d1" ><?php echo $this->translate->_('c');?></th>  
+			  <th class="d2" ><?php echo $this->translate->_('title');?></th>
+			  <th class="d3" ><?php echo $this->translate->_('f');?></th>	  
+			</tr>
+		<?php 		
+		$sysParams	= array();
+		$sysParams[]	= '#rasta-sitetitle#';
+		$sysParams[]	= '#rasta-site-description#';
+		$sysParams[]	= '#rasta-site-keywords#';
+		$sysParams[]	= '#rasta-site-authors#';
+		$sysParams[]	= '#rasta-slogantext#';
+		$sysParams[]	= '#rasta-pagetitle#';
+		$sysParams[]	= '#rasta-page-description#';
+		$sysParams[]	= '#rasta-page-keywords#';
+		$sysParams[]	= '#rasta-page-authors#';
+		$sysParams[]	= '#rasta-skinroot#';
+		$sysParams[]	= '#rasta-feedlink-rss#';
+		$sysParams[]	= '#rasta-feedlink-atom#';
+		
+		$sysParams[]	= '#rasta-section[i]#';
+		$sysParams[]	= '#rasta-headermenu#';
+		$sysParams[]	= '#rasta-linkhref#';
+		$sysParams[]	= '#rasta-linktitle#';
+		$sysParams[]	= '#rasta-unic#';
+		$sysParams[]	= '#rasta-type#';
+		$sysParams[]	= '#rasta-blockheader#';
+		$sysParams[]	= '#rasta-blockcontent#';
+		$sysParams[]	= '#rasta-blockcontent-abstract#';
+
+			$j=1;
+			$data	= array('a', 'b');
+			foreach( $sysParams as $sysparam)
+			{		
+		?>
+			<tr>
+				<td class="d1" ><?php echo $j+$this->start;?></td>		
+				<td class="d2" ><?php echo $sysparam;?></td>
+				<td class="d3" ><?php echo $this->translate->_($sysparam);?></td>
+			</tr>
+		<?php 
+				$j++;
+			}  
+		?>
+		  </table>
+
+		<div id="pagingcontainer">
+					<?php paging($this->count,$this->start,$this->limit,'/skiner/block/frmlist', $this->translate);?>
+		</div>
+<br />
+<br />
+
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+
+<div id="dlg_link" style="display:none;">
+<?php echo $this->translate->_('l');?>
+<br />
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a id="confirm"  class='btn art-button' href="" ><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a class='btn art-button' onclick="$('#facebox a.close').click();" ><?php echo $this->translate->_('cancel');?></a>
+</span>
+<br />
+<br />
+</div>
+<?php 
+function paging	($count,$start,$limit,$BaseUrl, $translate)
+{
+	$paging	="";
+	$this1 			= $start + $limit; 
+	$back 			= $start - $limit; 
+	$next 			= $start + $limit;
+	if		($count > $limit )
+			{
+				$paging		.= ' <table align = "center"><tr><td  align="center" width="25%">';
+				if	($back >= 0) 
+					{ 
+						$paging	.= "<a href='".$BaseUrl."/st/".$back ."' class='btn ui-state-default ui-corner-all'><font  size='2'>" 
+								.  $translate->_('previous page')."</font></a>"; 
+					} 
+				$paging	.= "</td><td align=center width='50%'>";
+				$i			= 0;
+				$j			= 1;
+				for		($i	= 0; $i < $count; $i	= $i + $limit)
+					{
+						if	($i <> $start)
+							{
+								$paging	.= " <a href='".$BaseUrl."/st/".$i."'><font  size='2'>".$j."</font></a> ";
+							}
+						else 
+							{ 
+								$paging	.= "<font  size='4' color=red>".$j."</font>";
+							}        
+						$j	= $j+1;
+					}
+				$paging	.= "</td><td  align='center' width='25%'>";
+				if	($this1 < $count)
+					{ 
+						$paging	.= "<a href='".$BaseUrl."/st/".$this1."' class='btn ui-state-default ui-corner-all'><font  size='2'>"										
+								.  $translate->_('next page')."</font></a>"; 
+
+					} 
+				$paging	.= "</td></tr></table>";
+			}
+	echo $paging;
+}
+?>

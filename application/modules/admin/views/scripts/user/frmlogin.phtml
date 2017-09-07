@@ -1,0 +1,54 @@
+﻿<html>
+<head>
+<link type="text/css" rel="stylesheet" href="/css/rasta/loginform.css" />
+<title><?php echo $this->translate->_("s"); ?></title>
+</head>
+<body>
+	<div id="left_bar" class="frmsection ui-corner-all">
+		<div id="cnt2_left_help">
+			<div id="cnt2_left_help_up"></div>
+			<div class="frmcnt2" id="cnt2_left_help_inside">
+			<h2><?php echo $this->translate->_("p");?></h2>
+			<div id="description"><?php echo $this->description;?></div>
+				<form class="frmup" method='post' action='<?php echo $this->escape($this->action);?>'>
+				<table width="95%" cellpadding="5">
+					<tr>
+					  <td class="tdtitle"><?php echo $this->translate->_("q");?></td>
+					  <td ><input class="frminputtxt" type='text' name='login_username'></td>
+					  <td><?php echo $this->translate->_("t"); ?></td>
+					</tr>
+					<tr>
+					  <td class="tdtitle"><?php echo $this->translate->_("r");?></td>
+					  <td ><input class="frminputtxt" type='password' name='login_password'></td>
+					  <td><?php echo $this->translate->_("u"); ?></td>
+					</tr>	
+					<tr>
+						<td class="tdtitle"><?php echo $this->translate->_("v"); ?></td>
+						<td><input class="frminputtxt" type="text" name="captcha" autocomplete="off"></td>
+						<td align="right" valign="middle">
+							<img id="siimage" align="right" style="padding: 0px; border: 0;" src="<?php echo $this->baseUrl()?>/admin/public/generatecaptcha" />
+							<a tabindex="-1" href="#" title="Refresh Image" onClick="document.getElementById('siimage').src = '<?php echo $this->baseUrl()?>/admin/public/generatecaptcha/t/'+ Math.random() ;	return false;">
+							<img src="<?php echo $this->baseUrl()?>/img/refresh.png" alt="Reload Image" border="0" onClick="this.blur()"  /></a>        					
+						</td>
+					</tr>	
+					<?php
+					if ($this->acc_level != 'just_admin')
+						{
+					?>
+					<tr >
+					  <td><a href="<?php echo $this->baseUrl()?>/admin/user/frmreguser"><?php echo $this->translate->_("w"); ?></a></td>
+					  <td></td>
+					</tr>
+					<?php 
+						}
+					?>
+			  </table>
+			  <input class="frmup btn" type='submit' name='login' value='<?php echo $this->translate->_("x"); ?>'>
+			  </form>
+			</div>
+			<div id="cnt2_left_help_down"></div>				
+		</div>				
+	</div>
+	
+</body>
+</html>

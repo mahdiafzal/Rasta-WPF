@@ -1,0 +1,281 @@
+<?php echo $this->doctype('XHTML1_TRANSITIONAL'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow:scroll;">
+<head>
+	<link rel="icon" type="image/gif" href="/img/RSDFavIconlogo.gif" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="/css/reset.css" />		
+	<link rel="stylesheet" type="text/css" href="/css/rasta/dashboard.css" />
+	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/rasta/dashboard.ie6.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/css/rasta/dashboard.ie7.css" /><![endif]-->
+
+	<script type="text/javascript" src="/js/jQuery/jquery.js"></script>
+    <?php //echo $this->headTitle() ?>
+    <?php //echo $this->headMeta() ?>
+    <?php echo $this->headLink() ?>
+    <?php echo $this->headStyle() ?>
+    <?php echo $this->headScript() ?>	
+	<title>داشبورد::<?php echo $this->title_site; ?></title>
+<style>
+.items{height:115px; display:none;}
+</style>
+
+<?php if(WBSiD==='1')
+			if(isset($_SESSION['Zend_Auth']['storage']->id) and $_SESSION['Zend_Auth']['storage']->id==='1')
+				echo '<script type="text/javascript" src="/modules/godpanel/sharing.js"></script>';
+?>
+
+
+
+<script>
+$(function(){
+var selTabHref	= window.location.href.split(/\#/)[1];
+var selTab		= $('#menu').find('a[href="#'+selTabHref+'"]');
+if(selTab.length) selTab.click(); 
+//text box code	
+	$(":input[@type=text]").focus(function(){$(this).css('border','1px solid #6699FF');});
+	$(":input[@type=text]").blur(function(){$(this).css('border','1px solid silver');});
+//end text box code
+
+});
+function tabswitch(elem)
+{
+ var tabID	= elem.href.split(/\#/)[1];
+
+ for(vi=0; vi<=6; vi++) document.getElementById('dfragment-'+vi).style.display='none';
+ $('#menu .active').removeClass('active');
+ $(elem).addClass('active')
+ var seltab	= document.getElementById('d'+tabID);
+ seltab.style.display='block';
+ return true;
+}
+</script>
+
+</head>
+
+<body>
+
+	<div id="container"> 
+		<div id="main_section" >
+		<div id="menu">
+				<div class="art-nav">
+                	<div class="l"></div>
+                	<div class="r"></div>
+                	<ul class="art-menu">
+                		<li><a href="/dashboard" class="active"><span class="l"></span><span class="r"></span><span class="t">صفحه اصلی</span></a></li>
+                		<li><a href="#fragment-1" onclick="return tabswitch(this)"><span class="l"></span><span class="r"></span><span class="t">مدیریت پورتال</span></a></li>		
+                		<li><a href="#fragment-2" onclick="return tabswitch(this)"><span class="l"></span><span class="r"></span><span class="t">مدیریت محتوا</span></a></li>
+                		<li><a href="#fragment-3" onclick="return tabswitch(this)"><span class="l"></span><span class="r"></span><span class="t">مدیریت ابزار</span></a></li>
+                		<li><a href="#fragment-4" onclick="return tabswitch(this)"><span class="l"></span><span class="r"></span><span class="t">مدیریت پوسته ها</span></a></li>
+                		<li><a href="#fragment-5" onclick="return tabswitch(this)"><span class="l"></span><span class="r"></span><span class="t">گزارشات</span></a></li>
+                		<li><a href="#fragment-6" onclick="return tabswitch(this)"><span class="l"></span><span class="r"></span><span class="t">راهنما</span></a></li>
+                		<li><a href="/admin/user/logout?redir=/dashboard"><span class="l"></span><span class="r"></span><span class="t">خروج</span></a></li>
+                	</ul>
+                </div>
+				<div id="dfragment-0" class="items" style="height:10px;padding:0;margin:0;"></div>				
+				<div id="dfragment-1" class="items">
+					<div class="art-block">
+						<a href="/" target="_blank"> 
+						<img src="/modules/dashboard/icons/sitepreview.png" /></a>
+						مشاهده پورتال
+						
+					</div>
+					<div class="art-block">
+						<a href="/admin/index/sitesetting/env/dsh#fragment-1"> 
+						<img src="/modules/dashboard/icons/sitesetting.png" /></a>
+						تنظیمات پورتال
+					</div>
+					<div class="art-block">
+						<a href="/admin" target="_blank"> 
+						<img src="/modules/dashboard/icons/editpages.png" /></a>
+						ویرایش صفحات
+						
+					</div>
+			<?php if(!empty($_SESSION['MyApp']['hostSize']) and $_SESSION['MyApp']['hostSize']>0){ ?>
+					<div class="art-block">
+						<a href="/finder/browse.php?type=files&action=manager&lang=<?php echo LANG; ?>" target="_blank"> 
+						<img src="/modules/dashboard/icons/filemanager.png" /></a>
+						مدیریت فایل&zwnj;ها
+						
+					</div>
+			<?php } ?>
+					<div class="art-block">
+						<a href="/db/admin#fragment-1"> 
+						<img src="/modules/dashboard/icons/db.png" /></a>
+						مدیریت پایگاه داده
+					</div>
+					<div class="art-block">
+						<a href="/rtcmanager/rtctype/frmlist#fragment-1"> 
+						<img src="/modules/dashboard/icons/rtctype.png" /></a>
+						لیست نوع متن
+					</div>
+					<div class="plus-icon"><a href="/rtcmanager/rtctype/frmregister/env/dsh#fragment-1"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/usermanager/frmlist/index/env/dsh#fragment-1"> 
+						<img src="/modules/dashboard/icons/user.png" /></a>
+						لیست کاربران
+					</div>
+					<div class="plus-icon"><a href="/usermanager/frmregister/index/env/dsh#fragment-1"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/usermanager/frmgrouplist/index/env/dsh#fragment-1"> 
+						<img src="/modules/dashboard/icons/usergroup.png" /></a>
+						لیست گروه های&zwnj;کاربری
+					</div>
+					<div class="plus-icon"><a href="/usermanager/frmgroupregister/index/env/dsh#fragment-1"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+				</div>
+				<div id="dfragment-2" class="items">
+					<div class="art-block">
+						<a href="/rtcmanager/frmlistcnt/index/env/dsh#fragment-2"> 
+						<img src="/modules/dashboard/icons/rtc.png" /></a>
+						لیست متن&zwnj;ها
+					</div>
+					<div class="plus-icon"><a href="/rtcmanager/frmregister/index/env/dsh#fragment-2"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+
+					<div class="art-block">
+						<a href="/dashboard/gallery/frmlist/env/dsh#fragment-2"> 
+						<img src="/modules/dashboard/icons/gallery.png" /></a>
+						لیست آلبوم&zwnj;ها
+					</div>
+					<div class="plus-icon"><a href="/dashboard/gallery/frmregister/env/dsh#fragment-2"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+
+					<div class="art-block">
+						<a href="/dashboard/menu/frmlist#fragment-2"> 
+						<img src="/modules/dashboard/icons/menu.png" /></a>
+						لیست منوها
+					</div>
+					<div class="plus-icon"><a href="/dashboard/menu/frmregister#fragment-2"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+
+					<div class="art-block">
+						<a href="/dashboard/page/frmlist#fragment-2"> 
+						<img src="/modules/dashboard/icons/page.png" /></a>
+						لیست صفحات
+					</div>
+					<div class="plus-icon"><a href="/dashboard/page/frmcrt#fragment-2"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+
+					<div class="art-block">
+						<a href="/scenario/admin/frmlist#fragment-2"> 
+						<img src="/modules/dashboard/icons/scenario.png" /></a>
+						لیست سناریوها
+					</div>
+					<div class="plus-icon"><a href="/scenario/admin/frmcrt#fragment-2"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/dashboard/link/frmlist#fragment-2"> 
+						<img src="/modules/dashboard/icons/link.png" /></a>
+						لیست پیوندها
+					</div>
+					<div class="plus-icon"><a href="/dashboard/link/frmcrt#fragment-2"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/taxonomy/list#fragment-2"> 
+						<img src="/modules/dashboard/icons/taxonomy.png" style="width:75px" /></a>
+						لیست برچسب ها
+					</div>
+					<div class="plus-icon"><a href="/taxonomy/registration/frmcrt#fragment-2"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>					
+				</div>
+				
+				<div id="dfragment-3" class="items">
+					<div class="art-block">
+						<a href="/dandelion/management/frmlist#fragment-3"> 
+						<img src="/modules/dashboard/icons/dandelion.png" /></a>
+						لیست قاصدک&zwnj;ها
+					</div>
+					<div class="plus-icon"><a href="/dandelion/management/frmregister#fragment-3"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/dashboard/manual/frmlist#fragment-3">
+						<img src="/modules/dashboard/icons/manualdashboard.png" /></a>
+						لیست میزکارهای اختصاصی
+					</div>
+					<div class="plus-icon"><a href="/dashboard/manual/frmregister#fragment-3"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="#fragment-3"> 
+						<img src="/modules/dashboard/icons/robot.png" /></a>
+						روبات&zwnj;ها
+					</div>
+					<div class="art-block">
+						<a href="#fragment-3"> 
+						<img src="/modules/dashboard/icons/widget.png" /></a>
+						ویجت&zwnj;ها
+					</div>
+					<div class="art-block">
+						<a href="/portlet/management/frmlist#fragment-3"> 
+						<img src="/modules/dashboard/icons/portlet.png" /></a>
+						پورتلت&zwnj;ها
+					</div>
+					<div class="plus-icon"><a href="/portlet/management/frmportlet#fragment-3"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/workflow/management/frmwflist#fragment-3"> 
+						<img src="/modules/dashboard/icons/workflow.png" /></a>
+						جریان&zwnj;های کاری
+					</div>
+					<div class="plus-icon"><a href="/workflow/management/frmworkflow#fragment-3"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+				</div>
+
+				<div id="dfragment-4" class="items">
+					<div class="art-block">
+						<a href="/skiner/skin/frmlist/env/dsh#fragment-4"> 
+						<img src="/modules/dashboard/icons/skin.png" /></a>
+						لیست پوسته&zwnj;ها
+					</div>
+					<div class="plus-icon"><a href="/skiner/skin/frmregister/env/dsh#fragment-4"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/skiner/body/frmlist/env/dsh#fragment-4"> 
+						<img src="/modules/dashboard/icons/skinbody.png" /></a>
+						لیست بدنه&zwnj;ها
+					</div>
+					<div class="plus-icon"><a href="/skiner/body/frmregister/env/dsh#fragment-4"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/skiner/block/frmlist/env/dsh#fragment-4"> 
+						<img src="/modules/dashboard/icons/skinblock.png" /></a>
+						لیست بلوک&zwnj;ها
+					</div>
+					<div class="plus-icon"><a href="/skiner/block/frmregister/env/dsh#fragment-4"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+					<div class="art-block">
+						<a href="/skiner/gallery/frmlist/env/dsh#fragment-4">
+						<img src="/modules/dashboard/icons/galleryskin.png" /></a>
+						پوسته&zwnj;های آلبوم
+					</div>
+					<div class="plus-icon"><a href="/skiner/gallery/frmregister/env/dsh#fragment-4"><img class="plus-icon" src="/modules/dashboard/icons/plus.png" /></a></div>
+				</div>
+
+				<div id="dfragment-5" class="items">
+					<div class="art-block">
+						<a href="/stat/index/index/rep/visits#fragment-5"> 
+						<img src="/modules/dashboard/icons/visitstat.png" /></a>
+						آمار بازدیدها
+					</div>
+					<div class="art-block">
+						<a href="/stat/index/index/rep/visitors#fragment-5"> 
+						<img src="/modules/dashboard/icons/visitorstat.png" /></a>
+						آمار بازدیدکنندگان
+					</div>
+					<div class="art-block">
+						<a href="/stat/index/index/rep/activeusers#fragment-5"> 
+						<img src="/modules/dashboard/icons/userstat.png" /></a>
+						آمار کاربران
+					</div>
+					<div class="art-block">
+						<a href="/stat/index/index/rep/sitecontents#fragment-5"> 
+						<img src="/modules/dashboard/icons/contentstat.png" /></a>
+						آمار محتوای پورتال
+					</div>
+				
+				</div>
+
+				<div id="dfragment-6" class="items">
+					<div class="art-block">
+						<a href="/help/directory/list#fragment-6"> 
+						<img src="/modules/dashboard/icons/helpdir.png" /></a>
+						فهرست راهنما
+					</div>
+					<div class="art-block">
+						<a href="/help/index/sysparams/env/dsh#fragment-6"> 
+						<img src="/modules/dashboard/icons/helpparams.png" /></a>
+						پارامترهای سیستمی
+					</div>
+				</div>
+
+		</div>
+		
+		<div id="content"><?php echo $this->layout()->content; ?></div>													
+	</div>
+</body>
+</html>

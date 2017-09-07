@@ -1,0 +1,83 @@
+<script type="text/javascript">
+$(function(){CKEDITOR.replace('editor1')});
+
+$(document).ready(function()
+{
+	$('#send').click(function()
+	{
+		var data='';
+		$('.mail').each(function()
+		{
+			data +=","+$(this).html();
+		});
+			$('input[name=email]').val(data);
+			document.forms[0].submit();
+	})
+})
+</script>
+<style>
+.td_title{	width:100px;}
+.td_box{	width:420px;}
+.p1{width:150px;}
+.p2{width:235px;text-align:left;}
+.pp{float:right;font-family:tahoma;font-size:13px;overflow:hidden;margin-top:3px;height:17px}
+#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:650px;border:1px solid;height:auto;}
+</style>  
+  	<?php 
+		if (!empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+				echo "<h2>".$msg."</h2>";
+			}
+ 			echo '</div>';
+ 		}
+	?>
+
+<form action="/rcpanel/panel/groupmail" method="post">
+
+	<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+	<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+		<table style="width:540px; margin:0 auto;text-align:right;">
+			<tr >
+				<td class="td_title"><label class="label">به : </label></td>
+				<td class="td_box">
+	<div class="ui-corner-all ui-widget-content" style="overflow:scroll;height:150px;width:430px;">
+		<div class="ui-corner-all" style="width:95%;border:1px solid #abcabc;height:20px;margin:2px auto; ">
+			
+			<div class="p1 pp" style="text-align:center;"><strong>نام</strong></div>
+			<div class="p2 pp" style="text-align:center;"><strong>ایمیل</strong></div>
+				</div>
+				<?php 
+					foreach ($this->data as $itm)
+					{
+						echo '<div class="ui-corner-all" style="width:95%;border:1px solid #abcabc;height:20px;margin:2px auto;">'
+								.'<div class="p1 pp">'.$itm['name'].'</div>'
+								.'<div class="p2 pp mail">'.$itm['username'].'</div>'
+								.'</div>';
+					}
+				?>
+	</div>
+			</td>
+		  <td></td>
+			</tr>
+			<tr >
+				<td class="td_title"><label class="label">از :</label></td>
+				<td class="td_box"><input type="text" name="from" size="35"  class="inputBox" value="support@iranscholar.ir"></td>
+			</tr>
+			<tr >
+				<td class="td_title"><label class="label">عنوان :</label></td>
+				<td class="td_box"><input type="text" name="subject" size="35"  class="inputBox" value="رستاک همیشه با توست"></td>
+			</tr>		</table>
+	</div>
+	<div id="div_tbl" class="ui-corner-all ui-state-highlight">
+	<center>
+					<input type="hidden" name="email" />
+					<a id ="send" title="تائید و ارسال پیام" class='btn ui-state-default ui-corner-all' href="#" >تایید</a>
+					<a title="انصراف و بازگشت به لیست سایتها" class='btn ui-state-default ui-corner-all' href="/rcpanel/<?php echo $this->callback; ?>">انصراف</a>
+	</center>
+	</div>
+
+	<textarea name="editor1"> متن پیام را بنویسید</textarea>
+</form>

@@ -1,0 +1,317 @@
+
+<script type="text/javascript">
+$(function(){
+	if(window.opener!=null & window.opener.Crtc.fn.rtcPopupAction)
+	{
+		//alert( window.opener.$var.rtc.rtcPopupAction);
+		window.opener.$var.paging.refresh('rtc',1);
+		if(window.opener.$var.editedRtc!=null)
+			window.opener.$var.breedable.refreshPageContent({type:'rtc', unic: window.opener.$var.editedRtc});
+		window.close();
+	}
+	else
+	{
+		window.opener={};
+	}
+})
+
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tab3").addClass("ui-state-active");
+})
+
+checked=false;
+function chkAll () {
+	var arr = new Array();
+	if (checked == false)
+	  {
+	   checked = true
+	  }
+	else
+	  {
+	  checked = false
+	  }
+	arr = document.getElementsByTagName('input');
+	if (arr.length>1)
+	{	
+		for (var i =0; i < arr.length; i++) 
+		{
+			if(arr[i].type == 'checkbox') arr.item(i).checked=  checked;
+		}
+	}
+	else
+	{
+		alert('هیچ مطلبی لیست نشده است!');
+	}
+}
+//-------------------------
+function submitForm()
+{
+	var arr = new Array();
+	var j=0;
+	arr = document.getElementsByTagName('input');
+	for (var i =0; i < arr.length; i++) 
+	{
+		if((arr[i].type == 'checkbox')&(arr.item(i).checked==true))
+			 j++;
+	}
+	if (j==0)
+	{
+		alert('هیچ مطلبی انتخاب نشده است');
+	}
+	else
+	{
+		document.forms[0].submit();
+	}
+}
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<div class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h4 class="art-postheader">
+							<span class="art-postheader">نوع متن</span>
+						</h4>
+					</div>
+					<div class="art-postcontent" style="height:auto;overflow:hidden;">
+						<!-- article-content -->
+<?php
+if(is_array($this->ctypes) )
+	foreach($this->ctypes as $ctype)
+	{
+?>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/rtcmanager/frmlistcnt/index/ctype/<?php echo $ctype['ts_ct_id'].$this->env; ?>"><?php echo $ctype['ct_title']; ?></a>
+</span>
+<?php } ?>
+
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/rtcmanager/frmlistcnt/index/ctype/0<?php echo $this->env; ?>">متن های بدون ویرایشگر</a>
+</span>
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+
+<div class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->escape($this->title_site); ?></span>
+<?php if($this->ctype_id>0){ ?>
+<a href="/rtcmanager/frmregister/index/ctype/<?php echo $this->ctype_id.$this->env; ?>"><img src="/modules/dashboard/icons/plus.png" style="float:left;margin-top:-2px;"></a>
+<?php } ?>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+<div style="margin:0 auto;" >
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			if(is_array($this->msg[0])) $this->msg = $this->msg[0];
+			//echo '<div class="ui-state-error ui-corner-all"	>';
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		 	//echo'</div>';
+		}
+	?>
+<?php 
+$data = $this->data;
+	if (count($data)>0)
+	{
+?>
+<style>
+.d1{width:5%;}.d2{width:3%;}.d3{width:25%;}.d4{width:20%;}.d5{width:10%;}.d6{width:5%;}.d7{width:10%;}.d8{width:10%;}.d9{width:12%;}
+</style>
+		<form name="frm0" action="/rtcmanager/frmdelcnt/index<?php echo  $this->env; ?>" method="post" style="margin-top:3px;">
+		  <table border="1" cellspacing="0"  class="showborder ui-widget" style="table-layout:fixed;">
+			<tr  class="ui-widget-header">
+			  <th class="d1">ردیف</th>
+			  <th class="d2"><input type="checkbox" name="tgl" id="tgl" onclick="chkAll();"/></th>	  
+			  <th class="d3">عنوان</th>
+			  <th class="d4">نام لاتین</th>	  
+			  <th class="d5">تاریخ ایجاد</th>	  
+			  <th class="d6">انتشار</th>
+			  <th class="d7">انتشار از </th>
+			  <th class="d8">انتشار تا</th>
+			  <th class="d9">عمل</th>	  
+			</tr>
+		<?php 		
+			
+			$j=1;
+			foreach( $data as $i)
+			{		
+		?>
+			<tr>
+				<td class="d1"><?php echo $j+$this->start;			?></td>	
+				<td class="d2">
+					<center><input value="<?php echo $i['id']; ?>" name="chk[]" type="checkbox" /></center>
+				</td>	
+		
+				<td class="d3">	<div class="lnk" style="width:230px; overflow:hidden;padding:3px;">
+				<a  href="/rtcmanager/frmregister/index/id/<?php echo $i['id'].$this->env;?>" title="<?php echo $i['title']?>"> 
+				<?php echo substr($i['title'],0,100); if(strlen($i['title'])>100)echo " ..." ?>
+											</a></div>
+				</td>
+				<td class="d4"><div style="width:170px; overflow:hidden;"><?php echo substr($i['ltn_name'],0,25); if(strlen($i['ltn_name'])>25)echo " ..." ?></div></td>
+				<td class="d5"><?php echo ger_to_fa($i['crt_date'])	?></td>	  
+				<td class="d6">
+					<?php if($i['is_published']=='1')
+							{
+								echo "<a href='".$this->BaseUrl()."/rtcmanager/doact/index/id/".$i['id'].".0.".$this->start . "/ctype/".$this->ctype_id . $this->env."'><center><img src='/img/publish_g.png'></center></a>";
+							}
+							else
+							{
+								echo "<a href='".$this->BaseUrl()."/rtcmanager/doact/index/id/".$i['id'].".1.".$this->start . "/ctype/".$this->ctype_id . $this->env."'><center><img src='/img/publish_x.png'></center></a>";
+							}
+					?>
+				</td>	    
+				<td class="d7"><?php echo ger_to_fa($i['publish_up'])	?></td>
+				<td class="d8"><?php echo ger_to_fa($i['publish_down'])	?></td>	  
+				<td class="d9">
+					<center>
+					<?php if($i['setting'][3]!=0){ ?>
+					<a href="/comment/manager/index/pa/<?php echo $i['id'].':1'.$this->env;?>">
+					<img src="/img/comment.png" title="مشاهده نظرات"></a>|
+					<?php } ?>
+					<a href="/rtcmanager/frmregister/index/id/<?php echo $i['id'].$this->env;?>">
+					<img src="/img/edit.png" title="ویرایش متن"></a>|
+					<a href="/rtcmanager/frmdelcnt/index/id/<?php echo $i['id'].$this->env;?>">
+					<img src="/img/delete.png" title="حذف متن"></a>
+					</center>
+				</td>	    
+			</tr>
+		<?php 
+				$j++;
+			}  
+		?>
+		  </table>
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="javascript: submitForm();" >حذف</a>
+</span>
+<br />
+<br />
+		<div id="pagingcontainer">
+					<?php paging($this->count,$this->start,$this->limit,$this->BaseUrl(),"/ctype/".$this->ctype_id.$this->env);?>
+		</div>
+
+		</form>
+<?php
+	}
+	else
+	{
+		echo '<h1>هیچ مطلبی یافت نشد!</h1>';
+		echo paging($this->count,$this->start,$this->limit,$this->BaseUrl(),$this->env);
+		
+	}
+?>
+</div>
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+<?php 
+function paging	($count,$start,$limit,$BaseUrl,$env)
+{
+	$paging	="";
+	$this1 			= $start + $limit; 
+	$back 			= $start - $limit; 
+	$next 			= $start + $limit;
+	if		($count > $limit )
+			{
+				$paging		.= ' <table align = "center" '
+							.  ' style="text-align:right" width="100%"><tr><td  align="center" width="25%">';
+				if	($back >= 0) 
+					{ 
+						$paging	.= "<a href='".$BaseUrl."/rtcmanager/frmlistcnt/index/st/".$back. $env ."' class='btn ui-state-default ui-corner-all'><font  size='2'>صفحه قبل</font></a>"; 
+					} 
+				$paging	.= "</td><td align=center width='50%'>";
+				$i			= 0;
+				$j			= 1;
+				for		($i	= 0; $i < $count; $i	= $i + $limit)
+					{
+						if	($i <> $start)
+							{
+								$paging	.= " <a href='".$BaseUrl."/rtcmanager/frmlistcnt/index/st/".$i. $env ."'><font  size='2'>".$j."</font></a> ";
+							}
+						else 
+							{ 
+								$paging	.= "<font  size='4' color=red>".$j."</font>";
+							}        
+						$j	= $j+1;
+					}
+				$paging	.= "</td><td  align='center' width='25%'>";
+				if	($this1 < $count)
+					{ 
+						$paging	.= "<a href='".$BaseUrl."/rtcmanager/frmlistcnt/index/st/".$this1. $env ."' class='btn ui-state-default ui-corner-all'><font  size='2'>صفحه بعد</font></a>";
+					} 
+				$paging	.= "</td></tr></table>";
+			}
+	echo $paging;
+}
+//-------------
+function ger_to_fa($date)
+{
+	if ($date=='')
+	{
+		return	 NULL;
+	}
+	else 
+	{
+		$arr	= explode(' ',$date)	;
+		$d		= explode('-',$arr[0])	;
+		$pdate	= new Rasta_Pdate;
+		$arr[0] = implode('-',$pdate->gregorian_to_persian($d[0],$d[1],$d[2]));
+		return  implode(' ',$arr);
+	}	
+}
+//---------------
+?>

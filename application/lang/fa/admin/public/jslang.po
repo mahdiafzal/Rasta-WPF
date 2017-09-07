@@ -1,0 +1,171 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-11-24 13:42+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "a"
+msgstr "اضافه کردن عکس"
+
+msgid "b"
+msgstr "حذف عکس"
+
+msgid "c"
+msgstr ""
+
+msgid "d"
+msgstr "تنضیمات"
+
+msgid "e"
+msgstr "ویرایش متن"
+
+msgid "f"
+msgstr "حذف متن"
+
+msgid "g"
+msgstr "ویرایش منو"
+
+msgid "h"
+msgstr "حذف منو"
+
+msgid "i"
+msgstr "ویرایش زیرمنو"
+
+msgid "j"
+msgstr "حذف زیرمنو"
+
+msgid "k"
+msgstr "اضافه كردن منو"
+
+msgid "l"
+msgstr "حذف منو سربرگ"
+
+msgid "m"
+msgstr "ویرایش آلبوم"
+
+msgid "n"
+msgstr "حذف آلبوم"
+
+msgid "o"
+msgstr "انصراف"
+
+msgid "p"
+msgstr "تأیید"
+
+msgid "q"
+msgstr "عنوان لینک و آدرس لینک نمی توانند خالی باشند"
+
+msgid "r"
+msgstr "<div dir=\"rtl\" style=\"font-family:tahoma;font-size:12px;\"><br />عنوان لینک&nbsp;:&nbsp;&nbsp;<input size=\"20px\" id=\"lnk_title\" type=\"text\" value=\"\" />&nbsp;&nbsp;<input type=\"checkbox\" id=\"chk_seprator\"/>به عنوان جدا کننده<br /><br /><div id=\"link_url\">آدرس لینک&nbsp;&nbsp;:&nbsp;&nbsp;<input size=\"20px\" dir=\"ltr\" id=\"lnk_url\" type=\"text\" value=\"\" /></div></div>"
+
+msgid "s"
+msgstr "ویرایش لینک"
+
+msgid "t"
+msgstr "ایجاد لینک"
+
+msgid "u"
+msgstr "<br />عنوان آلبوم عکس خود را وارد کنید : <input id=\"GalleryTitleInput\" type=\"text\" value=\"\" /><br /><br />مدیریت عکس ها : <br /><hr /><div style=\"border:1px #eeeeee solid;min-height:110px;height:auto;\" id=\"ImageManager\"></div>"
+
+msgid "v"
+msgstr "ویرایش"
+
+msgid "w"
+msgstr "لطفا تعدادی عکس برای نمایش در آلبوم انتخاب کنید"
+
+msgid "x"
+msgstr "تعداد عکس های انتخابی باید بیشتر از سه باشد"
+
+msgid "y"
+msgstr "لطفا عنوان گالری را وارد کنید"
+
+msgid "z"
+msgstr "ایجاد آلبوم جدید"
+
+msgid "aa"
+msgstr "<div class=\"rasta-buttonset\"><a>a</a><a>a</a><a class=\"menutitle\" ><input type=\"text\" value=\"\" /></a></div>"
+
+msgid "ap"
+msgstr "<li class=\"sampleLi\"><a href=\"#\" ><span>پیوند یا محتوای آزمایشی</span></a></li>"
+
+msgid "ab"
+msgstr "ذخیره"
+
+msgid "ac"
+msgstr "مشاهده در پنجره جدید"
+
+msgid "ad"
+msgstr "مشاهده در همین پنجره"
+
+msgid "ae"
+msgstr "عنوان منو نمی تواند خالی باشد"
+
+msgid "af"
+msgstr "برای اعمال تغییرات، این صفحه ذخیره و مجدداً بارگزاری خواهد شد. <br> آیا تأیید می نمایید؟"
+
+msgid "ag"
+msgstr "<div class=\"addedsubmenu\"><ul><li class=\"sampleLi\"><a href=\"#\" ><span>پیوند یا محتوای آزمایشی</span></a></li></ul></div>"
+
+msgid "ah"
+msgstr "حداکثر تعداد زیر منوهای مجاز دو سطح می باشد."
+
+msgid "ai"
+msgstr "بستن"
+
+msgid "aj"
+msgstr "<div class=\"rasta-buttonset\"><a>ویرایش عنوان صفحه</a><a>مشاهده در همین پنجره</a><a>مشاهده در پنجره جدید</a><a class=\"pagetitle\" pageid=\"\"><input type=\"text\" /></a></div>"
+
+msgid "ak"
+msgstr "ویرایش عنوان صفحه"
+
+msgid "al"
+msgstr "عنوان صفحه نمی تواند خالی باشد"
+
+msgid "am"
+msgstr "<span>تعداد پست :</span><input size=\"20px\" id=\"scen_count\" type=\"text\" value=\"\" style=\"width:30px\" /><br /><br /><span>صفحه بندی :</span><input size=\"20px\" id=\"scen_paging\" type=\"checkbox\" value=\"\" style=\"width:15px\" /><br /><br />"
+
+msgid "an"
+msgstr "<span>تعداد نتایج در هر صفحه :</span><input size=\"20px\" id=\"scen_count\" type=\"text\" value=\"\" style=\"width:30px\" /><br /><br /><span>فیلتر کردن جستجو :</span><input size=\"20px\" id=\"scen_paging\" type=\"checkbox\" value=\"\" style=\"width:15px\" /><br /><br />"
+
+msgid "ao"
+msgstr "<div dir=\"rtl\"><br /><span>عنوان:</span><input size=\"20px\" id=\"scen_title\" type=\"text\" value=\"\" /><br /><br /><span>عنوان لاتین:</span><input size=\"20px\" id=\"scen_latintitle\" type=\"text\" value=\"\" /><br /><br /><span>	آدرس :</span><input size=\"20px\" dir=\"ltr\" id=\"scen_url\" type=\"text\" value=\"\" /><span dir=\"ltr\" style=\"width:60px\">yoursite/</span><br /><br /><span>صفحه	:</span><input size=\"20px\" id=\"scen_page\" type=\"text\" value=\"\" /><span></span><br /><br /><span>عملکرد :</span><select id=\"ScenarioSelect\"><option value=\"1\">نمایش آخرین پست ها</option><option value=\"2\">جستجوگر</option></select> <br /><br /><div id=\"scenariooptions\">"
+
+msgid "aq"
+msgstr "</div></div>"
+
+msgid "ar"
+msgstr "فیلد عنوان نباید خالی باشد"
+
+msgid "as"
+msgstr "فیلد عنوان لاتین نباید خالی و تنها باید از حروف لاتین، عدد، فاصله و علامت های (: - _) باشد "
+
+msgid "at"
+msgstr "فیلد آدرس نباید خالی و تنها باید از حروف لاتین، عدد و علامت (/) باشد "
+
+msgid "au"
+msgstr "فیلد صفحه نباید خالی و تنها باید عدد باشد یا توسط جستجوی عنوان صفحه پر شود"
+
+msgid "av"
+msgstr "فیلد تعداد پست نباید خالی و تنها باید عدد باشد"
+
+msgid "aw"
+msgstr "چک باکس"
+
+msgid "ay"
+msgstr "ویرایش سناریو"
+
+msgid "az"
+msgstr "ایجاد سناریو"
+
+msgid "ba"
+msgstr "این سناریو قابل ویرایش نمی باشد"
+

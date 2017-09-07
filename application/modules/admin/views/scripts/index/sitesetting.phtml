@@ -1,0 +1,181 @@
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+$var={};
+$var.tempSelect = selectTemplateFun;
+});
+function selectTemplateFun(tempid)
+{
+	$('input[name=s_skin]').val(tempid);
+}
+function submitForm()
+{
+	document.forms[0].submit();
+}
+function skinSelectPopup()
+{
+	var popupwin	= window.open('/skiner/template/frmlist', 
+								'skinSelectPopup',
+								'location=1,status=1,scrollbars=1,resizable=1,width=980,height=500');
+	popupwin.moveTo(100,50);
+}
+
+function cancel()
+{
+	if ($('input[name=env]').val()==""){window.close();}else{window.location='/dashboard#fragment-1';}
+}
+/*function frontpageSelectConfirm()
+{
+			if ($('input:radio[name=rdo]:checked').val())
+			{
+				$('input[name=s_page_senario]').val($('input:radio[name=rdo]:checked').val());
+				$('#facebox a.close').click();
+			}
+			else	alert('<?php echo $this->translate->_('b');?>');
+			return false;	  
+}*/
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+
+<link href="/lib/facebox/v2/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="/lib/facebox/v2/facebox.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+      $('a[rel*=facebox]').facebox({
+        loadingImage : '/lib/facebox/v2/loading.gif',
+        closeImage   : '/lib/facebox/v2/closelabel.png'
+      });
+    })
+</script>
+<style>
+.td_title{width:135px;}
+.td_box{width:420px;}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+a,div,td,tr,input,span{ font-family:tahoma; font-size:13px;}
+h3,h2,h4{font-family:arial; }
+.ppr{width:180px;}
+.pp1{width:30px;}
+.pp2{width:150px;}
+.btn{margin:3px;}
+#facebox .content { width:485px;}
+</style>
+<?php 
+	if(is_array($this->mesg))
+	{
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach($this->mesg as $value) echo '<h5>'.$value.'</h5>'; 
+			echo'</blockquote>';
+	}
+?> 
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->title_site; ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+	<form action="/admin/index/setsite" method="post">
+	<table style="width: 540px; margin: 0pt auto; text-align: right; direction:rtl;">
+		<tbody>
+			<tr title="<?php echo $this->translate->_('c');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('d');?> </label></td>
+				<td class="td_box">
+					<input type="text" value="<?php echo $this->site['wb_title']; ?>" class="inputBox" size="35" maxlength="100" name="s_title">
+				</td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('e');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('f');?> </label></td>
+				<td class="td_box">
+					<input type="text" value="<?php echo $this->site['latin_title']; ?>" class="inputBox" size="35" maxlength="100" name="s_latintitle">
+				</td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('g');?>">
+				<td class="td_title"><?php echo $this->translate->_('h');?> </label></td>
+				<td class="td_box">
+				<?php 
+					$wb_status = array('', 'checked="checked"');
+					if( $this->site['wb_status']==0) $wb_status = array('checked="checked"', ''); 
+				?>
+					<label class="label"><?php echo $this->translate->_('i');?></label>		<input type="radio" value="1"  name="s_vstate" <?php echo $wb_status[1]; ?> />
+					<label class="label"><?php echo $this->translate->_('j');?></label>	<input type="radio" value="0"  name="s_vstate" <?php echo $wb_status[0]; ?> />
+				</td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('k');?>">
+				<td class="td_title"><?php echo $this->translate->_('l');?> </td>
+				<td class="td_box">
+					<input type="text" value="<?php echo $this->site['wb_homepage']; ?>" size="35" name="s_page_senario" dir="ltr"/>
+				</td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('p');?>">
+				<td class="td_title"><?php echo $this->translate->_('q');?> </td>
+				<td class="td_box">
+					<input type="text" value="<?php echo $this->site['skin_id']; ?>" size="15" name="s_skin" readonly="readonly" dir="ltr"/>
+<span class="art-button-wrapper" style="float:none;">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' onclick="skinSelectPopup()" href="#"><?php echo $this->translate->_('r');?></a>
+</span>
+									
+				</td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('s');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('t');?> </label></td>
+				<td class="td_box"><textarea class="inputBox" cols="32" rows="2" name="s_slogan" ><?php echo $this->site['wb_slogan']; ?></textarea></td> 
+			</tr>
+			<tr title="<?php echo $this->translate->_('u');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('v');?> </label></td>
+				<td class="td_box"><textarea class="inputBox" cols="32" rows="2" name="s_authors"><?php echo $this->site['wb_authors']; ?></textarea></td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('w');?>">
+				<td class="td_title" width="25"><label class="label"><?php echo $this->translate->_('x');?> </label></td>
+				<td class="td_box"><textarea class="inputBox" cols="32" rows="2" name="s_description"><?php  echo $this->site['wb_description']; ?></textarea></td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('y');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('z');?> </label></td>
+				<td class="td_box"><textarea class="inputBox" cols="32" rows="2" name="s_keywords"><?php  echo $this->site['wb_keywords']; ?></textarea></td> 
+			</tr>
+		</tbody>
+	</table>
+	<input name="env" value="<?php echo $this->env; ?>" type="hidden">
+	</form>
+
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="javascript:submitForm();" ><?php echo $this->translate->_('m');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="javascript:cancel();" ><?php echo $this->translate->_('n');?></a>
+</span>
+<br /><br /><br />
+
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+
+

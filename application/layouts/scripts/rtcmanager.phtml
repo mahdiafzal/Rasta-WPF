@@ -1,0 +1,58 @@
+<?php echo $this->doctype('XHTML1_TRANSITIONAL'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow:scroll;">
+<head>
+	<link rel="icon" type="image/gif" href="/img/RSDFavIconlogo.gif" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="/js/jQuery/jquery.js"></script>
+	<link type="text/css" rel="stylesheet" href="/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/css/rasta/rtcmanager.css" />
+    <?php //echo $this->headTitle() ?>
+    <?php //echo $this->headMeta() ?>
+	<?php echo $this->headLink() 	?>
+    <?php echo $this->headStyle() ?>
+  	<?php echo $this->headScript()	?>
+	<title><?php echo $this->translate->_('la') . $this->escape($this->title_site); ?></title>
+<script>
+$(function() {
+//text box code	
+	$(":input[@type=text]").focus(function(){$(this).css('border','1px solid #6699FF');});
+	$(":input[@type=text]").blur(function(){$(this).css('border','1px solid silver');});
+//end text box code
+}); 	
+</script>
+<style>
+	.tb{
+		width:110px;
+		height:25px;
+		float:right;
+		margin:0.3em 0.04em 2px 1px;
+		border-bottom:0 none ;
+		list-style:none outside none;
+		padding:0;
+		position:relative;
+		white-space:nowrap;
+		vertical-align:middle;	
+		}
+	.tb a{
+		text-decoration:none;
+		display:block;
+		width:100%;
+		height:100%;
+		padding-top:6px;
+		font-size:13px;
+		font-weight:bold;
+	}
+</style>
+
+</head>
+<body>
+	<div id="container" >
+		<div id="main_section" >
+			<div id="content">
+				<?php echo $this->layout()->content ;?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

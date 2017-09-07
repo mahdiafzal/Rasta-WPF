@@ -1,0 +1,39 @@
+﻿<div id="left_bar">
+	<div id="cnt2_left_help">
+		<div id="cnt2_left_help_up"></div>
+		<div id="cnt2_left_help_inside">
+		  <h1><?php echo $this->escape($this->title);?></h1>
+		  <div id="description">
+		    <?php echo $this->description;?>
+		  </div>
+		  <form name="edit" method="post" action="<?php echo $this->baseUrl().$this->escape($this->action)?>">
+		  <table>
+		    <tr>
+			  <td><?php echo $this->escape($this->label_fname)?></td>
+			  <td><input type="text" name="first_name" value="<?php echo $this->data['first_name']?>"></td>
+			</tr>
+		    <tr>
+			  <td><?php echo $this->escape($this->label_lname)?></td>
+			  <td><input type="text" name="last_name" value="<?php echo $this->data['last_name']?>"></td>
+			</tr>	
+		    <tr>
+			  <td><?php echo $this->escape($this->label_uname)?></td>
+			  <td><input type="text" name="username" value="<?php echo $this->data['username']?>"></td>
+			</tr>	
+		    <tr>
+			  <td><?php echo $this->escape($this->label_pass_1)?></td>
+			  <td><input type="password" name="password_1" value=""></td>
+			</tr>
+		    <tr>
+			  <td><?php echo $this->escape($this->label_pass_2)?></td>
+			  <td><input type="password" name="password_2" value=""></td>
+			</tr>	
+
+		  </table>
+		  <input type="hidden" name="id" value="<?php echo $this->data['id']?>" />
+		  <input class='ui-state-default ui-corner-all' type="submit" name="submit" value="<?php echo $this->escape($this->label_submit);?>">
+		  </form>
+		</div>
+		<div id="cnt2_left_help_down"></div>				
+	</div>				
+</div>

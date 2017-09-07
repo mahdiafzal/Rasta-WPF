@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?php echo $this->escape($this->title_site); ?></title>
+</head>
+<body>
+		<link type="text/css" rel="stylesheet" href="/css/jqui/jquery.ui.all.css" />
+		<script type="text/javascript" src="/js/jQuery/jquery.js"></script>
+		<script type="text/javascript" src="/js/jQuery/jquery-ui.js"></script>
+
+	<style>
+	body{ text-align:center; margin:0; padding:0; width:100%}
+	div{ margin:0; padding:0; outline:0; border:none 0px; position:relative;}
+	.tempContainer{ width:60em; height:auto; float:none; padding:0; margin:0 auto; position:relative; top:45px; }
+	#selectable .ui-selecting { background: #FECA40; }
+	#selectable .ui-selected { background: #F39814; color: white; }
+	#selectable { list-style-type: none; margin: 0; padding: 0; }
+	#selectable li {margin: .2em;padding: .09em;float:left;width:19em;height:20em;
+	 /*overflow:hidden;*/ }
+	.screenshot{ width:100%; height:85%; border:none; float:left; margin:0;}
+	.themes{width:100%; height:14%; float:left; margin:0; padding:0;  text-align:center; overflow:visible;  }
+	.themes .filter {width:100%; height:2.4em; margin:0; padding:0; position:absolute;
+			left:0; top:0; background-color: #A0DEF5; opacity: .3; z-index:0;
+		}
+	.themes .options{width:8.2em; height:80%; float:none; padding:0; margin:0 auto; border:none;top:10%; }
+	.themes .options div {  width: 1.8em; height: 1.8em; border:none ; float: left;}
+	.themes .options  div div{ border:none 0px; width: 1.3em; height: 1.3em; padding:0; float:none; margin:0 auto; top:0.15em}
+	.themes .options>div:hover {border:solid .09em; }
+	.button{ display:block; width:1.3em; height:1.3em;border:none;background-image:url(/flsimgs/public/images/RSDmenuIco/Square-Effect.png); background-position:0 0;float:left;}
+	.selected{ border:solid .11em #EEE;}
+	#apply{width:100%;position: absolute;z-index:1;top:0px; padding:5px;}
+	body>#apply{position:fixed}
+	#preview{font-size:11px;font-family:tahoma; height:25px;}
+	#select{font-size:11px;font-family:tahoma; height:25px;}
+	</style>
+
+	<!--[if gte IE 5.5]>
+	<![if lt IE 7]>
+	<style type="text/css">
+	#apply {
+	  /* IE5.5+/Win - this is more specific than the IE 5.0 version */
+	  left: expression( ( ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	  top: expression( ( ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+	}
+	.themes .filter{
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)"; 
+			filter: alpha(opacity=30);					
+		}
+	.button { display:block; width:1.3em; height:1.3em; background-image:none;float:left;}
+	</style>
+	<![endif]>
+	<![endif]-->
+
+	
+	<script>
+	$(function() {
+		//$( "#selectable" ).selectable();
+//		$( ".button" ).each(function()
+//							{
+//								$(this).button()
+//									.click(function()
+//											{
+//												$('body').find('.selected').removeClass('selected');
+//												$(this).addClass('selected');
+//											})
+//							});
+		$('body').find( ".button" ).button().click(function()
+											{
+												$('body').find('.selected').removeClass('selected');
+												$(this).addClass('selected');
+												themeid	= $(this).attr('themeid');
+												tempid	= $(this).parents('li').attr('tempid');
+												$('input[name=tempid]').val(tempid + '.' + themeid);
+												$(this).parents('.themes').siblings('.screenshot')
+															.fadeOut(500,function() {
+																	$(this).css('background-image','url(/flsimgs/public/images/RSDthemepic/'+tempid+'-'+themeid+'.gif)')
+																				 })
+															.fadeIn(700);
+											})
+											.dblclick(function()
+											{
+												$('body').find('.selected').removeClass('selected');
+												$(this).addClass('selected');
+//												if(window.opener!=null)
+//												{
+													selected = $(this);
+													themeID = selected.attr('themeid');
+													tempid = selected.parents('li').attr('tempid');
+//													window.opener.$var.tempSelect(tempid+'.'+themeID);
+//													window.close();
+//											}
+												$('input[name=tempid]').val(tempid + '.' + themeid);
+												document.forms[0].submit();
+											})
+
+		$('#preview, #select').button().click(function()
+											{
+												selected = $('body').find('.selected');
+												tempid = selected.parents('li').attr('tempid');
+												themeID = selected.attr('themeid');
+												action = $(this).attr('id');
+												if(action=='select')
+												{
+													//window.opener.$var.tempSelect(tempid+'.'+themeID);
+													//window.close();
+													$('input[name=tempid]').val(tempid + '.' + themeID);
+													document.forms[0].submit();
+												}
+												else if(action=='preview')
+												{
+													//window.open('/admin/temppreview/'+templateID+'.'+themeID,'tempPreview')
+												}
+												
+											})
+	});
+	</script>
+	
+	<div id="apply" class="ui-state-default">
+	<form action="/godpanel/index/edittemplate" method="post">
+		<input type="hidden" name="tempid" id="tempid" />
+		<a id="preview">پیش نمایش</a>
+		<a id="select">انتخاب</a>
+	
+	</form>
+	</div>
+	
+<div class="tempContainer">
+	<ol id="selectable">
+		<li class="" tempid="1">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/1-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button selected" themeid="1" style="background-color:#4682B4"></a>
+					<a class="button" themeid="2" style="background-color:#9ACD32"></a>
+					<a class="button" themeid="3" style="background-color:#FF7F50"></a>
+					<a class="button" themeid="4" style="background-color:#808080"></a>
+					<a class="button" themeid="5" style="background-color:#FC7883"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="2">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/2-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#B0AD82"></a>
+					<a class="button" themeid="2" style="background-color:#F4C76C"></a>
+					<a class="button" themeid="3" style="background-color:#262626"></a>
+					<a class="button" themeid="4" style="background-color:#CA0B13"></a>
+					<a class="button" themeid="5" style="background-color:#6F7051"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="3">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/3-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#BF6C60"></a>
+					<a class="button" themeid="2" style="background-color:#60BCDF"></a>
+					<a class="button" themeid="3" style="background-color:#D73888"></a>
+					<a class="button" themeid="4" style="background-color:#EACD4F"></a>
+					<a class="button" themeid="5" style="background-color:#A4A4A4"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="4">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/4-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#254D2A"></a>
+					<a class="button" themeid="2" style="background-color:#653E15"></a>
+					<a class="button" themeid="3" style="background-color:#0530A0"></a>
+					<a class="button" themeid="4" style="background-color:#6A2554"></a>
+					<a class="button" themeid="5" style="background-color:#67A90C"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="5">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/5-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#40B0BF"></a>
+					<a class="button" themeid="2" style="background-color:#AFD95A"></a>
+					<a class="button" themeid="3" style="background-color:#FF7F50"></a>
+					<a class="button" themeid="4" style="background-color:#86B7C1"></a>
+					<a class="button" themeid="5" style="background-color:#F4B9AF"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="6">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/6-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#73A8D0"></a>
+					<a class="button" themeid="2" style="background-color:#3B484E"></a>
+					<a class="button" themeid="3" style="background-color:#6A5854"></a>
+					<a class="button" themeid="4" style="background-color:#9E9B76"></a>
+					<a class="button" themeid="5" style="background-color:#E6E9C3"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="7">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/7-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#D6CEAE"></a>
+					<a class="button" themeid="2" style="background-color:#B2B69D"></a>
+					<a class="button" themeid="3" style="background-color:#F9B3C0"></a>
+					<a class="button" themeid="4" style="background-color:#707070"></a>
+					<a class="button" themeid="5" style="background-color:#DBE5EB"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="8">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/8-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#8CABAB"></a>
+					<a class="button" themeid="2" style="background-color:#DAA662"></a>
+					<a class="button" themeid="3" style="background-color:#51443D"></a>
+					<a class="button" themeid="4" style="background-color:#82B6CE"></a>
+					<a class="button" themeid="5" style="background-color:#D1DBEB"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="9">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/9-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#D4CCAA"></a>
+					<a class="button" themeid="2" style="background-color:#221D1B"></a>
+					<a class="button" themeid="3" style="background-color:#59AFC0"></a>
+					<a class="button" themeid="4" style="background-color:#C67B62"></a>
+					<!--<a class="button" themeid="5" style="background-color:#DBE5EB"></a>-->
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="10">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/10-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#363636"></a>
+					<a class="button" themeid="2" style="background-color:#707F1A"></a>
+					<a class="button" themeid="3" style="background-color:#145871"></a>
+					<a class="button" themeid="4" style="background-color:#BD9E41"></a>
+					<a class="button" themeid="5" style="background-color:#622222"></a>
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="11">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/11-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<a class="button" themeid="1" style="background-color:#DBE5EB"></a>
+					<!--<a class="button" themeid="2" style="background-color:#fff"></a>
+					<a class="button" themeid="3" style="background-color:#fff"></a>
+					<a class="button" themeid="4" style="background-color:#fff"></a>
+					<a class="button" themeid="5" style="background-color:#fff"></a>-->
+				</div>
+			</div>
+		</li>
+	<li class="" tempid="12">
+			<div class="screenshot" style="background:url(/flsimgs/public/images/RSDthemepic/12-1.gif) no-repeat center top #fff">
+			</div>
+			<div class="themes">
+				<div class="filter"></div>
+				<div class="options">
+					<!--<a class="button" themeid="1" style="background-color:#fff"></a>
+					<a class="button" themeid="2" style="background-color:#fff"></a>
+					<a class="button" themeid="3" style="background-color:#fff"></a>
+					<a class="button" themeid="4" style="background-color:#fff"></a>
+					<a class="button" themeid="5" style="background-color:#fff"></a>-->
+				</div>
+			</div>
+		</li>
+	</ol>
+
+	
+</div>
+</body>
+</html>

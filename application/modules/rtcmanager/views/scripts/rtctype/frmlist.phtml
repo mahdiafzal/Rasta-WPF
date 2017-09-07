@@ -1,0 +1,174 @@
+<link href="/lib/facebox/v2/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="/lib/facebox/v2/facebox.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $('a[rel*=facebox]').facebox()
+	  .click(function(){ $('#facebox #confirm').attr('href', '/rtcmanager/rtctype/del/id/'+$(this).attr('val')); })
+    })
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a class='btn art-button' href="/rtcmanager/rtctype/frmplist#fragment-1" ><?php echo $this->translate->_('b');?></a>
+</span>
+<br /><br />
+<div class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->escape($this->title_site); ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+<div style="margin:0 auto;" >
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			if(is_array($this->msg[0])) $this->msg = $this->msg[0];
+			//echo '<div class="ui-state-error ui-corner-all"	>';
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		 	//echo'</div>';
+		}
+	?>
+<?php 
+$data = $this->data;
+	if (count($data)>0)
+	{
+?>
+<style>
+.d1{width:5%;}.d2{width:3%;}.d3{width:25%;}.d4{width:20%;}.d5{width:10%;}.d6{width:5%;}.d7{width:10%;}.d8{width:10%;}.d9{width:12%;}
+</style>
+		  <table border="1" cellspacing="0"  class="showborder" style="width:600px;margin:0 auto;">
+			<tr>
+			  <th class="d1">ردیف</th>
+			  <th class="d3">عنوان</th>
+			  <th class="d4">عمل</th>	  
+			</tr>
+		<?php 		
+			
+			$j=1;
+			foreach( $data as $i)
+			{		
+		?>
+			<tr>
+				<td class="d1"><?php echo $j+$this->start;	?></td>	
+				<td class="d3">	<div class="lnk" style="width:230px; overflow:hidden;padding:3px;">
+				<a  href="/rtcmanager/rtctype/frmregister/id/<?php echo $i['ts_ct_id'];?>#fragment-1" > <?php echo $i['ct_title']?></a></div>
+				</td>
+				<td class="d4">
+					<center>
+				<?php
+					if($i['ct_wbs']==0 and !is_numeric( $i['ts_ct_id']))
+				?>
+					<a href="/rtcmanager/rtctype/frmregister/id/<?php echo $i['ts_ct_id'];?>#fragment-1">
+					<img src="/img/edit.png" title="ویرایش"></a>|
+					<a href="#dlg_rtctype" val="<?php echo $i['ts_ct_id'];?>" rel="facebox">
+					<img src="/img/delete.png" title="حذف"></a>
+					</center>
+				</td>	    
+			</tr>
+		<?php 
+				$j++;
+			}  
+		?>
+		  </table>
+<br />
+		<div id="pagingcontainer">
+					<?php paging($this->count,$this->start,$this->limit,$this->BaseUrl(),'#fragment-1');?>
+		</div>
+<?php
+	}
+	else
+	{
+		echo $this->translate->_('e');
+	}
+?>
+</div>
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+
+
+<div id="dlg_rtctype" style="display:none;">
+<?php echo $this->translate->_('o');?>
+<br />
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a id="confirm"  class='btn art-button' href="" ><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a class='btn art-button' onclick="$('#facebox a.close').click();" ><?php echo $this->translate->_('cancel');?></a>
+</span>
+<br />
+<br />
+</div>
+<?php 
+function paging	($count,$start,$limit,$BaseUrl,$env)
+{
+	$paging	="";
+	$this1 			= $start + $limit; 
+	$back 			= $start - $limit; 
+	$next 			= $start + $limit;
+	if		($count > $limit )
+			{
+				$paging		.= ' <table align = "center" '
+							.  ' style="text-align:right" width="100%"><tr><td  align="center" width="25%">';
+				if	($back >= 0) 
+					{ 
+						$paging	.= "<a href='".$BaseUrl."/rtcmanager/rtctype/frmlist/st/".$back. $env ."' class='btn'><font  size='2'>صفحه قبل</font></a>"; 
+					} 
+				$paging	.= "</td><td align=center width='50%'>";
+				$i			= 0;
+				$j			= 1;
+				for		($i	= 0; $i < $count; $i	= $i + $limit)
+					{
+						if	($i <> $start)
+							{
+								$paging	.= " <a href='".$BaseUrl."/rtcmanager/rtctype/frmlist/st/".$i. $env ."'><font  size='2'>".$j."</font></a> ";
+							}
+						else 
+							{ 
+								$paging	.= "<font  size='4' color=red>".$j."</font>";
+							}        
+						$j	= $j+1;
+					}
+				$paging	.= "</td><td  align='center' width='25%'>";
+				if	($this1 < $count)
+					{ 
+						$paging	.= "<a href='".$BaseUrl."/rtcmanager/rtctype/frmlist/st/".$this1. $env ."' class='btn'><font  size='2'>صفحه بعد</font></a>";
+					} 
+				$paging	.= "</td></tr></table>";
+			}
+	echo $paging;
+}
+?>

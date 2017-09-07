@@ -1,0 +1,76 @@
+﻿<html>
+<head>
+<link type="text/css" rel="stylesheet" href="/css/rasta/loginform.css" />
+<title><?php echo $this->escape($this->title);?></title>
+<script>
+function submitfrm()
+{
+document.forms[0].submit();
+}
+</script>
+
+
+</head>
+<body>
+<div class="row1" >
+
+</div>
+
+<div class="row2" >
+	<div id="left_bar" class="frmsection ui-corner-all">
+			<div class="frmcnt2">
+			<h2 style="font-family:arial;font-size:17px;font-weight:bold"><?php echo $this->escape($this->title);?></h2>
+			<div id="description"><?php echo $this->description;?></div>
+				<form class="frmup" method='post' action='<?php echo $this->baseUrl().$this->escape($this->action);?>'>
+				<table width="75%" cellpadding="5">
+					<tr>
+					  <td class="tdtitle"><?php echo $this->escape($this->username);?></td>
+					  <td ><input class="frminputtxt" type='text' name='login_username'></td>
+					  <td>نام کاربری همان ایمیل شما می باشد</td>
+					</tr>
+					<tr>
+					  <td class="tdtitle"><?php echo $this->escape($this->password);?></td>
+					  <td ><input class="frminputtxt" type='password' name='login_password'></td>
+					  <td>در صورت نیاز با خالی گذاشتن فیلد رمز، لینک ورود به سیستم به ایمیل شما ارسال خواهد شد</td>
+					</tr>	
+					<tr>
+						<td class="tdtitle">کد امنیتی</td>
+						<td><input class="frminputtxt" type="text" name="captcha"></td>
+						<td align="right" valign="middle">
+							<img id="siimage" align="right" style="padding: 0px; border: 0;" src="<?php echo $this->baseUrl()?>/admin/public/generatecaptcha" />
+							<a tabindex="-1" href="#" title="Refresh Image" onClick="document.getElementById('siimage').src = '<?php echo $this->baseUrl()?>/admin/public/generatecaptcha/t/'+ Math.random() ;	return false;">
+							<img src="<?php echo $this->baseUrl()?>/img/refresh.png" alt="Reload Image" border="0" onClick="this.blur()"  /></a>        					
+						</td>
+					</tr>	
+					<tr>
+					  <td class="tdtitle"></td>
+					  <td ><a style="float:right" class="frmup btn" href="#" onClick="javascript : submitfrm();">ورود</a>				  
+				<?php
+				if ($this->acc_level != 'just_admin')
+					{
+				?>
+
+				  <a style="float:left" class="frmup btn" href="<?php echo $this->baseUrl()?>/godpanel/user/frmreguser">ایجاد پورتال رایگان</a>
+				
+				<?php 
+					}
+				?>
+</td>
+					  <td>
+					  </td>
+					</tr>	
+			  </table>
+			</form>
+			</div>				
+	</div>
+
+</div>
+
+<div class="row3">
+
+</div>
+
+
+
+</body>
+</html>

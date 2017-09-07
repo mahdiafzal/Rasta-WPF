@@ -1,0 +1,32 @@
+<?php echo $this->doctype('XHTML1_TRANSITIONAL'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow:scroll;">
+<head>
+	<link rel="icon" type="image/gif" href="/img/RSDFavIconlogo.gif" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <?php //echo $this->headTitle() ?>
+    <?php //echo $this->headMeta() ?>
+    <?php echo $this->headLink() ?>
+    <?php echo $this->headStyle() ?>
+    <?php echo $this->headScript() ?>
+	<link type="text/css" rel="stylesheet" href="/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/css/rasta/controlpanel.css" />
+	<link type="text/css" rel="stylesheet" href="/css/jqui/jquery.ui.all.css" />
+
+	<script type="text/javascript" src="/js/jQuery/jquery.js"></script>
+	<script type="text/javascript" src="/js/jQuery/jquery-ui.js"></script>
+	<title>کنترل پنل::<?php echo $this->escape($this->title_site); ?></title>
+
+</head>
+
+<body>
+	<div id="container" >
+		<div id="menu"><?php	echo $this->layout()->menu ;?></div>
+		<div id="main_section" >
+			<div id="content" class="ui-widget-content ui-corner-all"><?php echo $this->layout()->content ;
+																			echo $this->layout()->registeruser;	
+																		?></div>
+		</div>
+	</div>
+</body>
+</html>

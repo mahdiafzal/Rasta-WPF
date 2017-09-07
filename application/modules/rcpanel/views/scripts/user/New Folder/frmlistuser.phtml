@@ -1,0 +1,363 @@
+﻿<script type="text/javascript">
+//--------------------------
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tb_listuser").addClass("ui-state-active");
+})
+</script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+//--------
+	$('input[name=txt_family]').val('<?php echo $this->post_data['txt_family']; ?>');
+	$('input[name=txt_username]').val('<?php echo $this->post_data['txt_username']; ?>');	
+	$('input[name=txt_sitename]').val('<?php echo $this->post_data['txt_sitename']; ?>');	
+	$('input[name=txt_siteurl]').val('<?php echo $this->post_data['txt_siteurl']; ?>');	
+
+	$("#sel_state_user")	.val('<?php echo $this->post_data['sel_state_user']; ?>')	.attr('option','selected');
+	$("#sel_state_site")	.val('<?php echo $this->post_data['sel_state_site']; ?>')	.attr('option','selected');
+	$("#sel_state_site_of_users").val('<?php echo $this->post_data['sel_state_site_of_users']; ?>')	.attr('option','selected');
+	$("#sel_count")			.val('<?php if($this->post_data['sel_count']==''){echo '20';}else{echo $this->post_data['sel_count'];} ?>').attr('option','selected');
+	$('input[name=start]')	.val('<?php if (isset($this->post_data['start'])){echo $this->post_data['start'];}else{echo '0';} ?>');
+	$('input[name=order_by]').val('<?php if (isset($this->post_data['order_by'])){echo $this->post_data['order_by'];}else{echo 'id';} ?>');
+	$('.ordering').attr('asc_desc','<?php if (isset($this->post_data['asc_desc'])){echo $this->post_data['asc_desc'];}else{echo 'DESC';} ?>');
+//--------
+	$('.paging_butt ,#show_result').click(function()
+							{
+								var start=$(this).attr('start');
+								$('input[name=start]').val(start);
+								document.forms[0].submit();
+							}
+	);
+//--------
+	$('.ordering').click(function()
+							{
+								$('input[name=order_by]').val($(this).attr('order_by'));
+								if ($(this).attr('asc_desc')=='DESC')
+								{
+									$('input[name=asc_desc]').val('ASC');
+								}
+								else
+								{
+									$('input[name=asc_desc]').val('DESC');
+								}
+								document.forms[0].submit();
+							}
+	);
+//--------
+	$("#sending_mail_by_query").click(function()
+										{
+											$("#frm0").attr("action","/rcpanel/panel/frmgroupmailbyquery");
+											document.forms[0].submit();
+										}
+	);
+//--------
+	$("#sending_mail").click(function()
+								{
+									if($('input[type=checkbox]').filter(':checked').length)
+									{
+										document.forms[1].submit();
+									}
+									else
+									{
+										alert('هیچ سایتی انتخاب نشده است');
+									}
+								}
+	);
+//--------
+	$('#tgl').click(
+				function()
+					{
+						$('input[type=checkbox]').attr('checked', $(this).attr('checked') );
+					});
+//--------
+	$('#add_charge').click(function()
+							{
+								if($('input[type=checkbox]').filter(':checked').length)
+								{
+									$('#frm1').attr("action","/rcpanel/panel/frmaddcharge");
+									document.forms[1].submit();
+								}
+								else
+								{
+									alert('هیچ سایتی انتخاب نشده است');
+								}
+							}
+	)
+//--------
+
+//--------
+		$('#search_butt').button().toggle(
+			function(){$('#div_tbl').css("display","block").slideUp('slow');}
+			,	
+			function(){$('#div_tbl').css("display","none").slideDown('slow');}
+		)
+//--------
+})
+</script>
+<style>
+#div_tbl{margin:0 auto;padding:15px;margin:5px auto;width:850px;border:1px ridge #0066FF;height:auto;}
+.row{width:100%;height:25px; margin:2px auto;font-family:tahoma;}
+.part_one{width:130px;float:right;text-align:right;height:100%;}
+.eee {background-color:#FFAEBE;}
+</style>
+<?php 
+//print_r($this->post_data);
+?>
+
+			<div id="scenariosoption" class="ui-corner-all">
+			</div>
+<div style="margin:0 auto;" >
+<a id="search_butt"  style="height:30px;width:880px; position:relative; overflow:visible;font-family:tahoma;font-size:12px;" >جستجو</a>
+	<div id="div_tbl" class="ui-corner-all">
+		<form id="frm0" name="frm0" action="/rcpanel/user/frmlistuser" method="post" style="margin-top:3px;">
+		<div class="row" >
+			<div class="part_one"><span> نام و نام خانوادگی: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<input type="text" name="txt_family" size="25" />
+			</div>
+			<div style="width:150px;float:right;text-align:right;height:100%;"></div>
+			<div style="width:350px;float:right;text-align:right;height:100%;">
+				<div style="width:100px;float:right;"> ایمیل(نام کاربری): </div>
+				<input type="text" name="txt_username" size="25" />
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> نام سایت: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<input type="text" name="txt_sitename" size="25" />
+			</div>
+			<div style="width:150px;float:right;text-align:right;height:100%;"></div>
+			<div style="width:350px;float:right;text-align:right;height:100%;">
+				<div style="width:100px;float:right;"> آدرس سایت: </div>
+				<input type="text" name="txt_siteurl" size="25" />
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> وضعیت کاربر: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_state_user' id='sel_state_user'>
+						<option value='all'>همه</option>
+						<option value='1'>فعال</option>
+						<option value='0'>غیر فعال</option>
+						<option value='-1'>معلق</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> وضعیت سایت: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_state_site' id='sel_state_site'>
+						<option value='all'>همه</option>
+						<option value='1'>فعال</option>
+						<option value='0'>غیر فعال</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> وضعیت سایت کاربران: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_state_site_of_users' id='sel_state_site_of_users'>
+						<option value='all'>همه</option>
+						<option value='IS NOT NULL'>دارند</option>
+						<option value='IS NULL'>ندارند</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> تعداد نمایش در صفحه: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_count' id='sel_count'>
+						<option value='10'>10</option>
+						<option value='20' selected="selected">20</option>
+						<option value='30'>30</option>
+						<option value='50'>50</option>
+						<option value='100'>100</option>
+						<option value='all'>همه</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" >
+			<div style="width:100px;float:left;text-align:center;"><strong><?php echo $this->count; ?></strong> </div>
+			<div style="width:100px;float:left;text-align:right;height:100%;">تعداد نتایج جستجو:</div>		
+		</div>
+		<div class="row" >
+			<div style="margin:0 auto; width:400px;">
+			<a id ="show_result" href="#" start="0" class="btn ui-state-default ui-corner-all">نمایش نتیجه</a>
+			</div>
+		</div>
+		<input type="hidden" name="start"  />
+		<input type="hidden" name="order_by" />
+		<input type="hidden" name="asc_desc" />
+	</form>
+	</div>
+
+	
+ 
+ 
+  	<?php 
+		if (!empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+				echo "<h2>".$msg."</h2>";
+			}
+ 			echo '</div>';
+ 		}
+	?>
+<div id="content_of_search" style="margin:15px auto;">
+<?php 
+$data = $this->data;
+	if (count($data)>0)
+	{
+?>
+		<form name="frm1" id="frm1" action="/rcpanel/panel/frmgroupmail" method="post" style="margin-top:3px;">
+		<input type="hidden" name="callback" value="user/frmlistuser" />
+		  <table border="1" cellspacing="0"  class="showborder ui-widget" style="table-layout:fixed;">
+			<tr  class="ui-widget-header">
+			  <th style="width:30px;" >ردیف</th>
+			  <th style="width:20px;" ><input type="checkbox" name="tgl" id="tgl" /></th>	  
+			  <th style="width:200px;"><a href="#" class="ordering" order_by="name"	asc_desc='DESC'>صاحب سایت</a></th>
+			  <th style="width:230px;"><a href="#" class="ordering" order_by="username"	asc_desc='DESC'>نام کاربری(ایمیل)</a></th>	  
+			  <th style="width:230px;"><a href="#" class="ordering" order_by="title" asc_desc='DESC'>عنوان سایت</a></th>	  
+			  <th style="width:40px;" ><a href="#" class="ordering" order_by="is_active"	asc_desc='DESC'>وضعیت</a></th>
+			  <th style="width:150px;" >عمل</th>	  
+			</tr>
+		<?php 		
+			
+			$j=1;
+			$pic=array(-1=>'pic_suspend.gif',0=>'pic_deactive.gif',1=>'pic_active.gif');
+			foreach( $data as $i)
+			{		
+		?>
+			<tr class="ui-widget-content " title="<?php echo $i['wb_description'] ?>">
+				<td style="width:30px;" ><?php echo $j+$this->start;?></td>	
+				<td style="width:20px;">
+					<center><input value="<?php echo $i['id']; ?>" name="chk[]" type="checkbox" /></center>
+				</td>	
+				<td style="width:200px;"><div class="lnk" style="width:200px; overflow:hidden;padding:3px;">
+				<a  href="/rcpanel/user/frmeditusers/id/<?php echo $i['id'] ?>"><?php echo $i['name'];	?></a>
+				</div>
+				</td>				
+				
+				<td style="width:230px;"><div class="lnk" style="width:230px; overflow:hidden;padding:3px;"><?php echo $i['username']?></div>
+				</td>				
+				
+				<td <?php if($i['wb_id']==NULL)echo 'class="eee"' ?>  style="width:230px;"><div style="width:230px; overflow:hidden;padding:3px;">
+				<a  href="http://<?php echo $this->domain[$i['wb_id']] ?>" target="_blank">
+				<?php echo substr($i['wb_title'],0,100); if(strlen($i['wb_title'])>100)echo " ..." ?>
+									</a></div>
+				</td>
+				<td style="width:40px;">
+					<?php echo "<center><img src='/img/".$pic[$i['is_active']]."'></center>";
+					?>
+				</td>	    
+				<td style="width:50px;" >
+					<center>
+					<a title="ویرایش کاربر" href="/rcpanel/user/frmeditusers/id/<?php echo $i['id'] ?>"><img src="/img/edit.png" /></a>|
+					<a title="ارسال ایمیل" href="/rcpanel/panel/frmsendmail/id/<?php echo $i['id']; ?>"><img src="/img/mail.gif" /></a>|
+					<a title="فعال سازی کاربر" href="/rcpanel/user/act/typ/1/id/<?php echo $i['id']?>"><img src="/img/pic_active.gif" /></a>|
+					<a title="غیرفعال کردن کاربر" href="/rcpanel/user/act/typ/0/id/<?php echo $i['id']?>"><img src="/img/pic_deactive.gif" /></a>|
+					<a title="تعلیق کاربر" href="/rcpanel/user/act/typ/-1/id/<?php echo $i['id']?>"><img src="/img/pic_suspend.gif" /></a>
+					</center>
+				</td>	    
+			</tr>
+		<?php 
+				$j++;
+			}  
+		?>
+		  </table>
+
+		  <table border="1" cellspacing="0"  class="ui-widget" width="100%" >
+			<tr>
+				<td align="right">
+					<a id ="sending_mail" 	href="#" class="btn ui-state-default ui-corner-all">ارسال ایمیل</a>
+					<?php /*?><a id ="add_charge" 	href="#" class="btn ui-state-default ui-corner-all">شارژ سایت</a><?php */?>
+				</td>	
+			</tr>
+			<tr>
+				<td align="center">
+					<?php if ($this->limit!='all'){paging($this->count,$this->start,$this->limit,$this->BaseUrl());}?>
+					
+				</td>
+			</tr>
+		
+		  </table>
+		</form>
+<?php
+	}
+	else
+	{
+		echo '<h1>هیچ سایتی یافت نشد!</h1>';
+		//echo paging($this->count,$this->start,$this->limit,$this->BaseUrl());
+		
+	}
+?>
+</div>
+
+</div>
+
+
+
+
+
+<?php 
+function paging	($count,$start,$limit,$BaseUrl)
+{
+	$paging	="";
+	$this1 			= $start + $limit; 
+	$back 			= $start - $limit; 
+	$next 			= $start + $limit;
+	if		($count > $limit )
+			{
+				$paging		.= ' <table align = "center" '
+							.  ' style="text-align:right" width="100%"><tr><td  align="center" width="25%">';
+				if	($back >= 0) 
+					{ 
+						$paging	.= "<a href='#' start='".$back."' class='paging_butt btn ui-state-default ui-corner-all'><font  size='2'>صفحه قبل</font></a>"; 
+					} 
+				$paging	.= "</td><td align=center width='50%'>";
+				$i			= 0;
+				$j			= 1;
+				for		($i	= 0; $i < $count; $i	= $i + $limit)
+					{
+						if	($i <> $start)
+							{
+								$paging	.= " <a class='paging_butt' href='#' start='".$i."' ><font  size='2'>".$j."</font></a> ";
+							}
+						else 
+							{ 
+								$paging	.= "<font  size='4' color=red>".$j."</font>";
+							}        
+						$j	= $j+1;
+					}
+				$paging	.= "</td><td  align='center' width='25%'>";
+				if	($this1 < $count)
+					{ 
+						$paging	.= "<a href='#' start='".$this1."' class='paging_butt btn ui-state-default ui-corner-all'><font  size='2'>صفحه بعد</font></a>";
+					} 
+				$paging	.= "</td></tr></table>";
+			}
+	echo $paging;
+}
+//-------------
+function ger_to_fa($date)
+{
+	if ($date=='')
+	{
+		return	 NULL;
+	}
+	else 
+	{
+		$arr	= explode(' ',$date)	;
+		$d		= explode('-',$arr[0])	;
+		$pdate	= new Rasta_Pdate;
+		$arr[0] = implode('-',$pdate->gregorian_to_persian($d[0],$d[1],$d[2]));
+		return  implode(' ',$arr);
+	}	
+}
+//---------------
+?>

@@ -1,0 +1,46 @@
+<chart>
+
+	<chart_data>
+		<row>
+			<null/>
+			<string>Active</string>
+			<string>Inactive</string>
+		</row>
+		<row>
+			<string></string>
+			<number bevel='data' label='<?php echo (empty($this->data[1]))?'0':$this->data[1] ?>\rActive'><?php echo (empty($this->data[1]))?'0':$this->data[1] ?></number>
+			<number bevel='data' glow='glow1' label='<?php echo (empty($this->data[0]))?'0':$this->data[0] ?>\rInactive'><?php echo (empty($this->data[0]))?'0':$this->data[0] ?></number>
+		</row>
+	</chart_data>
+	<?php /*?><chart_grid_h alpha='20' color='FFFFFF' thickness='1' type='solid' /><?php */?>
+	<chart_label shadow='low' color='ffffff' alpha='95' size='20' position='inside' as_percentage='false' />
+	<?php /*?><chart_pref select='true' /><?php */?>
+	<?php /*?><chart_rect bevel='bg' positive_color='4c5577' positive_alpha='75' /><?php */?>
+	<chart_type>pie</chart_type>
+
+	<draw>
+		<text shadow='high' transition='dissolve' delay='0' duration='0.5' alpha='20' size='48' x='8' y='8' width='400' height='75' h_align='left' v_align='bottom'>Active Uers</text>
+<?php /*?>		<text layer='background' shadow='low' color='ffffff' alpha='5' size='30' x='4' y='0' width='480' height='150' >||||||||||||||||||||||||||||||||||||||||||||||||||||||||</text>
+		<text layer='background'  shadow='low' color='ffffff' alpha='5' size='30' x='4' y='140' width='480' height='150' v_align='bottom'>||||||||||||||||||||||||||||||||||||||||||||||||||||||||</text>
+	<?php */?></draw>
+	<filter>
+		<shadow id='low' distance='2' angle='45' color='0' alpha='50' blurX='5' blurY='5' />
+		<bevel id='data' angle='45' blurX='10' blurY='10' distance='3' highlightAlpha='5' highlightColor='ffffff' shadowColor='000000' shadowAlpha='50' type='full' />
+		<?php /*?><bevel id='bg' angle='10' blurX='20' blurY='20' distance='10' highlightAlpha='25' highlightColor='ff8888' shadowColor='8888ff' shadowAlpha='25' type='full' /><?php */?>
+		<glow id='glow1' color='ff88ff' alpha='75' blurX='30' blurY='30' inner='false' />
+	</filter>
+	
+	<context_menu full_screen='false' />
+	<legend layout="hide" />
+	<?php /*?><legend shadow='low' fill_color='0' fill_alpha='5' line_alpha='0' line_thickness='0' bullet='circle' size='12' color='eeffff' alpha='75' margin='10' /><?php */?>
+
+	<series_color>
+		<color>4e62dd</color>
+		<color>ff8811</color>
+	</series_color>
+	<series_explode>
+		<number>10</number>
+		<number>0</number>
+	</series_explode>
+
+</chart>

@@ -1,0 +1,246 @@
+<div id="page_regisiteform" class="page">
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#chk_domain').click(function(){
+		$.ajax({
+		  url: "/rcpanel/public/ajaxvalidator/",
+		  type:"post",
+		  data: {'domain':$(":input[name=s_subdomain]").val(), 'act':'subdomain'},
+		  success: callAlertCol
+		});
+	})
+})
+function regsiteSubmitForm()
+{
+	if ($('input[name=agreementchk]').attr('checked'))	document.forms.regsiteform.submit();
+	else			alert('<?php echo $this->translate->_('ac');?>');
+}
+</script>
+<div class="art-post">
+	<div class="art-post-tl"></div>
+	<div class="art-post-tr"></div>
+	<div class="art-post-bl"></div>
+	<div class="art-post-br"></div>
+	<div class="art-post-tc"></div>
+	<div class="art-post-bc"></div>
+	<div class="art-post-cl"></div>
+	<div class="art-post-cr"></div>
+	<div class="art-post-cc"></div>
+	<div class="art-post-body">
+<div class="art-post-inner">
+				<h2 class="art-postheader">
+					<span class="art-postheader"><?php echo $this->title;?></span>
+				</h2>
+				<div class="art-postcontent">
+					<!-- article-content -->
+		
+<form method="post" action="/rcpanel/panel/crtsite" name="regsiteform">
+<div class="div_tbl" style="border-bottom:1px solid #999999;">
+	<table style="width:600px; margin:0 auto;text-align:right;direction:<?php echo $this->translate->_('dir');?>;">
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('m');?>:* </label></td>
+			<td class="td_box"><input type="text" name="s_title" maxlength="100" size="35" value="<?php echo $this->data['s_title'];?>" /> </td>
+		</tr>
+
+		<tr title="<?php echo $this->translate->_('n');?>">
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('o');?>: </label></td>
+			<td class="td_box"><input type="text" name="s_latintitle" maxlength="100" size="35" value="<?php echo $this->data['s_latintitle'];?>" /> </td>
+		</tr>
+
+
+
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('p');?>:* </label></td>
+			<td class="td_box">
+			<?php $configs	= Zend_Registry::get('config'); $domainsuffix = '.'.$configs->base->domain; ?>
+			<label class="label"><strong>http://www.</strong></label>
+			<input type="text" name="s_subdomain" maxlength="50" size="21" value="<?php echo $this->data['s_subdomain'];?>" />
+			<label class="label"><strong><?php echo $domainsuffix; ?></strong></label>
+				<span class="art-button-wrapper ">
+					<span class="l"> </span>
+					<span class="r"> </span>
+					<a id="chk_domain" class='art-button' href="#" style="width:70px;text-align:center;"><?php echo $this->translate->_('q');?></a>
+				</span>
+		</td>
+		</tr>
+
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('r');?>: </label></td>
+			<td class="td_box"><textarea name="s_slogan" size="35"  rows="2" cols="32" ><?php echo $this->data['s_slogan'];?></textarea></td> 
+		</tr>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('s');?>: </label></td>
+			<td class="td_box"><textarea name="s_authors" size="35"  rows="2" cols="32"><?php echo $this->data['s_authors'];?></textarea></td>
+		</tr>
+		<tr title="<?php echo $this->translate->_('t');?>">
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('u');?>: </label></td>
+			<td class="td_box"><textarea name="s_description" size="35"  rows="2" cols="32"<?php echo $this->data['s_description'];?>></textarea></td>
+		</tr>
+		<tr title="<?php echo $this->translate->_('v');?>">
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('w');?>: </label></td>
+			<td class="td_box"><textarea name="s_keywords" size="35"  rows="2" cols="32"><?php echo $this->data['s_keywords'];?></textarea></td> 
+		</tr>
+	</table>
+</div>
+
+<div class="div_tbl">
+<?php echo $this->translate->_('x');?>&nbsp;<input type="checkbox" name="agreementchk" value="true" />
+&nbsp;&nbsp;&nbsp;<a href="#" onclick="$('#agreement').slideToggle(1000);return false;"><?php echo $this->translate->_('y');?></a>
+</div>
+<div id="agreement" class="div_tbl" style="width:650px;height:auto;text-align:justify;display:none;border:solid 1px #CCCCCC;"><?php echo $this->translate->_('z');?></div>
+
+<div class="div_tbl">
+<center>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='art-button' onclick="regsiteSubmitForm();return false;"  href="#" style="width:100px;text-align:center;"><?php echo $this->translate->_('aa');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='art-button' href="/rcpanel" style="width:100px;text-align:center;"><?php echo $this->translate->_('ab');?></a>
+</span>
+</center>
+</div>
+</form>
+			
+	
+
+					<!-- /article-content -->
+				</div>
+				<div class="cleared"></div>
+</div>
+
+		<div class="cleared"></div>
+	</div>
+</div>
+<style type="text/css">
+#page_regisiteform .art-post
+{
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+  min-width: 49px;
+  min-height: 49px;
+}
+
+#page_regisiteform .art-post-body
+{
+  position: relative;
+  z-index: 1;
+  padding: 21px;
+}
+
+#page_regisiteform .art-post-tr, #page_regisiteform .art-post-tl, #page_regisiteform .art-post-br, #page_regisiteform .art-post-bl, #page_regisiteform .art-post-tc, #page_regisiteform .art-post-bc,#page_regisiteform .art-post-cr, #page_regisiteform .art-post-cl
+{
+  position: absolute;
+  z-index: -1;
+}
+
+#page_regisiteform .art-post-tr, #page_regisiteform .art-post-tl, #page_regisiteform .art-post-br, #page_regisiteform .art-post-bl
+{
+  width: 88px;
+  height: 88px;
+  background-image: url('/modules/rcpanel/images/post_s.png');
+}
+
+#page_regisiteform .art-post-tl
+{
+  top: 0;
+  left: 0;
+  clip: rect(auto, 44px, 44px, auto);
+}
+
+#page_regisiteform .art-post-tr
+{
+  top: 0;
+  right: 0;
+  clip: rect(auto, auto, 44px, 44px);
+}
+
+#page_regisiteform .art-post-bl
+{
+  bottom: 0;
+  left: 0;
+  clip: rect(44px, 44px, auto, auto);
+}
+
+#page_regisiteform .art-post-br
+{
+  bottom: 0;
+  right: 0;
+  clip: rect(44px, auto, auto, 44px);
+}
+
+#page_regisiteform .art-post-tc, #page_regisiteform .art-post-bc
+{
+  left: 44px;
+  right: 44px;
+  height: 88px;
+  background-image: url('/modules/rcpanel/images/post_h.png');
+}
+
+#page_regisiteform .art-post-tc
+{
+  top: 0;
+  clip: rect(auto, auto, 44px, auto);
+}
+
+#page_regisiteform .art-post-bc
+{
+  bottom: 0;
+  clip: rect(44px, auto, auto, auto);
+}
+
+#page_regisiteform .art-post-cr, #page_regisiteform .art-post-cl
+{
+  top: 44px;
+  bottom: 44px;
+  width: 88px;
+  background-image: url('/modules/rcpanel/images/post_v.png');
+}
+
+#page_regisiteform .art-post-cr
+{
+  right: 0;
+  clip: rect(auto, auto, auto, 44px);
+}
+
+#page_regisiteform .art-post-cl
+{
+  left: 0;
+  clip: rect(auto, 44px, auto, auto);
+}
+
+#page_regisiteform .art-post-cc
+{
+  position: absolute;
+  z-index: -1;
+  top: 44px;
+  left: 44px;
+  right: 44px;
+  bottom: 44px;
+  background-color: #FFFFFF;
+}
+
+#page_regisiteform .art-post
+{
+  margin: 7px;
+}
+#page_regisiteform .td_title{width:100px;}
+#page_regisiteform .td_box{width:450px;}
+#page_regisiteform .div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:650px;height:auto;}
+#page_regisiteform textarea{resize:vertical;}
+
+
+<?php if($this->translate->_('dir')=='rtl'){?>
+#page_regisiteform .art-postheader{direction:rtl;text-align:right;}
+#page_regisiteform div, #page_regisiteform td{text-align:right;}
+
+<?php } ?>
+</style>
+</div>
+
+

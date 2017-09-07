@@ -1,0 +1,118 @@
+<script type="text/javascript">
+$(function(){
+if(window.opener!=null & window.opener.Crtc.fn.rtcPopupAction)
+{
+	$('#tab2, #tab3').css('visibility','hidden');
+}
+else
+{
+	window.opener=null;
+}
+})
+
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.art-article ol { padding-right:30px;}
+.art-article ol li{ font-family:tahoma; Arial, Helvetica, sans-serif; font-size:13px; text-align:right; line-height:1.5;}
+.rtctitle{color: #009900; direction:rtl; font-weight:bold;}
+</style>
+<div class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->escape($this->title); ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+<div class="ui-state-highlight ui-corner-all"	>
+	<!--<h1><?php echo $this->escape($this->title);?></h1>-->
+	<?php 
+	$data	= $this->data;
+	if (!isset($data))
+	{
+		echo '<h1>مطلب مورد نظر یافت نشد!</h1>';
+	}
+	else
+	{
+	?>
+</div>	
+	<form name="frm" action="/rtcmanager/delcnt/index<?php echo $this->env; ?>" method="post">
+	<ol>
+<h4 align="right" style=" color:#29577A;margin:5px -15px;">متن های انتخاب شده عبارتند از:</h4>
+<?php
+	$i=0;
+	foreach($data as $itm)
+	{
+		$i++
+?>
+<li>متن با عنوان:  <span class="rtctitle"><?php echo $itm['title'] ; if(!empty($itm['ltn_name'])) echo ' - '.$itm['ltn_name'].''; ?> </span></li>
+<!--		<div class=" cnt_del <?php if ($i%2==0){echo 'ui-state-highlight';}else{echo 'ui-state-error';} ?>">
+		<table  cellspacing="0" cellpadding="1" border="0" width="100%" style="text-align:right;padding:10px;">
+			<tr>
+			<td><label class="label">عنوان متن: </label></td>
+			<td><h4 style="color: #009900;"><?php echo $itm['title'] ; ?></h4></td>
+			</tr>
+			
+			<tr>
+			<td ><label class="label">نام لاتین متن:</label></td>
+			<td><h4 style="color: #009900;"><?php echo $itm['ltn_name']; ?></h4></td>
+			</tr>
+			
+			<tr>
+			<td><label class="label">توضیحات:</label></td>
+			<td>
+			</td>
+			</tr>
+--><!--			<tr>
+			<td ><label class="label">مجموعه ها:</label></td>
+			<td>(محل نمایش مجموعه ها)</td>
+			</tr>
+-->			
+			<input type="hidden" name="ids[]" value="<?php echo $itm['id']?>" />
+<!--		</table>
+		</div>-->
+
+<?php
+	}
+?>
+	</ol>
+<div class="cnt_del">
+<br />
+<center>
+	<h4 style="color:#FF3300;line-height:1.5;" dir="rtl">
+	درصورت تأیید، مطلب یا مطالب فوق بطورکلی حذف خواهند شد.<br/>
+	آیا تأیید می نمایید؟	
+	</h4>
+</center>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="javascript: document.forms[0].submit();" >تائید</a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/rtcmanager/frmlistcnt/index<?php echo $this->env; ?>" >انصراف</a>
+</span>
+<br />
+<br />
+		</div>
+	</form>
+<?php
+}
+?>

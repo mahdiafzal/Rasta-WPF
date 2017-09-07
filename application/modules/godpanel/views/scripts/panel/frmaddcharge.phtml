@@ -1,0 +1,104 @@
+<script type="text/javascript">
+function submitForm()
+{
+	document.forms[0].submit();
+}
+
+</script>
+<style>
+.p1{	width:140px;}
+.p2{	width:190px;}
+.p3{	width:140px;}
+.p4{	width:140px;}
+.pp{float:right;font-family:tahoma;font-size:13px;overflow:hidden;margin-top:3px;height:17px}
+#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:650px;border:1px solid;height:auto;}
+</style>  
+  	<?php 
+		if (!empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+				echo "<h2>".$msg."</h2>";
+			}
+ 			echo '</div>';
+ 		}
+	?>
+
+<form action="/godpanel/panel/addcharge" method="post">
+
+	<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+	<div id="div_tbl" class="ui-corner-all ui-widget-content" style="overflow:scroll;height:200px;">
+		<div class="ui-corner-all" style="width:100%;border:1px solid #abcabc;height:20px;margin:2px;">
+			<div class="p1 pp"><strong>نام صاحب پورتال</strong></div>
+			<div class="p2 pp"><strong>عنوان پورتال</strong></div>
+			<div class="p3 pp"><strong>تاریخ ایجاد</strong></div>
+			<div class="p4 pp"><strong>تاریخ انقضاء</strong></div>
+		</div>
+		<?php 
+			foreach ($this->data as $itm)
+			{
+				echo '<div class="ui-corner-all" style="width:100%;border:1px solid #abcabc;height:20px;margin:2px;">'
+						.'<div class="p1 pp">'.$itm['name'].'</div>'
+						.'<div class="p2 pp">'.$itm['wb_title'].'</div>'
+						.'<div class="p4 pp">'.ger_to_fa($itm['wb_creation']).'</div>'
+						.'<div class="p3 pp">'.ger_to_fa($itm['wb_expirdate'],'exp').'</div>'
+						.'</div>';
+			}
+		?>
+	</div>
+	<div id="div_tbl" class="ui-corner-all ui-widget-content">
+		<table border="1" cellspacing="0"  class="showborder ui-widget" style="table-layout:fixed;width:80%; margin:10px auto;">
+			<tr title="" align="center" class="ui-widget-header">
+				<th class="f1"><center>نوع</center></th>
+				<th class="f2">قیمت(تومان)</th>
+			</tr>	
+			<tr title="">
+				<td class="f1"><input name="rdo_typ_pay" value="3_month" type="radio"  /> دو ماهه</td>
+				<td class="f2">9,800</td>
+			</tr>	
+			<tr title="">
+				<td class="f1"><input name="rdo_typ_pay" value="6_month" type="radio"  /> شش ماهه</td>
+				<td class="f2">23,500</td>
+			</tr>				
+			<tr title="">
+				<td class="f1"><input name="rdo_typ_pay" value="1_year" type="radio"  checked /> یک ساله</td>
+				<td class="f2">42,300</td>
+			</tr>				
+			<tr title="">
+				<td class="f1"><input name="rdo_typ_pay" value="2_year" type="radio"  /> دو ساله</td>
+				<td class="f2">75,200</td>
+			</tr>						
+		</table>
+	</div>
+	<div id="div_tbl" class="ui-corner-all ui-state-highlight">
+	<center>
+					<input type="hidden" name="id" value="<?php echo $this->id; ?>" />
+					<a title="تائید و شارژ پورتالها" class='btn ui-state-default ui-corner-all' href="#"	onclick="javascript :submitForm();" >شارژ</a>
+					<a title="انصراف و بازگشت به لیست پورتالها" class='btn ui-state-default ui-corner-all' href="/godpanel/panel/frmlistsite">انصراف</a>
+	</center>
+	</div>
+</form>
+<?php
+//-------------
+function ger_to_fa($date,$type='crt')
+{
+	if ($date=='')
+	{
+		return	 NULL;
+	}
+	else 
+	{
+		$arr	= explode(' ',$date)	;
+		$d		= explode('-',$arr[0])	;
+		$pdate	= new Rasta_Pdate;
+		$arr[0] = implode('-',$pdate->gregorian_to_persian($d[0],$d[1],$d[2]));
+		$res	= $arr[0];// implode(' ',$arr);
+		if(($date<date("Y-m-d H:i:s")) and $type=='exp'){
+			$res	= '<span style="color:red;font-weight:bold">'.$res.'</span>';
+		}
+		return  $res;
+	}	
+}
+//---------------
+?>

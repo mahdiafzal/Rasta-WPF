@@ -1,0 +1,170 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: ali\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "af"
+msgstr "List of Valid Variable Names:<br /><br />multidb (type:tree), env (type:string)"
+
+msgid "ag"
+msgstr "scripts that will be execute before contorller init and action scripts"
+
+msgid "ah"
+msgstr "just for commenting!"
+
+msgid "preview"
+msgstr ""
+
+msgid "select"
+msgstr ""
+
+msgid "ok"
+msgstr "تأیید"
+
+msgid "cancel"
+msgstr "انصراف"
+
+msgid "type"
+msgstr ""
+
+msgid "normal"
+msgstr ""
+
+msgid "menu"
+msgstr ""
+
+msgid "previous page"
+msgstr "صفحه قبل"
+
+msgid "next page"
+msgstr "صفحه بعد"
+
+msgid "configs"
+msgstr ""
+
+msgid "bootstrap"
+msgstr ""
+
+msgid "layout"
+msgstr ""
+
+msgid "comment"
+msgstr ""
+
+msgid "a"
+msgstr ""
+
+msgid "b"
+msgstr ""
+
+msgid "c"
+msgstr "خطا در فرایند بروز رسانی اکشن، دوباره تلاش نمایید."
+
+msgid "d"
+msgstr "اکشن مورد نظر با موفقیت بروزرسانی شد."
+
+msgid "e"
+msgstr "خطا در ثبت اکشن جدید، دوباره تلاش نمایید."
+
+msgid "f"
+msgstr "اکشن جدید با موفقیت ثبت شد."
+
+msgid "g"
+msgstr "ویرایش پورتلت"
+
+msgid "h"
+msgstr "خطا در داده های ورودی، دوباره تلاش نمایید. شاید لازم باشد صفحه مجددا بارگذاری شود."
+
+msgid "i"
+msgstr "<h1>هیچ پورتلتی یافت نشد!</h1>"
+
+msgid "j"
+msgstr "پورتلت مورد نظر یافت نشد"
+
+msgid "k"
+msgstr "نام پورتلت نباید خالی باشد و باید از الگوی تعیین شده پیروی کند"
+
+msgid "l"
+msgstr "<center><br /><br /><h4 style=\"color:#CC3300;line-height:1.5;direction:rtl;\">درصورت تأیید پورتلت انتخاب شده حذف خواهد شد.<br />آیا تأیید می نمایید؟</h4></center>"
+
+msgid "m"
+msgstr "کنترلر مورد نظر یافت نشد"
+
+msgid "n"
+msgstr "نام کنترلر نباید خالی باشد و باید از الگوی تعیین شده پیروی کند"
+
+msgid "o"
+msgstr "کنترلر جدید با موفقیت ثبت شد."
+
+msgid "p"
+msgstr "خطا در ثبت کنترلر جدید، دوباره تلاش نمایید."
+
+msgid "q"
+msgstr "کنترلر مورد نظر با موفقیت بروزرسانی شد."
+
+msgid "r"
+msgstr "خطا در فرایند بروز رسانی کنترلر، دوباره تلاش نمایید."
+
+msgid "s"
+msgstr "کنترلر مورد نظر با موفقیت حذف شد"
+
+msgid "t"
+msgstr "خطا در فرآیند حذف کنترلر"
+
+msgid "u"
+msgstr "ابتدا باید اکشن های کنترلر مورد نظر را حذف کنید."
+
+msgid "v"
+msgstr "نام اکشن نباید خالی باشد و باید از الگوی تعیین شده پیروی کند"
+
+msgid "w"
+msgstr ""
+
+msgid "x"
+msgstr "خطا در فرایند بروز رسانی پورتلت، دوباره تلاش نمایید."
+
+msgid "y"
+msgstr "پورتلت مورد نظر با موفقیت بروزرسانی شد."
+
+msgid "z"
+msgstr "پورتلت جدید با موفقیت ثبت شد."
+
+msgid "aa"
+msgstr "خطا در ثبت پورتلت جدید، دوباره تلاش نمایید."
+
+msgid "ab"
+msgstr "<center><br /><br /><h4 style=\"color:#CC3300;line-height:1.5;direction:rtl;\">درصورت تأیید کنترلر انتخاب شده حذف خواهد شد.<br />آیا تأیید می نمایید؟</h4></center>"
+
+msgid "ac"
+msgstr "پورتلت مورد نظر با موفقیت حذف شد"
+
+msgid "ad"
+msgstr "خطا در فرآیند حذف پورتلت"
+
+msgid "ae"
+msgstr "ابتدا باید کنترلرهای پورتلت مورد نظر را حذف کنید."
+
+msgid "ai"
+msgstr "Name Field can not be NULL or include space,\":\" and \"?\""
+
+msgid "aj"
+msgstr "Scripts that will be execute before action scripts"
+
+msgid "ak"
+msgstr "Action scripts will be execute before layout rendering"
+
+msgid "al"
+msgstr "اکشن مورد نظر با موفقیت حذف شد"
+
+msgid "am"
+msgstr "خطا در فرآیند حذف اکشن"
+
+msgid "an"
+msgstr "<center><br /><br /><h4 style=\"color:#CC3300;line-height:1.5;direction:rtl;\">درصورت تأیید اکشن انتخاب شده حذف خواهد شد.<br />آیا تأیید می نمایید؟</h4></center>"
+

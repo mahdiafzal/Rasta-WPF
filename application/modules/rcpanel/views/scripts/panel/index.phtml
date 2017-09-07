@@ -1,0 +1,181 @@
+<style>
+#crtsite:hover{color:#FF0000;}
+#crtsite{color:#009900;}
+table td{font-family:Tahoma ;font-size:11px;}
+#div_tbl{margin:15px auto;overflow:hidden;width:705px;border:1px solid;height:auto;}
+.obj{width:128px;height:128px;margin:22px;float:right;border:dashed 1px #CCCCCC;}
+.obj a{display:block;height:100%;width:100%;font-family:Tahoma;font-size:14px;}
+.dtl{font-family:Tahoma;font-size:12px;height:20px;margin:5px auto;overflow:hidden;float:right;}
+.clr{color:red;text-align:right;}
+.button_title{position:relative;bottom:0;border:dashed 1px #CCCCCC;padding:3px;margin-top:3px;font-family:Tahoma;font-size:10px;}
+#homeview{background-image:url(/img/panel/homeview.gif);}
+#edithome{background-image:url(/img/panel/edithome.gif);}
+#rastakinfo{background-image:url(/img/panel/rastakinfo.gif);}
+#help{background-image:url(/img/panel/help.gif);}
+#errorreport{background-image:url(/img/panel/errorreport.gif);}
+#unlockview{background-image:url(/img/panel/unlock.gif);}
+#lockview{background-image:url(/img/panel/lock.gif);}
+#selluck{background-image:url(/img/panel/selluck.gif);}
+#saman{background-image:url(/img/panel/saman.gif);}
+#adddomain{background-image:url(/img/panel/adddomain.gif);}
+#exportdb{background-image:url(/img/panel/exportdb.gif);}
+#selskin{background-image:url(/img/skins/1.gif);background-repeat:no-repeat;background-position:center;}
+#sitesetting{background-image:url(/img/panel/sitesetting.gif);}
+#usersetting{background-image:url(/img/panel/usersetting.gif);}
+#shutdown{background-image:url(/img/panel/shutdown.gif);}
+</style>
+
+
+
+<div id="skinMsg"></div>
+<div id="div_tbl" class="" style="padding:0 15px;">
+
+<?php
+			if (isset($this->siteData))
+			{
+	?>			
+			<div style="margin:0 auto;width:100%;">
+				<div class="dtl" style="width:65px;"><?php echo $this->translate->_('b'); ?></div>	
+				<div class="dtl clr" style="width:235px;"><?php echo $this->first_name.' ' .$this->last_name; ?></div>	
+				<div class="dtl" style="width:100px;"><b><?php echo $this->translate->_('c'); ?></b></div>	
+				<div class="dtl" style="width:100px;"><?php echo ger_to_fa($this->siteData['wb_creation']); ?></div>	
+				<div class="dtl" style="width:100px;"><b><?php echo $this->translate->_('d'); ?></b></div>	
+				<div class="dtl" style="width:100px;"><?php echo ger_to_fa($this->siteData['wb_expirdate']); ?></div>	
+			</div>					
+	<?php	}
+			else
+			{ 
+		?>						
+				<div class="dtl" style="width:70px;"><?php echo $this->translate->_('b'); ?></div>	
+				<div class="dtl clr" style="width:235px;"><?php echo $this->first_name.' ' .$this->last_name; ?></div>	
+				<div class="dtl" style="width:380px;"><?php echo $this->translate->_('e'); ?> <strong><a id="crtsite" href="/rcpanel/panel/frmcrtsite"><?php echo $this->translate->_('f'); ?></a></strong> <?php echo $this->translate->_('g'); ?></div>	
+		<?php
+			}	
+		?>
+</div>
+
+<div id="div_tbl" class="" style="padding:15px;">
+		<?php 	
+			if (isset($this->siteData))
+			{
+				$att1	= ' title="'.$this->translate->_('h').'" target="_blank"';
+				$att2	= ' title="'.$this->translate->_('i').'" target="_blank"';
+				$att3	= ' title="'.$this->translate->_('j').'"';
+				$att4	= ' title="'.$this->translate->_('ad').'"';
+
+				$parkDomainUrl	= '/rcpanel/panel/frmparkdomain';
+				$wpExportUrl	= '/rcpanel/export/frmwordpress';
+				if($this->siteData['wb_status']=='1')
+				{	
+					$href	= '/rcpanel/panel/publishsite/id/0' ;
+					$title	= $this->translate->_('ae');
+					$id		= 'unlockview';
+				}else{
+					$href='/rcpanel/panel/publishsite/id/1';
+					$title	= $this->translate->_('af');
+					$id		= 'lockview';
+				}
+				
+				if (isset($this->domainData))
+				{
+					$siteUrl		= 'http://' .$this->domainData['domain'];
+					$siteAdminUrl 	= 'http://' .$this->domainData['domain']. '/admin';
+					$editSiteUrl 	= 'http://' .$this->domainData['domain']. '/admin/index/sitesetting/env/dsh';
+				}
+				else
+				{
+					$siteUrl		= '#';
+					$siteAdminUrl	= '#';
+					$editSiteUrl	= '#';
+				}
+				
+			}
+			else
+			{
+				$att1	= ' title="'.$this->translate->_('ag').'"';
+				$att2	= ' title="'.$this->translate->_('ag').'"';
+				$att3	= ' title="'.$this->translate->_('ag').'"';
+				$att4	= ' title="'.$this->translate->_('ag').'"';
+				$siteUrl		= '#';
+				$siteAdminUrl	= '#';
+				$editSiteUrl	= '#';
+				$parkDomainUrl	= '#';
+				$wpExportUrl	= '#';
+				$id		= 'selluck';
+				$href	= '#';
+				$title	= $this->translate->_('ag');			
+			}
+		
+		?>
+	<div class="obj">
+		<a id="usersetting" href="/rcpanel/user/frmedit" title="<?php echo $this->translate->_('ah'); ?>"></a>
+		<div  class="button_title"><?php echo $this->translate->_('ah'); ?></div>
+	</div>
+	<div class="obj">
+		<a id="<?php echo $id;?>" href="<?php echo $href;?>" title="<?php echo $title;?>"></a>
+		<div  class="  button_title"><?php echo $this->translate->_('ai'); ?></div>
+	</div>	
+	<div class="obj">
+		<a id="adddomain" href="<?php echo $parkDomainUrl;?>" <?php echo $att4; ?> ></a>
+		<div  class="  button_title"><?php echo $this->translate->_('aj'); ?></div>
+	</div>
+	<div class="obj">
+		<a id="exportdb" href="<?php echo $wpExportUrl;?>" title="<?php echo $this->translate->_('ak'); ?>"></a>
+		<div class="button_title"><?php echo $this->translate->_('al'); ?></div>
+	</div>
+	
+	<div style="width:100%;height:10px;float:right;border:none;border-bottom:solid 1px #999999;">&nbsp;</div>
+	
+	<div class="obj">
+		<a id="homeview" href="<?php echo $siteUrl;?>" <?php echo $att1; ?> ></a>
+		<div  class="   button_title"><?php echo $this->translate->_('h'); ?></div>
+	</div>
+	<div class="obj">
+		<a id="edithome" href="<?php echo $siteAdminUrl;?>" <?php echo $att2; ?> ></a>
+		<div  class="  button_title"><?php echo $this->translate->_('i'); ?></div>
+	</div>
+	<div class="obj">
+		<a id="sitesetting" href="<?php echo $editSiteUrl;?>" <?php echo $att3; ?> ></a>
+		<div  class="  button_title"><?php echo $this->translate->_('j'); ?></div>
+	</div>
+	<div class="obj">
+		<a id="saman" href="#" title="<?php echo $this->translate->_('am'); ?>"></a>
+		<div  class="  button_title"><?php echo $this->translate->_('am'); ?></div>
+	</div>
+
+	<div class="obj">
+		<a id="rastakinfo" href="http://rastakcms.com" title="<?php echo $this->translate->_('an'); ?>" target="_blank"></a>
+		<div  class="  button_title"><?php echo $this->translate->_('an'); ?></div>
+	</div>
+	<div class="obj">
+		<a id="help" href="http://rastakcms.com/help" title="<?php echo $this->translate->_('ao'); ?>" target="_blank"></a>
+		<div class="button_title"><?php echo $this->translate->_('ao'); ?></div>
+	</div>
+	<div class="obj">
+		<a id="errorreport" href="http://rastakcms.com/reporterror" title="<?php echo $this->translate->_('ap'); ?>" target="_blank"></a>
+		<div  class="  button_title"><?php echo $this->translate->_('ap'); ?></div>
+	</div>
+	<div class="obj">
+		<a id="shutdown" href="/rcpanel/user/logout" title="<?php echo $this->translate->_('aq'); ?>"></a>
+		<div  class="  button_title"><?php echo $this->translate->_('aq'); ?></div>
+	</div>
+</div>
+
+
+<?php
+function ger_to_fa($date)
+{
+	if ($date=='')
+	{
+		return	 NULL;
+	}
+	else 
+	{
+		$arr	= explode(' ',$date)	;
+		$d		= explode('-',$arr[0])	;
+		$pdate	= new Rasta_Pdate;
+		$arr[0] = implode('-',$pdate->gregorian_to_persian($d[0],$d[1],$d[2]));
+		return  $arr[0] ;
+	}	
+}
+?>

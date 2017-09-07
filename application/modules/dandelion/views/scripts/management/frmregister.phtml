@@ -1,0 +1,282 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function submitForm()
+	{
+		document.forms[0].submit();
+		return false;
+	})
+})
+function addActionBlock()
+{
+	var nodeIndex	= $('.action-blocks').size();
+	var secBlHtml	= '<tr class="action-blocks"><td class="td_title"><label class="label"><?php echo $this->translate->_('action');?> </label><br /><br /><br /><br /><span class="art-button-wrapper"><span class="l"> </span><span class="r"> </span><a  class="art-button" href="#" onclick="return delthisrow(this);"><?php echo $this->translate->_('delete');?></a></span></td><td class="td_box"><label class="label"><?php echo $this->translate->_('ao');?> </label>:&nbsp;&nbsp;<input type="text" class="inputBox" size="50" name="acts['+nodeIndex+'][name]" /><br /><br /><label class="label"><?php echo $this->translate->_('ap');?> </label>:&nbsp;&nbsp;<select name="acts['+nodeIndex+'][type]"><option value="0"><?php echo $this->translate->_('normal');?></option><option value="1"><?php echo $this->translate->_('email');?></option><option value="2"><?php echo $this->translate->_('rtc');?></option><option value="3"><?php echo $this->translate->_('workflow');?></option></select><br /><br /><label class="label"><?php echo $this->translate->_('q');?> </label>:&nbsp;&nbsp;<input type="text" class="inputBox" size="50" name="acts['+nodeIndex+'][success]" /><br /><br /><label class="label"><?php echo $this->translate->_('p');?> </label>:&nbsp;&nbsp;<input type="text" class="inputBox" size="50" name="acts['+nodeIndex+'][failure]" /><br /><br /><label class="label"><?php echo $this->translate->_('s');?> </label>:&nbsp;&nbsp;<br /><textarea cols="75" rows="10" dir="ltr" name="acts['+nodeIndex+'][code]"></textarea><br /><br /></td></tr>';
+
+	$('.art-postcontent table tbody').append(secBlHtml);
+}
+function delthisrow(elem)
+{
+	if($('.action-blocks').size()<=1) return false;
+	var daid_elem	= $(elem).parents('.action-blocks').find('.dact_id');
+	if( daid_elem.length && /^\d+$/.test(daid_elem.val()) )
+	{
+
+		$.ajax({
+			url: "/dandelion/management/delact",
+			dataType: "json",
+			data: {daid:daid_elem.val(), did:<?php echo ( (is_numeric($this->data['did']))?$this->data['did']:'NaN'); ?> },
+			success: function(data){
+				alert(data.msg);
+				if(data.state=='true')
+					$('.dact_id[value="'+data.daid+'"]').parents('.action-blocks').fadeOut('slow', function() { $(this).remove(); });
+
+			}
+				});
+	}
+	else
+	{
+		$(elem).parents('.action-blocks').fadeOut('slow', function() { $(this).remove(); });
+	}
+
+	return false;
+}
+function acdel(elem){
+	if(elem=='confirm')
+	{
+		$.facebox.close();
+		return delthisrow($('#facebox').data('act') );
+	}
+	//var ac	= $(elem).parents('.cr_ac_block').attr('unic');
+	$('#facebox').data('act', elem);
+}
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.td_title{width:135px;}.td_box{width:420px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+</style>
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		}
+	?>
+</div>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->title_site; ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+	<form action="<?php echo $this->form_action;?>" method="post">
+	<table style="width: 840px; margin: 0pt auto; text-align: right; direction:<?php echo $this->translate->_('dir');?>;">
+		<tbody>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('title');?></label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" maxlength="100" name="title" value="<?php echo $this->data['title']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td><label class="label"><?php echo $this->translate->_('r'); ?></label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="65" name="default" value="<?php echo $this->data['default']; ?>" >
+					<br /><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('m');?></span><br /><br />
+				</td>
+			</tr>
+			<tr>
+				<td><label class="label"><?php echo $this->translate->_('status'); ?></label></td>
+				<td class="td_box">
+					<input type="radio" name="status" value="1" <?php echo (($this->data['status']==1)?'checked="checked"':''); ?> />
+						<?php echo $this->translate->_('active'); ?>&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="status" value="0" <?php echo (($this->data['status']==1)?'':'checked="checked"'); ?> />
+						<?php echo $this->translate->_('inactive'); ?>
+					<br /><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('an');?></span><br /><br />
+				</td>
+			</tr>
+			<tr>
+				<td><label class="label"><?php echo $this->translate->_('ac');?></label></td>
+				<td id="userGroups" class="td_box">
+				<style>#userGroups div{<?php echo $this->translate->_('stylea'); ?>}</style>
+				<?php
+					$currentGroups	= array();
+					if(!empty($this->data['user_group'])) $currentGroups	= array_filter(explode('/', $this->data['user_group']));
+					if(is_array($this->wbsUserGroups))
+						foreach($this->wbsUserGroups as $value)
+						{
+							$checkedState = '';
+							if( in_array($value['id'],$currentGroups) ) $checkedState = 'checked="checked"';
+							echo '<div><input type="checkbox" name="ugroup[]" value="'.$value['id'].'" '.$checkedState.' /><label>&nbsp;'.$value['title'].'</label></div>'; 
+						}
+				?>
+					<div style="width:99.9%;float:left;"><br /><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('ad');?></span><br /><br /></div>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="td_box" colspan="2">
+					<br /><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('n');?></span><br /><br />
+				</td>
+			</tr>
+<?php
+$aj	= 0;
+if(is_array($this->data['acts']) and count($this->data['acts'])>0)
+{ 
+
+	foreach($this->data['acts'] as $act)
+	{
+?>
+			<tr class="action-blocks">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('action');?> </label>
+				<br /><br /><br /><br />
+				<span class="art-button-wrapper">
+				<span class="l"> </span>
+				<span class="r"> </span>
+				<a  class="art-button" href="#dlg_alert" rel="facebox" onclick="return acdel(this);"><?php echo $this->translate->_('delete');?></a>
+				</span>
+				</td>
+				<td class="td_box">
+					<input class="dact_id" type="hidden" name="acts[<?php echo $aj; ?>][daid]" value="<?php echo $act['daid']; ?>" />
+					<label class="label"><?php echo $this->translate->_('ao');?> </label>:&nbsp;&nbsp;
+					<input type="text" class="inputBox" size="50" name="acts[<?php echo $aj; ?>][name]" value="<?php echo $act['name']; ?>" /><br /><br />
+					<label class="label"><?php echo $this->translate->_('ap');?> </label>:&nbsp;&nbsp;
+					<select name="acts[<?php echo $aj; ?>][type]">
+						<?php $da_type_sel	= array('','','','','');	$da_type_sel[(int)$act['type']]	= 'selected="selected"'; ?>
+						<option value="0" <?php echo $da_type_sel[0]; ?> ><?php echo $this->translate->_('normal');?></option>
+						<option value="1" <?php echo $da_type_sel[1]; ?> ><?php echo $this->translate->_('email');?></option>
+						<option value="2" <?php echo $da_type_sel[2]; ?> ><?php echo $this->translate->_('rtc');?></option>
+						<option value="3" <?php echo $da_type_sel[3]; ?> ><?php echo $this->translate->_('workflow');?></option>
+						<option value="4" <?php echo $da_type_sel[4]; ?> ><?php echo $this->translate->_('soap');?></option>
+					</select><br /><br />
+					<label class="label"><?php echo $this->translate->_('q');?> </label>:&nbsp;&nbsp;
+					<input type="text" class="inputBox" size="50" name="acts[<?php echo $aj; ?>][success]" value="<?php echo $act['success']; ?>" /><br /><br />
+					<label class="label"><?php echo $this->translate->_('p');?> </label>:&nbsp;&nbsp;
+					<input type="text" class="inputBox" size="50" name="acts[<?php echo $aj; ?>][failure]" value="<?php echo $act['failure']; ?>" /><br /><br />
+					<label class="label"><?php echo $this->translate->_('s');?> </label>:&nbsp;&nbsp;<br />
+					<textarea cols="75" rows="10" dir="ltr" name="acts[<?php echo $aj; ?>][code]"><?php echo htmlspecialchars($act['code']); ?></textarea><br /><br />
+				</td> 
+			</tr>
+
+
+
+<?php
+	$aj++;
+	}
+?>
+
+<link href="/lib/facebox/v2/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="/lib/facebox/v2/facebox.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $('a[rel*=facebox]').facebox()  })
+</script>
+
+<div id="dlg_alert" style="display:none;">
+<?php echo $this->translate->_('ah');?>
+<br />
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a id="confirm"  class='btn art-button' href="" onclick="acdel('confirm');return false;" ><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a class='btn art-button' onclick="$.facebox.close();" ><?php echo $this->translate->_('cancel');?></a>
+</span>
+<br />
+<br />
+</div>
+
+<?php
+}
+else
+{
+?>			
+			<tr class="action-blocks">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('action');?> </label>
+				<br /><br /><br /><br />
+				<span class="art-button-wrapper">
+				<span class="l"> </span>
+				<span class="r"> </span>
+				<a  class="art-button" href="#" onclick="return delthisrow(this);"><?php echo $this->translate->_('delete');?></a>
+				</span>
+				</td>
+				<td class="td_box">
+					<label class="label"><?php echo $this->translate->_('ao');?> </label>:&nbsp;&nbsp;
+					<input type="text" class="inputBox" size="50" name="acts[0][name]" /><br /><br />
+					<label class="label"><?php echo $this->translate->_('ap');?> </label>:&nbsp;&nbsp;
+					<select name="acts[0][type]">
+						<option value="0"><?php echo $this->translate->_('normal');?></option>
+						<option value="1"><?php echo $this->translate->_('email');?></option>
+						<option value="2"><?php echo $this->translate->_('rtc');?></option>
+						<option value="3"><?php echo $this->translate->_('workflow');?></option>
+						<option value="4"><?php echo $this->translate->_('soap');?></option>
+					</select><br /><br />
+					<label class="label"><?php echo $this->translate->_('q');?> </label>:&nbsp;&nbsp;
+					<input type="text" class="inputBox" size="50" name="acts[0][success]" /><br /><br />
+					<label class="label"><?php echo $this->translate->_('p');?> </label>:&nbsp;&nbsp;
+					<input type="text" class="inputBox" size="50" name="acts[0][failure]" /><br /><br />
+					<label class="label"><?php echo $this->translate->_('s');?> </label>:&nbsp;&nbsp;<br />
+					<textarea cols="75" rows="10" dir="ltr" name="acts[0][code]"></textarea><br /><br />
+				</td> 
+			</tr>
+<?php
+}
+?>			
+		</tbody>
+	</table>
+	<input type="hidden" value="<?php echo $this->data['did']; ?>" name="did" />
+	</form>
+			
+
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="#"><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/dandelion/management/frmlist#fragment-3" ><?php echo $this->translate->_('cancel');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="#" onclick="addActionBlock();return false;" ><?php echo $this->translate->_('l');?></a>
+</span>
+<br />
+<br />
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>

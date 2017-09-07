@@ -1,0 +1,128 @@
+<?php
+
+?>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function submitForm()
+	{
+		document.forms[0].submit();
+		return false;
+	})
+})
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.td_title{width:135px;}.td_box{width:420px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+</style>
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		}
+	?>
+</div>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->title_site; ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+	<form action="<?php echo $this->form_action;?>" method="post">
+	<table style="width: 840px; margin: 0pt auto; text-align: right; direction:<?php echo $this->translate->_('dir');?>;">
+		<tbody>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('title');?></label></td>
+				<td class="td_box">
+					<?php echo $this->data['title']; ?>
+					<input type="hidden" name="title" value="<?php echo $this->data['title']; ?>" />
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('e');?></label></td>
+				<td class="td_box">
+					<br /><select class="inputBox" name="page" style="width:150px;">
+<?php foreach($this->WbsPages as $page) echo '<option value="'.$page['id'].'" '.(($page['id']==$this->data['page'])?'selected="selected"':'').'>'.$page['title'].'</option>'; ?>
+					</select>
+					<div style="width:99.9%;float:left;"><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('ae');?></span><br /><br /></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"></label></td>
+				<td class="td_box">
+				<?php $lock	= ($this->data['lock']=='on')?'checked="checked"':''; ?>
+				<input id="lockcheck" type="checkbox" class="inputBox" name="lock" <?php echo $lock;?>>&nbsp;<label for="lockcheck"><?php echo $this->translate->_('j');?></label>
+					<div style="width:99.9%;float:left;"><br /><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('ad');?></span><br /><br /></div>
+				</td>
+			</tr>
+			<tr>
+				<td><label class="label"><?php echo $this->translate->_('i');?></label></td>
+				<td id="userGroups" class="td_box">
+				<style>#userGroups div{<?php echo $this->translate->_('stylea'); ?>}</style>
+				<?php
+					$currentGroups	= array();
+					if(!empty($this->data['ugroup'])) $currentGroups	= array_filter(explode('/', $this->data['ugroup']));
+					if(is_array($this->wbsUserGroups))
+						foreach($this->wbsUserGroups as $value)
+						{
+							$checkedState = '';
+							if( in_array($value['id'],$currentGroups) ) $checkedState = 'checked="checked"';
+							echo '<div><input type="checkbox" name="usrgroup[]" value="'.$value['id'].'" '.$checkedState.' /><label>&nbsp;'.$value['title'].'</label></div>'; 
+						}
+				?>
+					<div style="width:99.9%;float:left;"><br /><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('f');?></span><br /><br /></div>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+	<input type="hidden" value="<?php echo $this->data['gid']; ?>" name="gid" />
+	</form>
+			
+
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="#"><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/gadget/admin/frmlist#fragment-3" ><?php echo $this->translate->_('cancel');?></a>
+</span>
+<br />
+<br />
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>

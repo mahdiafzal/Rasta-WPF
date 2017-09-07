@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-05-04 16:17+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "a"
+msgstr "ایجاد صفحه"
+
+msgid "b"
+msgstr "عنوان صفحه:*"
+
+msgid "c"
+msgstr "با استفاده از این امکان می توانید صفحه را غیر فعال یا معلق کنید"
+
+msgid "d"
+msgstr "وضعیت صفحه:"
+
+msgid "e"
+msgstr "در حالت فعال، این صفحه نمایش داده خواهد شد"
+
+msgid "f"
+msgstr "فعال"
+
+msgid "g"
+msgstr "در حالت غیر فعال پیغامی مبنی بر اینکه صفحه در دست ساخت می باشد، نمایش داده خواهد شد"
+
+msgid "h"
+msgstr "غیر فعال"
+
+msgid "i"
+msgstr "در حالت معلق پیغامی مبنی بر اینکه صفحه پیدا نشد، نمایش داده خواهد شد"
+
+msgid "j"
+msgstr "معلق"
+
+msgid "k"
+msgstr "شعار مربوط به صفحه شما می باشد"
+
+msgid "l"
+msgstr "شعار صفحه:"
+
+msgid "m"
+msgstr "تایید"
+
+msgid "n"
+msgstr "انصراف"
+
+msgid "o"
+msgstr "در صورت تمایل می توانید نام موِلّفان صفحه خود را ذکر کنید"
+
+msgid "p"
+msgstr "نویسندگان صفحه:"
+
+msgid "q"
+msgstr "این توضیحات جهت ارائه به موتور های جستجو می باشد"
+
+msgid "r"
+msgstr "توضیحات:"
+
+msgid "s"
+msgstr "کلمات کلیدی دسترسی افراد مختلف را از طریق موتور جستجو به سایت شما آسان می کند"
+
+msgid "t"
+msgstr "کلمات کلیدی:"
+
+msgid "u"
+msgstr ""
+
+msgid "v"
+msgstr ""
+
+msgid "w"
+msgstr ""
+
+msgid "x"
+msgstr ""
+
+msgid "y"
+msgstr ""
+
+msgid "z"
+msgstr ""
+

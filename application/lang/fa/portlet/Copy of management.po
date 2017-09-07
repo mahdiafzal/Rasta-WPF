@@ -1,0 +1,186 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2012-07-14 19:11+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "dir"
+msgstr "rtl"
+
+msgid "title"
+msgstr ""
+
+msgid "edit"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "preview"
+msgstr "پیش نمایش"
+
+msgid "select"
+msgstr "انتخاب"
+
+msgid "ok"
+msgstr "تأیید"
+
+msgid "cancel"
+msgstr "انصراف"
+
+msgid "type"
+msgstr "نوع"
+
+msgid "normal"
+msgstr "عادی"
+
+msgid "menu"
+msgstr "منو"
+
+msgid "previous page"
+msgstr "صفحه قبل"
+
+msgid "next page"
+msgstr "صفحه بعد"
+
+msgid "configs"
+msgstr ""
+
+msgid "bootstrap"
+msgstr ""
+
+msgid "layout"
+msgstr ""
+
+msgid "comment"
+msgstr ""
+
+msgid "a"
+msgstr "لیست پوسته های اختصاصی"
+
+msgid "b"
+msgstr "پوسته های اختصاصی"
+
+msgid "c"
+msgstr "ردیف"
+
+msgid "d"
+msgstr "تصویر"
+
+msgid "e"
+msgstr "عمل"
+
+msgid "f"
+msgstr "قالب های عمومی"
+
+msgid "g"
+msgstr "ویرایش پورتلت"
+
+msgid "h"
+msgstr "خطا در داده های ورودی، دوباره تلاش نمایید. شاید لازم باشد صفحه مجددا بارگذاری شود."
+
+msgid "i"
+msgstr "<h1>هیچ پوسته ای یافت نشد!</h1>"
+
+msgid "j"
+msgstr "پوسته ی مورد نظر یافت نشد"
+
+msgid "k"
+msgstr "configs"
+
+msgid "l"
+msgstr "<center><br /><br /><h4 style=\"color:#CC3300;line-height:1.5;\direction:rtl;\">درصورت تأیید پورتلت انتخاب شده حذف خواهد شد.<br />آیا تأیید می نمایید؟</h4></center>"
+
+msgid "m"
+msgstr "bootstrap"
+
+msgid "n"
+msgstr "بلوک بخش ها (Section Block)"
+
+msgid "o"
+msgstr "بخش ها"
+
+msgid "p"
+msgstr "شماره ی بخش ها را با علامت \",\" از یکدیگر جدا کنید. نمونه: 1,3,5"
+
+msgid "q"
+msgstr "اضافه کردن بلوک بخش ها"
+
+msgid "r"
+msgstr "layout"
+
+msgid "s"
+msgstr "comment"
+
+msgid "t"
+msgstr "بلوک بخش ها، حداقل باید عضو یک بخش باشد."
+
+msgid "u"
+msgstr "عنوان پوسته نباید خالی باشد."
+
+msgid "v"
+msgstr "فیلد \"آدرس فایل ها\" نباید خالی و می بایست آدرس معتبر باشد."
+
+msgid "w"
+msgstr "\"فیلد بدنه HTML\" نباید خالی و می بایست کدهای معتبر HTML باشد."
+
+msgid "x"
+msgstr "خطا در فرایند بروز رسانی پوسته مورد نظر، دوباره تلاش نمایید."
+
+msgid "y"
+msgstr "پوسته مورد نظر با موفقیت بروزرسانی شد."
+
+msgid "z"
+msgstr "پوسته جدید با موفقیت ثبت شد."
+
+msgid "aa"
+msgstr "خطا در ثبت پوسته جدید، دوباره تلاش نمایید."
+
+msgid "ab"
+msgstr "خطای سیستمی در فرایند ثبت پوسته جدید، با پشتیبانی نرم افزار تماس بگیرید."
+
+msgid "ac"
+msgstr "پوسته مورد نظر با موفقیت حذف شد"
+
+msgid "ad"
+msgstr "خطا در فرآیند حذف پوسته"
+
+msgid "ae"
+msgstr "برای سایت شما هیچ بدنه ای ثبت نشده است. بدنه برای پوسته الزامی است. ابتدا بدنه پوسته ی خود را از طریق علامت '+' کنار لیست بدنه ها ایجاد نمایید."
+
+msgid "af"
+msgstr "List of Valid Variable Names:<br /><br />multidb (type:tree), env (type:string)"
+
+msgid "ag"
+msgstr "scripts that will be execute before contorller init and action scripts"
+
+msgid "ah"
+msgstr "just for commenting!"
+
+msgid "ai"
+msgstr ""
+
+msgid "aj"
+msgstr ""
+
+msgid "ak"
+msgstr ""
+
+msgid "al"
+msgstr ""
+
+msgid "am"
+msgstr ""
+
+msgid "an"
+msgstr ""
+

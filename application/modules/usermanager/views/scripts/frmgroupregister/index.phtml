@@ -1,0 +1,138 @@
+<script type="text/javascript">
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.td_title{width:120px;}.td_box{width:400px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+</style>
+
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+			<div class="art-post-inner">
+				<div class="art-postmetadataheader">
+					<h2 class="art-postheader">
+						<span class="art-postheader"><?php echo $this->escape($this->title_site); ?></span>
+					</h2>
+				</div>
+				<div class="art-postcontent"> 
+					
+	<?php 
+	if (!empty($this->errormsg))
+	{
+	echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+	foreach ($this->errormsg as $errormsg)
+	{
+		   echo  "<h4>".$errormsg."</h4>";
+	}
+	echo'</blockquote>';
+	}
+	?>
+	
+	<form action="<?php echo $this->formAction; ?>" method="post" autocomplete="off">
+	<table style="width: 540px; margin: 0pt auto; text-align: right; direction:rtl;">
+	<tbody>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('d'); ?></label></td>
+			<td class="td_box">
+				<input type="text" class="inputBox" size="35" maxlength="100" name="g_title" value="<?php echo $this->data['g_title']; ?>">
+			</td>
+		</tr>
+		<?php if(is_array($this->grp_subs)){ ?>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('cy');?> </label></td>
+			<td class="td_box" style="padding-bottom:10px;">
+				<?php
+				$grp_subs	= false;
+				if(!empty($this->data['first_subs']))	$grp_subs	= array_filter( explode('/', $this->data['first_subs']) );
+
+				foreach($this->grp_subs as $urg)
+				{
+					$chk	= '';
+					if($grp_subs)	if(in_array($urg['id'],$grp_subs)) $chk	= 'checked="checked"';
+					echo '<div class="sub_b"><input type="checkbox" name="urgsubs[]" value="'.$urg['id'].'" id="sub_'.$urg['id'].'" '.$chk.' /><label for="sub_'
+						. $urg['id'].'">'.$urg['title'].'</label></div>';
+				}
+				
+				?>
+				<style><?php $rorl	= ($this->translate->_('dir')=='rtl')?'right':'left'; ?>
+				.sub_b{width:48%;height:20px;overflow:hidden;float:<?php echo $rorl; ?>;text-align:<?php echo $rorl; ?>;}</style>
+			</td>
+		</tr>
+		<?php } ?>
+		
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('e'); ?></label></td>
+			<style>
+			#permissionlist div{<?php echo $this->translate->_('stylea'); ?>}
+			</style>
+			
+			<td id="permissionlist" class="td_box" >
+			
+			<?php
+				$p_label_keys	= array(
+										1=>'f', 14=>'u', 2=>'g', 3=>'h', 4=>'i', 5=>'j', 86=>'cp', 6=>'k', 7=>'l', 87=>'cq',
+										88=>'cr', 8=>'o', 9=>'p', 89=>'cs',
+										10=>'q', 11=>'r', 12=>'s', 13=>'t',
+										20=>'aa',  17=>'x', 18=>'y', 19=>'z', 
+										21=>'ab', 22=>'ac',
+										71=>'ca', 72=>'cb', 73=>'cc', 74=>'cd', 75=>'ce',
+										23=>'ad', 24=>'ae', 25=>'af', 26=>'ag', 27=>'ah', 28=>'ai', 29=>'aj', 30=>'ak', 31=>'al',
+										32=>'am', 33=>'an', 34=>'ao', 35=>'ap' ,
+										36=>'aq', 37=>'ar', 38=>'as', 39=>'at', 40=>'au', 41=>'av', 42=>'aw', 43=>'ax', 44=>'ay', 45=>'az', 46=>'ba', 47=>'bb',
+										48=>'bc', 49=>'bd', 50=>'be', 51=>'bf', 52=>'bg', 53=>'bh', 54=>'bi', 55=>'bj',15=>'v', 16=>'w', 
+										59=>'bn', 60=>'bo', 61=>'bp', 62=>'bq', 63=>'br', 64=>'bs', 65=>'bt', 66=>'bu',
+										56=>'bk', 57=>'bl', 58=>'bm',
+										67=>'bv', 68=>'bw', 69=>'by', 70=>'bz', 
+										76=>'cf', 77=>'cg', 78=>'ch', 79=>'ci', 80=>'cj', 81=>'ck', 82=>'cl', 83=>'cm', 84=>'cn', 85=>'co',
+										90=>'ct', 91=>'cu', 92=>'cv', 93=>'cw'
+										);
+				$hr_line		= array(14,3,5,87,89,11,13,22,75,23,27,31,35,42,47,51, 66, 58, 70, 79, 80, 85);
+				foreach($p_label_keys as $key=>$value) 
+				{
+					echo '<div>&nbsp;&nbsp;<input type="checkbox" name="p_'.$key.'" ';
+					echo ($this->data['g_permission'][$key]=='1')?'checked="checked"':'';
+					echo '>&nbsp;&nbsp;';
+					echo $this->translate->_( $value );
+					echo "</div>\n";
+					if( in_array($key, $hr_line) ) echo "<hr />\n";
+				}
+			?>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+	</form>
+	<br />
+	<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="javascript:document.forms[0].submit()"><?php echo $this->translate->_('m');?></a>
+	</span>
+	<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/usermanager/frmgrouplist/index<?php echo $this->newUriParams; ?>" ><?php echo $this->translate->_('n');?></a>
+	</span>
+	<br />
+	<br />
+				</div>
+				<div class="cleared"></div>
+			</div>
+				<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+
+

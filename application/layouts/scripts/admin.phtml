@@ -1,0 +1,62 @@
+<?php
+$AdminPanelHtmlHeader = 
+'<script type="text/javascript">
+$var=new variable();
+function variable(){return this;}
+</script>
+<script type="text/javascript" src="/js/RSD_UIEjs/config.js"></script>
+<script type="text/javascript" src="/js/jQuery/jquery.js"></script>
+<script type="text/javascript" src="/admin/public/jslang"></script>
+<script type="text/javascript" src="/js/jQuery/jquerycookie.js"></script>
+<script type="text/javascript" src="/js/jQuery/jquery-ui.js"></script>
+<script type="text/javascript">
+$_	= $;
+delete $;
+$var.config.site.lang = "'.LANG.'";
+$var.config.site.id = '.$this->website_id.';
+$var.config.site.pageId = '.$this->PageID.';
+$var.config.site.pageCount = '.$this->pageslist[0].';
+$_(function(){$_("#verticalPanel, .container, #toolbar").css("display", "block");});
+</script>'.
+$this->headScript();
+
+if($this->SkinVersin<=1)
+	$AdminPanelHtmlHeader .= $this->pageHead;
+
+$AdminPanelHtmlHeader .=
+'<link type="text/css" rel="stylesheet" href="/css/jqui/jquery.ui.all.css" />
+<link type="text/css" rel="stylesheet" href="/css/rasta/tooltags.css" />';
+//<script type="text/javascript">
+//if(typeof $!="object" and typeof $!="function")	$ = $_;
+/*//</script>*/
+
+
+
+if($this->SkinVersin<=1)
+{
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en" style="overflow:scroll;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/reset.css" />
+<?php echo $AdminPanelHtmlHeader; ?>
+</head>
+<body style="direction:ltr !important;">
+<?php echo $this->render('toolbar.phtml') ?>
+<div id="container" unic="<?php echo $this->bodyId;?>">
+	<?php echo $this->layout()->content ?>
+</div>	
+<?php echo $this->render('tooltags.phtml') ?>
+</body>
+</html>
+<?php
+}
+else
+{
+	echo preg_replace("/(\<head[^\>]*\>)/", "$1\n".$AdminPanelHtmlHeader,$this->pageHead);
+	//echo str_replace("</head>", $AdminPanelHtmlHeader."\n</head>", $this->pageHead);
+	echo str_replace("</body>", $this->render('toolbar.phtml') . $this->render('tooltags.phtml')."\n</body>" , 
+						str_replace("#rasta-body-id#", $this->bodyId, $this->layout()->content) );
+}
+?>

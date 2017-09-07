@@ -1,0 +1,415 @@
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("li").removeClass("ui-state-active");
+	$("#tb_listsite").addClass("ui-state-active");
+//--------
+	$("#sel_crt_opration")	.val('<?php echo $this->post_data['sel_crt_opration']; ?>')	.attr('option','selected');
+	$('input[name=txt_crt]').val('<?php echo $this->post_data['txt_crt']; ?>');
+	$("#sel_crt_Confine")	.val('<?php echo $this->post_data['sel_crt_Confine']; ?>')	.attr('option','selected');
+	$("#sel_exp_opration")	.val('<?php echo $this->post_data['sel_exp_opration']; ?>')	.attr('option','selected');
+	$('input[name=txt_exp]').val('<?php echo $this->post_data['txt_exp']; ?>');	
+	$("#sel_exp_Confine")	.val('<?php echo $this->post_data['sel_exp_Confine']; ?>')	.attr('option','selected');
+	$("#sel_state_user")	.val('<?php echo $this->post_data['sel_state_user']; ?>')	.attr('option','selected');
+	$("#sel_state_site")	.val('<?php echo $this->post_data['sel_state_site']; ?>')	.attr('option','selected');
+	$("#sel_count")			.val('<?php if($this->post_data['sel_count']==''){echo '20';}else{echo $this->post_data['sel_count'];} ?>').attr('option','selected');
+	$('input[name=start]')	.val('<?php if (isset($this->post_data['start'])){echo $this->post_data['start'];}else{echo '0';} ?>');
+	$('input[name=order_by]').val('<?php if (isset($this->post_data['order_by'])){echo $this->post_data['order_by'];}else{echo 'id';} ?>');
+	$('.ordering').attr('asc_desc','<?php if (isset($this->post_data['asc_desc'])){echo $this->post_data['asc_desc'];}else{echo 'DESC';} ?>');
+//--------
+	$('.paging_butt ,#show_result').click(function()
+							{
+								var start=$(this).attr('start');
+								$('input[name=start]').val(start);
+								document.forms[0].submit();
+							}
+	);
+//--------
+	$('.ordering').click(function()
+							{
+								$('input[name=order_by]').val($(this).attr('order_by'));
+								if ($(this).attr('asc_desc')=='DESC')
+								{
+									$('input[name=asc_desc]').val('ASC');
+								}
+								else
+								{
+									$('input[name=asc_desc]').val('DESC');
+								}
+								document.forms[0].submit();
+							}
+	);
+//--------
+	$("#sending_mail_by_query").click(function()
+										{
+											$("#frm0").attr("action","/godpanel/panel/frmgroupmailbyquery");
+											document.forms[0].submit();
+										}
+	);
+//--------
+	$("#sending_mail").click(function()
+								{
+									if($('input[type=checkbox]').filter(':checked').length)
+									{
+										document.forms[1].submit();
+									}
+									else
+									{
+										alert('هیچ پورتالی انتخاب نشده است');
+									}
+								}
+	);
+//--------
+	$('#tgl').click(
+				function()
+					{
+						$('input[type=checkbox]').attr('checked', $(this).attr('checked') );
+					});
+//--------
+	$('#add_charge').click(function()
+							{
+								if($('input[type=checkbox]').filter(':checked').length)
+								{
+									$('#frm1').attr("action","/godpanel/panel/frmaddcharge");
+									document.forms[1].submit();
+								}
+								else
+								{
+									alert('هیچ پورتالی انتخاب نشده است');
+								}
+							}
+	)
+//--------
+
+//--------
+		$('#search_butt').button().toggle(
+			function(){$('#div_tbl').css("display","block").slideUp('slow');}
+			,	
+			function(){$('#div_tbl').css("display","none").slideDown('slow');}
+		)
+//--------
+})
+</script>
+<style>
+#div_tbl{margin:0 auto;padding:15px;margin:5px auto;width:850px;border:1px ridge #0066FF;height:auto;}
+.row{width:100%;height:25px; margin:2px auto;font-family:tahoma;}
+.part_one{width:130px;float:right;text-align:right;height:100%;}
+.exp td{background-color:#FFAEBE;}
+</style>
+<?php 
+//print_r($this->post_data);
+?>
+			<div id="scenariosoption" class="ui-corner-all">
+			</div>
+<div style="margin:0 auto;" >
+<a id="search_butt"  style="height:30px;width:880px; position:relative; overflow:visible;font-family:tahoma;font-size:12px;" >جستجو</a>
+	<div id="div_tbl" class="ui-corner-all">
+		<form id="frm0" name="frm0" action="/godpanel/panel/frmlistsite" method="post" style="margin-top:3px;">
+		<div class="row" >
+			<div class="part_one"><span> تاریخ ایجاد: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_crt_opration' id='sel_crt_opration'>
+						<option value='all'>همه</option>
+						<option value='='>برابر</option>
+						<option value='>'>بزرگتر از</option>
+						<option value='<'>کوچکتر از</option>
+						<option value='>='>بزرگتر مساوی از</option>
+						<option value='<='>کوچکتر مساوی از</option>
+				</select>
+
+		</div>
+			<div style="width:250px;float:right;text-align:right;height:100%;">
+				<input id ="date_input_1" type="text" name="txt_crt" size="25"  readonly="true" /> 
+				<span>
+					<img id="date_btn_1" src="/jalali/cal.png" style="vertical-align: top; padding-right:5px;" />
+						<script type="text/javascript">
+							Calendar.setup({
+								inputField     	:   "date_input_1",   // id of the input field
+								button         	:   "date_btn_1",   // trigger for the calendar (button ID)
+								ifFormat       	:   "%Y-%m-%d",       // format of the input field
+								showsTime      	:   false,
+								dateType	   	:	'jalali',
+								electric		:	false,
+								weekNumbers    	: 	false
+							});
+						</script>
+				</span>	
+			</div>
+			<div style="width:250px;float:right;text-align:right;height:100%;">
+				<div style="width:100px;float:right;"> محدوده ی ایجاد: </div>
+				<select name='sel_crt_Confine' id='sel_crt_Confine'>
+						<option value=''>-- انتخاب --</option>
+						<option value='7 DAY'>یک هفته گذشته</option>
+						<option value='14 DAY'>دو هفته گذشته</option>
+						<option value='21 DAY'>سه هفته گذشته</option>
+						<option value='1 MONTH'>یک ماه گذشته</option>
+						<option value='2 MONTH'>دو ماه گذشته</option>
+				</select>		
+
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> تاریخ انقضاء: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_exp_opration' id='sel_exp_opration'>
+						<option value='all'>همه</option>
+						<option value='='>برابر</option>
+						<option value='>'>بزرگتر از</option>
+						<option value='<'>کوچکتر از</option>
+						<option value='>='>بزرگتر مساوی از</option>
+						<option value='<='>کوچکتر مساوی از</option>
+				</select>
+</div>
+			<div style="width:250px;float:right;text-align:right;height:100%;">
+				<input id ="date_input_2" type="text" name="txt_exp" size="25" readonly="true" />
+				<span>
+					<img id="date_btn_2" src="/jalali/cal.png" style="vertical-align: top; padding-right:5px;" />
+						<script type="text/javascript">
+							Calendar.setup({
+								inputField     	:   "date_input_2",   // id of the input field
+								button         	:   "date_btn_2",   // trigger for the calendar (button ID)
+								ifFormat       	:   "%Y-%m-%d",       // format of the input field
+								showsTime      	:   false,
+								dateType	   	:	'jalali',
+								electric		:	false,
+								weekNumbers    	: 	false
+							});
+						</script>
+				</span>	
+			
+			</div>
+			<div style="width:250px;float:right;text-align:right;height:100%;">
+				<div style="width:100px;float:right;"> محدوده ی انقضاء: </div>
+				<select name='sel_exp_Confine' id='sel_exp_Confine'>
+						<option value=''>-- انتخاب --</option>
+						<option value='7 DAY'>یک هفته آینده</option>
+						<option value='14 DAY'>دو هفته آینده</option>
+						<option value='21 DAY'>سه هفته آینده</option>
+						<option value='1 MONTH'>یک ماه آینده</option>
+						<option value='2 MONTH'>دو ماه آینده</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> وضعیت کاربر: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_state_user' id='sel_state_user'>
+						<option value='all'>همه</option>
+						<option value='1'>فعال</option>
+						<option value='0'>غیر فعال</option>
+						<option value='-1'>معلق</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> وضعیت پورتال: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_state_site' id='sel_state_site'>
+						<option value='all'>همه</option>
+						<option value='1'>فعال</option>
+						<option value='0'>غیر فعال</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" >
+			<div class="part_one"><span> تعداد نمایش در صفحه: </span></div>
+			<div style="width:150px;float:right;text-align:right;height:100%;">
+				<select name='sel_count' id='sel_count'>
+						<option value='10'>10</option>
+						<option value='20' selected="selected">20</option>
+						<option value='30'>30</option>
+						<option value='50'>50</option>
+						<option value='100'>100</option>
+						<option value='all'>همه</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" >
+			<div style="width:100px;float:left;text-align:center;"><strong><?php echo $this->count; ?></strong> </div>
+			<div style="width:100px;float:left;text-align:right;height:100%;">تعداد نتایج جستجو:</div>		
+		</div>
+		<div class="row" >
+			<div style="margin:0 auto; width:400px;">
+			<a id ="show_result" href="#" start="0" class="btn ui-state-default ui-corner-all">نمایش نتیجه</a>
+			<a id ="sending_mail_by_query" href="#" class="btn ui-state-default ui-corner-all">ارسال ایمیل</a>
+			</div>
+		</div>
+		<input type="hidden" name="start"  />
+		<input type="hidden" name="order_by" />
+		<input type="hidden" name="asc_desc" />
+	</form>
+	</div>
+
+	
+ 
+ 
+  	<?php 
+		if (!empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+				echo "<h2>".$msg."</h2>";
+			}
+ 			echo '</div>';
+ 		}
+	?>
+<div id="content_of_search" style="margin:15px auto;">
+<?php 
+$data = $this->data;
+	if (count($data)>0)
+	{
+?>
+		<form name="frm1" id="frm1" action="/godpanel/panel/frmgroupmail" method="post" style="margin-top:3px;">
+		<input type="hidden" name="callback" value="panel/frmlistsite" />
+		  <table border="1" cellspacing="0"  class="showborder ui-widget" style="margin:0 auto;">
+			<tr  class="ui-widget-header">
+			  <th style="width:30px;" >ردیف</th>
+			  <th style="width:20px;" ><input type="checkbox" name="tgl" id="tgl" /></th>	  
+			  <th style="width:200px;"><a href="#" class="ordering" order_by="title"	asc_desc='DESC'> عنوان پورتال </a></th>
+			  <th style="width:100px;"><a href="#" class="ordering" order_by="creation"	asc_desc='DESC'>تاریخ ایجاد</a></th>	  
+			  <th style="width:100px;"><a href="#" class="ordering" order_by="expirdate" asc_desc='DESC'>تاریخ انقضاء</a></th>	  
+			  <th style="width:40px;" ><a href="#" class="ordering" order_by="status"	asc_desc='DESC'>انتشار</a></th>
+			  <th style="width:125px;"><a href="#" class="ordering" order_by="username"	asc_desc='DESC'>شناسه کاربر</a></th>
+			  <th style="width:125px;"><a href="#" class="ordering" order_by="name"		asc_desc='DESC'>صاحب پورتال</a></th>
+			  <th style="width:80px;" >عمل</th>	  
+			</tr>
+		<?php 		
+			
+			$j=1;
+			foreach( $data as $i)
+			{		
+		?>
+			<tr class="ui-widget-content <?php if ($i['wb_expirdate']<=date("Y-m-d H:i:s")){echo 'exp';} ?>" title="<?php echo $i['wb_description'] ?>">
+				<td><?php echo $j+$this->start;			?></td>	
+				<td>
+					<center><input value="<?php echo $i['id']; ?>" name="chk[]" type="checkbox" /></center>
+				</td>	
+				<td>
+				<div class="lnk" style="width:230px; overflow:hidden;padding:3px;">
+					<a  href="http://<?php echo $this->domain[$i['wb_id']] ?>" title="<?php echo $i['title']?>" target="_blank">
+					<?php echo substr($i['wb_title'],0,100); if(strlen($i['wb_title'])>100)echo " ..." ?>
+					</a>
+				</div>
+				</td>
+							<?php $arr	= explode(' ',ger_to_fa($i['wb_creation'])); ?>
+				<td title="<?php echo $arr[0].' '.$arr[1]; ?>"><?php echo $arr[0]; ?></td>
+							<?php $arr	= explode(' ',ger_to_fa($i['wb_expirdate'])); ?>	  
+				<td title="<?php echo $arr[0].' '.$arr[1]; ?>"><?php echo $arr[0]; ?></td>
+				<td>
+					<?php if($i['wb_status']=='1')
+							{
+								echo "<a href='/godpanel/panel/doact/id/".$i['wb_id'].".0'><center><img src='/img/publish_g.png'></center></a>";
+							}
+							else
+							{
+								echo "<a href='/godpanel/panel/doact/id/".$i['wb_id'].".1'><center><img src='/img/publish_x.png'></center></a>";
+							}
+					?>
+				</td>	    
+				<td><a href="/godpanel/user/frmeditusers/id/<?php echo $i['id'] ?>"><?php echo $i['username']?> </a></td>	  
+				<td><?php echo $i['name'];	?></td>
+				<td>
+					<center>
+					<a href="/godpanel/panel/frmeditsite/id/<?php echo $i['wb_id'] ?>"><img src="/img/edit.png"></a>|
+					<a href="/godpanel/panel/frmparkdomain/id/<?php echo $i['wb_id'] ?>"><img src="/modules/godpanel/icons/parkdomain.png" width="18px"></a>|
+					<a href="/godpanel/panel/frmsendmail/id/<?php echo $i['id']; ?>"><img src="/img/mail.gif"></a>
+					</center>
+				</td>	    
+			</tr>
+		<?php 
+				$j++;
+			}  
+		?>
+		  </table>
+
+		  <table border="1" cellspacing="0"  class="ui-widget" width="100%" >
+			<tr>
+				<td align="right">
+					<a id ="sending_mail" 	href="#" class="btn ui-state-default ui-corner-all">ارسال ایمیل</a>
+					<a id ="add_charge" 	href="#" class="btn ui-state-default ui-corner-all">شارژ پورتال</a>
+				</td>	
+			</tr>
+			<tr>
+				<td align="center">
+					<?php if ($this->limit!='all'){paging($this->count,$this->start,$this->limit,$this->BaseUrl());}?>
+					
+				</td>
+			</tr>
+		
+		  </table>
+		</form>
+<?php
+	}
+	else
+	{
+		echo '<h1>هیچ پورتالی یافت نشد!</h1>';
+		//echo paging($this->count,$this->start,$this->limit,$this->BaseUrl());
+		
+	}
+?>
+</div>
+
+</div>
+
+
+
+
+
+<?php 
+function paging	($count,$start,$limit,$BaseUrl)
+{
+	$paging	="";
+	$this1 			= $start + $limit; 
+	$back 			= $start - $limit; 
+	$next 			= $start + $limit;
+	if		($count > $limit )
+			{
+				$paging		.= ' <table align = "center" '
+							.  ' style="text-align:right" width="100%"><tr><td  align="center" width="25%">';
+				if	($back >= 0) 
+					{ 
+						$paging	.= "<a href='#' start='".$back."' class='paging_butt btn ui-state-default ui-corner-all'><font  size='2'>صفحه قبل</font></a>"; 
+					} 
+				$paging	.= "</td><td align=center width='50%'>";
+				$i			= 0;
+				$j			= 1;
+				for		($i	= 0; $i < $count; $i	= $i + $limit)
+					{
+						if	($i <> $start)
+							{
+								$paging	.= " <a class='paging_butt' href='#' start='".$i."' ><font  size='2'>".$j."</font></a> ";
+							}
+						else 
+							{ 
+								$paging	.= "<font  size='4' color=red>".$j."</font>";
+							}        
+						$j	= $j+1;
+					}
+				$paging	.= "</td><td  align='center' width='25%'>";
+				if	($this1 < $count)
+					{ 
+						$paging	.= "<a href='#' start='".$this1."' class='paging_butt btn ui-state-default ui-corner-all'><font  size='2'>صفحه بعد</font></a>";
+					} 
+				$paging	.= "</td></tr></table>";
+			}
+	echo $paging;
+}
+//-------------
+function ger_to_fa($date)
+{
+	if ($date=='')
+	{
+		return	 NULL;
+	}
+	else 
+	{
+		$arr	= explode(' ',$date)	;
+		$d		= explode('-',$arr[0])	;
+		$pdate	= new Rasta_Pdate;
+		$arr[0] = implode('-',$pdate->gregorian_to_persian($d[0],$d[1],$d[2]));
+		return  implode(' ',$arr);
+	}	
+}
+//---------------
+?>

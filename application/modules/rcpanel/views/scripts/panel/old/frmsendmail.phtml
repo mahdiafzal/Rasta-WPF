@@ -1,0 +1,55 @@
+<script type="text/javascript">
+function submitForm()
+{
+	document.forms[0].submit();
+}
+$(function(){CKEDITOR.replace('editor1')});
+</script>
+<style>
+.td_title{	width:100px;}
+.td_box{	width:420px;}
+#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:650px;border:1px solid;height:auto;}
+</style>  
+  	<?php 
+		if (!empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+				echo "<h2>".$msg."</h2>";
+			}
+ 			echo '</div>';
+ 		}
+	?>
+
+<form action="/rcpanel/panel/sendmail" method="post">
+
+	<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+	<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+		<table style="width:540px; margin:0 auto;text-align:right;">
+			<tr >
+				<td class="td_title"><label class="label">به : </label></td>
+				<td class="td_box"><input type="text" name="email" size="35" class="inputBox" value="<?php echo $this->data['username']?>"></td>
+		  <td></td>
+
+			</tr>
+			<tr >
+				<td class="td_title"><label class="label">از :</label></td>
+				<td class="td_box"><input type="text" name="from" size="35"  class="inputBox" value="support@iranscholar.ir"></td>
+			</tr>
+			<tr >
+				<td class="td_title"><label class="label">عنوان :</label></td>
+				<td class="td_box"><input type="text" name="subject" size="35"  class="inputBox" value="<?php echo $this->data['name']; ?>، رستاک همیشه با توست"></td>
+			</tr>		
+		</table>
+	</div>
+	<div id="div_tbl" class="ui-corner-all ui-state-highlight">
+	<center>
+					<a title="تائید و ارسال پیام" class='btn ui-state-default ui-corner-all' href="#"	onclick="javascript :submitForm();" >تایید</a>
+					<a title="انصراف و بازگشت به لیست سایتها" class='btn ui-state-default ui-corner-all' href="<?php echo $this->baseUrl(); ?>/rcpanel/panel/frmlistsite/<?php echo $this->start ?>">انصراف</a>
+	</center>
+	</div>
+
+	<textarea name="editor1"> متن پیام را بنویسید</textarea>
+	<input type="hidden" name="family" value="<?php echo $this->data['name'] ; ?>" />
+</form>

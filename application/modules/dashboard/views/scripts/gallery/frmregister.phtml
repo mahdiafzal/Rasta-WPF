@@ -1,0 +1,158 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function submitForm()
+	{
+		document.forms[0].submit();
+		return false;
+	})
+})
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.td_title{width:135px;}.td_box{width:420px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+</style>
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		}
+	?>
+</div>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->title_site; ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+	<form action="<?php echo $this->form_action;?>" method="post">
+	<table style="width: 840px; margin: 0pt auto; text-align: right; direction:<?php echo $this->translate->_('dir');?>;">
+		<tbody>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('title'); ?></label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" maxlength="100" name="title" value="<?php echo $this->data['title']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('q'); ?></label></td>
+				<td class="td_box">
+<?php 
+	$sl	= array('', '');
+	$sl[$this->data['status']]	= 'selected="selected"';
+ ?>
+					<select name="status">
+						<option value="0" <?php echo $sl[0]; ?>><?php echo $this->translate->_('p'); ?></option>
+						<option value="1" <?php echo $sl[1]; ?>><?php echo $this->translate->_('o'); ?></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('l'); ?></label></td>
+				<td class="td_box">
+<?php 
+$pubS	= '';
+$priS	= '';
+$jsopst	= '';
+foreach($this->gallerySkins as $skin)
+{
+	$sl	= '';
+	if($skin['id']==$this->data['skin'])	$sl	= 'selected="selected"';
+	if($skin['wbs_id']=='0')	$pubS	.= '<option value="'.$skin['id'].'" '.$sl.'>'.$skin['title'].'</option>';
+	else						$priS	.= '<option value="'.$skin['id'].'" '.$sl.'>'.$skin['title'].'</option>';
+	$jsopst	.= '<li id="jso'.$skin['id'].'">'.$skin['options'].'</li>';
+}
+ ?>
+					<select name="skin" onchange="filljsopts(this)"><?php 
+						echo '<optgroup label="'.$this->translate->_('m').'">'.$pubS.'</optgroup>';
+						if(!empty($priS)) echo '<optgroup label="'.$this->translate->_('n').'">'.$priS.'</optgroup>'; ?>
+					</select>
+					<script> function filljsopts(elem){	$('textarea[name=jsoptions]').val($('ul#jsoptionsotre li#jso'+$(elem).val()).html());} </script>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('r'); ?></label></td>
+				<td class="td_box">
+					<textarea name="jsoptions" dir="ltr" rows="5" cols="60"><?php echo stripslashes($this->data['jsoptions']); ?></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><label class="label"><?php echo $this->translate->_('user group');?></label></td>
+				<td id="userGroups" class="td_box">
+				<style>#userGroups div{<?php echo $this->translate->_('stylea'); ?>}</style>
+				<?php
+					$currentGroups	= array();
+					if(!empty($this->data['user_group'])) $currentGroups	= array_filter(explode('/', $this->data['user_group']));
+					if(is_array($this->wbsUserGroups))
+						foreach($this->wbsUserGroups as $value)
+						{
+							$checkedState = '';
+							if( in_array($value['id'],$currentGroups) ) $checkedState = 'checked="checked"';
+							echo '<div><input type="checkbox" name="ugroup[]" value="'.$value['id'].'" '.$checkedState.' /><label>&nbsp;'.$value['title'].'</label></div>'; 
+						}
+				?>
+					<div style="width:99.9%;float:left;"><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('d');?></span><br /><br /></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('e');?></span><br /><br /></td>
+			</tr>
+
+
+		</tbody>
+	</table>
+	<input type="hidden" value="<?php echo $this->data['gid']; ?>" name="gid" />
+	</form>
+			
+
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="#"><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/dashboard/gallery/frmlist#fragment-2" ><?php echo $this->translate->_('cancel');?></a>
+</span>
+<br />
+<br />
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+<ul id="jsoptionsotre" style="display:none;">
+<style>
+#jsoptionsotre, #jsoptionsotre li{display:none;visibility:hidden;}
+</style>
+	<?php echo $jsopst; ?>
+</ul>

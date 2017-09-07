@@ -1,0 +1,24 @@
+<link href='/modules/db/skin1/style.css' rel='stylesheet' type='text/css' />
+<div id='loginBox'>
+<h1><span id='logo'>مدیریت پایگاه داده</span> <span id='version'></span></h1>
+<div style='padding:15px; text-align:center;'>
+<?php	if(isset($_POST['login'])){ ?>
+	<span style='color:red;direction:rtl;text-align:right;'>کلمه عبور نادرست است.</span><br/><br/>
+<?php } ?>
+<form method='post'>
+کلمه عبور: <input type='password' name='password'/><br/>
+<input type='checkbox' name='remember' value='yes' checked='checked'/> مرا به خاطر بسپار<br/><br/>
+<input type='submit' value='ورود' name='login' class='btn'/>
+<input type='hidden' name='proc_login' value='true' />
+</form>
+</div>
+</div>
+<br/>
+<?php /*?><div style='text-align:center;'>
+<?php
+	$endTimeTot = microtime(true);
+	$timeTot = round(($endTimeTot - $startTimeTot), 4);
+	?>
+ Page generated in <?php echo $timeTot; ?> seconds.</span>
+</div>
+<?php */?>

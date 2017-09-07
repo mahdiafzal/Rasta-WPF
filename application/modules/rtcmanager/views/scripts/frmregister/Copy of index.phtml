@@ -1,0 +1,429 @@
+<script type="text/javascript">
+$(document).ready(function() {
+		if(window.opener)
+		if(window.opener!=null & window.opener.Crtc.fn.rtcPopupAction)
+		{
+				$('#tab2, #tab3').css('visibility','hidden');
+		}
+		else
+		{
+			window.opener=null;
+		}
+})
+</script>
+
+<div class="art-postmetadataheader"><h3><?php echo $this->escape($this->title);?></h3></div>
+<?php 
+
+	if (!empty($this->errormsg))
+	{
+		echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+		foreach ($this->errormsg as $errormsg)
+		{
+			   echo  "<h4>".$errormsg."</h4>";
+		}
+		echo'</blockquote>';
+	}
+?>
+	
+
+<form action="<?php echo $this->formAction; ?>" method="post">
+<table cellspacing="0" cellpadding="1" border="0" width="100%" style="text-align:right;padding:10px;">
+<?php if(!empty($this->rtctypes)){ ?>
+	<tr>
+		<td colspan="2" class="label"><?php echo $this->translate->_('ad'); ?>:&nbsp;&nbsp;&nbsp;
+			<select id="rtc_type" name="rtc_type" style="width:200px;" >
+				<option value="0">&nbsp;</option>
+	<?php foreach($this->rtctypes as $type)	echo '<option value="'.$type['id'].'">'.$type['t_title'].'</option>' ?>
+			</select>
+<script type="text/javascript">
+$('#rtc_type').bind('change', function(){
+	var formAction	= $('form').eq(0).attr('action').replace('/rtcmanager/register/edit', '/rtcmanager/frmregister/addtemplate');
+	if($(this).val()!=0) $('form').eq(0).attr('action', formAction).submit(); 
+	});
+</script>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="label" style="text-align:center;" >	<hr />	</td>
+	</tr>
+<?php } ?>
+	<tr >
+		<td id="options" >
+<div style="width:136px;height:32px;position:relative; overflow:visible;float:right;">
+	<span class="art-button-wrapper" >
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a id="taxotermSelect"  class="button-jqui-medium art-button"><?php echo $this->translate->_('d'); ?></a>
+	</span>
+	<div id="taxotermSelect_options" class="options">
+	<?php
+		$currentScens	= array();
+		if(!empty($this->rtcParams['taxoterms'])) $currentScens	= array_filter(explode('/', $this->rtcParams['taxoterms']));
+		foreach($this->taxoterms as $value)
+		{
+			$checkedState = '';
+			if(preg_match('/\<f\>\s*0\s*\<\/f\>/', $value['properties']) ) continue;
+			if( in_array($value['id'],$currentScens) ) $checkedState = 'checked="checked"';
+			echo '<div class="checkbox"><input type="checkbox" name="scen_option'.$value['id'].'" '.$checkedState.' /><label>&nbsp;'.$value['title'].'</label></div>'; 
+		}
+	?>
+	</div>
+</div>
+
+<div style="width:132px;height:32px;position:relative; overflow:visible;float:right;">
+	<span class="art-button-wrapper" >
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a id="settingPanel" class="button-jqui-medium art-button"><?php echo $this->translate->_('e'); //تنظیمات نمایش ?></a>
+	</span>
+	<div id="settingPanel_options" class="options">
+		<div class="setting-items">
+		<?php 
+			$setting_option	= array('','','','','','');
+			for($i=1;$i<=5;$i++)
+				if(!empty($this->rtcParams['setting_option'.$i]))
+					if($this->rtcParams['setting_option'.$i]=='on')$setting_option[$i]	= 'checked="checked"'; 
+		?>
+			<input type="checkbox" name="setting_option1" <?php echo $setting_option[1]; ?>  />
+			<label><?php echo $this->translate->_('f'); //&nbsp;نمایش نام نویسنده ?></label>
+		</div>
+		<div class="setting-items">
+			<input type="checkbox" name="setting_option2" <?php echo $setting_option[2]; ?> />
+			<label><?php echo $this->translate->_('g'); //&nbsp;نمایش تاریخ ?></label>
+		</div>
+		<div class="setting-items">
+			<input type="checkbox" name="setting_option3" <?php echo $setting_option[3]; ?> />
+			<label><?php echo $this->translate->_('h'); //&nbsp;نمایش ساعت ?></label>
+		</div>
+		<div class="setting-items" style="height:40px">
+			
+			<?php 
+				$key	= 0;
+				if(!empty($this->rtcParams['setting_option4'])) $key	= (integer) $this->rtcParams['setting_option4'];
+				$setting_option4	= array('','',''); 
+				$setting_option4[ $key ]='checked="checked"'; 
+			
+			echo $this->translate->_('i'); //تنظیمات دیدگاه:  ?><br />
+			<input type="radio" name="setting_option4" value="0" <?php  echo $setting_option4[0]; ?>  />
+				<label><?php echo $this->translate->_('j'); //&nbsp;دیدگاه غیرفعال ?></label>&nbsp;&nbsp;
+			<input type="radio" name="setting_option4" value="1" <?php  echo $setting_option4[1]; ?> />
+				<label><?php echo $this->translate->_('k'); //&nbsp;دیدگاه بصورت خصوصی ?></label>&nbsp;&nbsp;
+			<input type="radio" name="setting_option4" value="2" <?php  echo $setting_option4[2]; ?> />
+				<label><?php echo $this->translate->_('l'); //&nbsp;دیدگاه بصورت عمومی ?></label>
+		</div>
+		<div class="setting-items">
+			<input type="checkbox" name="setting_option5" <?php echo $setting_option[5]; ?> />
+				<label><?php echo $this->translate->_('m'); //&nbsp; لینک تک نما ?></label>
+		</div>
+	</div>
+</div>
+
+<div style="width:136px;height:32px;position:relative; overflow:visible;float:right;">
+	<span class="art-button-wrapper" >
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a id="ugroupSelect"  class="button-jqui-medium art-button"><?php echo $this->translate->_('ac'); ?></a>
+	</span>
+	<div id="ugroupSelect_options" class="options">
+	<?php
+		$currentGroups	= array();
+		if(!empty($this->rtcParams['user_group'])) $currentGroups	= array_filter(explode('/', $this->rtcParams['user_group']));
+		foreach($this->wbsUserGroups as $value)
+		{
+			$checkedState = '';
+			if( in_array($value['id'],$currentGroups) ) $checkedState = 'checked="checked"';
+			echo '<div class="checkbox"><input type="checkbox" name="ugroup[]" value="'.$value['id'].'" '.$checkedState.' /><label>&nbsp;'.$value['title'].'</label></div>'; 
+		}
+	?>
+	</div>
+</div>
+
+<style type="text/css">
+/* begin PostQuote */
+blockquote,
+blockquote p,
+.art-postcontent blockquote p
+{
+  color: #0B1014;
+  font-style: italic;
+  text-align: left;
+}
+
+blockquote,
+.art-postcontent blockquote
+{
+  border: solid 1px #AFC6D4;
+  margin: 10px 50px 10px 10px ;
+  padding: 5px 41px 5px 5px ;
+  background-color: #D5F1ED;
+  background-image: url('/img/dashboard/postquote.png');
+  background-position: right top;
+  background-repeat: no-repeat;
+  text-align:right
+}
+
+/* end PostQuote */
+.art-postmetadataheader
+{
+  padding: 5px;
+  background-color: #D4E0E8;
+  border-color: #AFC6D4;
+  border-style: solid;
+  border-width: 1px;
+  color:#29577A;
+  margin-bottom:10px;
+  
+}
+/* begin Button */
+.art-button-wrapper .art-button
+{
+
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: left;
+  text-decoration: none !important;
+  color: #224967 !important;
+  width: auto;
+  outline: none;
+  border: none;
+  background: none;
+  line-height: 33px;
+  height: 33px;
+  margin: 0;
+  padding: 0 21px !important;
+  overflow: visible;
+  cursor: default;
+  z-index: 0;
+  font-family:tahoma, Arial, Helvetica, sans-serif;
+  font-size:13px;
+}
+.art-button img, .art-button-wrapper img
+{
+  margin: 0;
+  vertical-align: middle;
+}
+.art-button-wrapper
+{
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  height: 33px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+  float:left;
+}
+.firefox2 .art-button-wrapper
+{
+  display: block;
+  float: left;
+}
+.art-button-wrapper.hover .art-button, .art-button:hover
+{
+  color: #EEF3F6 !important;
+  text-decoration: none !important;
+}
+.art-button-wrapper.active .art-button
+{
+  color: #F3F5F7 !important;
+}
+.art-button-wrapper .l, .art-button-wrapper .r
+{
+  display: block;
+  position: absolute;
+  z-index: -1;
+  height: 99px;
+  margin: 0;
+  padding: 0;
+  background-image: url('/img/dashboard/button.png');
+}
+.art-button-wrapper .l
+{
+  left: 0;
+  right: 10px;
+}
+.art-button-wrapper .r
+{
+  width: 409px;
+  right: 0;
+  clip: rect(auto, auto, auto, 399px);
+}
+.art-button-wrapper.hover .l, .art-button-wrapper.hover .r
+{
+  top: -33px;
+}
+.art-button-wrapper.active .l, .art-button-wrapper.active .r
+{
+  top: -66px;
+}
+/* end Button */			
+			
+#settingPanel .setting-items{width:100%; height:25px; float:right; overflow:hidden;}
+#taxotermSelect_options .checkbox, #ugroupSelect_options .checkbox{ width:148px; height:20px; margin-bottom:5px; float:right; overflow:hidden;}
+#taxotermSelect_options, #settingPanel_options, #ugroupSelect_options{ 
+width:450px; height:auto; overflow:hidden; background:#fff; position:absolute;
+top:30px; right:0; display:none; border:solid 1px; text-align:right;padding:10px; font-family:tahoma, Arial, Helvetica, sans-serif; font-size:12px;
+}
+#settingPanel_options{ width:500px;}
+</style>
+<script type="text/javascript">
+$(function(){
+		$('#taxotermSelect, #settingPanel, #ugroupSelect')
+			.click(function(event){
+			$('#options .active').not($(this).parents('.art-button-wrapper')).removeClass('active');
+			$(this).parents('.art-button-wrapper').toggleClass('active');
+			$('#options .options').not( $('#'+this.id+'_options') ).hide();
+			 $('#'+this.id+'_options').toggle()
+			 })//.disableSelection();
+		//$('#taxotermsoption, #settingoption').click(function(event){event.stopPropagation()})
+	})
+</script>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<div style="height:215px; margin:3px; padding:5px;border:1px solid;" class="ui-corner-all" >
+			<table cellspacing="0" cellpadding="1" border="0" width="100%" style="text-align:right;padding:10px; ">
+			<h3><?php echo $this->translate->_('n'); //مشخصات متن ?></h3>
+				<tbody >
+					<tr>
+					<td><label class="label"><?php echo $this->translate->_('o'); //عنوان متن:* ?> </label></td>
+					<td><input type="text" name="title" maxlength="100" size="35" class="inputBox" value="<?php echo $this->rtcParams['title']; ?>"></td>
+					</tr>
+					
+					<tr>
+					<td ><label class="label"><?php echo $this->translate->_('p'); //نام لاتین متن: ?></label></td>
+					<td><input type="text" name="ltn_name" maxlength="35" size="35" class="inputBox" value="<?php echo $this->rtcParams['ltn_name']; ?>"></td>
+					</tr>
+					
+					<tr>
+						<td><label class="label"><?php echo $this->translate->_('q'); //وضعیت انتشار: ?> </label></td>
+						<td><input type="radio" name="publish" value="true" <?php if(empty($this->rtcParams['publish']) || $this->rtcParams['publish']=='true') echo 'checked="checked"'; ?>> <?php echo $this->translate->_('r'); //فعال ?>
+							<input type="radio" name="publish" value="false" <?php if($this->rtcParams['publish']=='false') echo 'checked="checked"'; ?>><?php echo $this->translate->_('s'); //غیر فعال ?>	
+						</td>
+					</tr>
+					<tr>
+						<td><label class="label"><?php echo $this->translate->_('t'); //آغاز انتشار: ?> </label></td>
+						<td><input id ="date_input_1" type="text" name="publish_up" readonly="true" value="<?php echo ger_to_fa($this->rtcParams['publish_up']); ?>" />
+						<img id="date_btn_1" src="/jalali/cal.png" style="vertical-align: top; padding-right:5px;" />
+							<script type="text/javascript">
+								Calendar.setup({
+									inputField     	:   "date_input_1",   // id of the input field
+									button         	:   "date_btn_1",   // trigger for the calendar (button ID)
+									ifFormat       	:   "%Y-%m-%d %H:%M:%S",       // format of the input field
+									showsTime      	:   true,
+									dateType	   	:	'jalali',
+									timeFormat     	:   "24",
+									electric		:	false,
+									weekNumbers    	: 	false
+								});
+							</script>
+ 						</td>
+					</tr>
+					<tr>
+						<td><label class="label"><?php echo $this->translate->_('u'); //پایان انتشار: ?> </label></td>
+						<td><input id ="date_input_2" type="text" name="publish_down" readonly="true" value="<?php echo ger_to_fa($this->rtcParams['publish_down']); ?>" />
+						<img id="date_btn_2" src="/jalali/cal.png" style="vertical-align: top; padding-right:5px;" />
+							<script type="text/javascript">
+								Calendar.setup({
+									inputField     	:   "date_input_2",   // id of the input field
+									button         	:   "date_btn_2",   // trigger for the calendar (button ID)
+									ifFormat       	:   "%Y-%m-%d %H:%M:%S",       // format of the input field
+									showsTime      	:   true,
+									dateType	   	:	'jalali',
+									timeFormat     	:   "24",
+									electric		:	false,
+									weekNumbers    	: 	false
+								});
+							</script>						
+						</td>
+					</tr>
+				
+					<tr>
+					<td><!--<label class="label"><?php echo $this->translate->_('v'); //توضیحات: ?></label>--></td>
+					<td><!--<textarea name="description" maxlength="250" size="35"  rows="3" cols="32" class="inputBox"><?php echo $this->rtcParams['description']; ?></textarea>--></td>
+					</tr>
+				</tbody>
+			</table>
+</div>		
+		</td>
+		<td>
+<div style="height:215px; margin:3px; padding:5px;border:1px solid;" class="ui-corner-all" >
+			<table cellspacing="0" cellpadding="1" border="0" width="100%" style="text-align:right;padding:10px;">
+			<h3><?php echo $this->translate->_('w'); //اطلاعات فراداده ?></h3>
+				<tbody>
+					<tr>
+					<td ><label class="label"><?php echo $this->translate->_('x'); //نویسنده: ?></label></td>
+					<td><input type="text" name="author" maxlength="100" size="35" class="inputBox" value="<?php echo $this->rtcParams['author']; ?>"></td>
+					</tr>				
+					<tr>
+					<td><label class="label"><?php echo $this->translate->_('y'); //کلیدواژه ها: ?> </label></td>
+					<td><textarea name="keywords"  size="35"  rows="4" cols="32" class="inputBox"><?php echo $this->rtcParams['keywords']; ?></textarea></td>
+					</tr>
+					<tr>
+					<td><label class="label"><?php echo $this->translate->_('z'); //توضیحات: ?></label></td>
+					<td><textarea name="description_meta"  size="35"  rows="3" cols="32" class="inputBox"><?php echo $this->rtcParams['description_meta']; ?></textarea></td>
+					</tr>
+				</tbody>
+			</table>
+</div>		
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		<label class="label"><?php echo $this->translate->_('v'); //توضیحات: ?></label><br /><br />
+		<textarea name="description" maxlength="250" size="35"  rows="3" cols="32" class="inputBox"><?php $this->rtcParams['description']= stripslashes($this->rtcParams['description']); echo htmlspecialchars($this->rtcParams['description']) ; ?></textarea>
+		</td>
+	</tr>
+</table>
+
+	<textarea name="editor1"><?php $this->rtcParams['editor1']= stripslashes($this->rtcParams['editor1']); echo htmlspecialchars($this->rtcParams['editor1']) ; ?></textarea>
+</form>
+<div id="apply-submit-button">
+<br />
+	<span class="art-button-wrapper active" >
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a id="submit-button"  class="button-jqui-medium art-button" ><?php echo $this->translate->_('aa'); ?></a>
+	</span>
+	<span class="art-button-wrapper" >
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a id="apply-button"  class="button-jqui-medium art-button" ><?php echo $this->translate->_('ab'); ?></a>
+	</span>
+			<script type="text/javascript">
+			$(function(){
+					
+					$('#apply-button')
+							.click(function(event){
+										$('form').eq(0).submit(); 
+									})
+					$('#submit-button')
+							.click(function(event){
+										var formAction	= $('form').eq(0).attr('action').replace(/\/actiontype\/save[^\/]*/, '/actiontype/saveandback');
+										$('form').eq(0).attr('action', formAction).submit(); 
+									});
+				})
+			</script>
+
+</div>
+<style>
+.button-jqui-medium{height:30px; font-family:tahoma;font-size:12px;}
+</style>
+
+<?php 
+function ger_to_fa($date)
+{
+	if ($date=='')	return	 NULL;
+	$arr	= explode(' ',$date)	;
+	$d		= explode('-',$arr[0])	;
+	$pdate	= new Rasta_Pdate;
+	$arr[0] = implode('-',$pdate->gregorian_to_persian($d[0],$d[1],$d[2]));
+	return  implode(' ',$arr);
+}
+?>

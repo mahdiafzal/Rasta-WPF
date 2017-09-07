@@ -1,0 +1,253 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	
+	
+		try
+		{
+			isPopupForm = opener.Crtc.fn.rtcPopupAction;
+		}
+		catch(e)
+		{
+			isPopupForm = false;
+		}
+//	if(window.opener)
+//		if(window.opener!=null & window.opener.Crtc)
+		if(isPopupForm)
+		{
+				$('#tab2, #tab3').css('visibility','hidden');
+				$('#rtc_type_container').hide();
+		}
+		else
+		{
+			window.opener=null;
+		}
+$('#rtc_type').bind('change', function(){
+	var formAction	= $('form').eq(0).attr('action').replace('/rtcmanager/register/edit', '/rtcmanager/frmregister/addtemplate');
+	if($(this).val()!=0) $('form').eq(0).attr('action', formAction).submit(); 
+	});
+
+})
+</script>
+<style>
+/* begin PostQuote  */
+blockquote,
+blockquote p,
+.art-postcontent blockquote p
+{
+  color: #0B1014;
+  font-style: italic;
+  text-align: left;
+}
+
+blockquote,
+.art-postcontent blockquote
+{
+  border: solid 1px #AFC6D4;
+  margin: 10px 50px 10px 10px ;
+  padding: 5px 41px 5px 5px ;
+  background-color: #D5F1ED;
+  background-image: url('/img/dashboard/postquote.png');
+  background-position: right top;
+  background-repeat: no-repeat;
+  text-align:right
+}
+
+/* end PostQuote */
+.art-postmetadataheader
+{
+  padding: 5px;
+  background-color: #D4E0E8;
+  border-color: #AFC6D4;
+  border-style: solid;
+  border-width: 1px;
+  color:#29577A;
+  margin-bottom:10px;
+  
+}
+/* begin Button */
+.art-button-wrapper .art-button
+{
+
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: left;
+  text-decoration: none !important;
+  color: #224967 !important;
+  width: auto;
+  outline: none;
+  border: none;
+  background: none;
+  line-height: 33px;
+  height: 33px;
+  margin: 0;
+  padding: 0 21px !important;
+  overflow: visible;
+  cursor: default;
+  z-index: 0;
+  font-family:tahoma, Arial, Helvetica, sans-serif;
+  font-size:13px;
+}
+.art-button img, .art-button-wrapper img
+{
+  margin: 0;
+  vertical-align: middle;
+}
+.art-button-wrapper
+{
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  height: 33px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+  float:left;
+}
+.firefox2 .art-button-wrapper
+{
+  display: block;
+  float: left;
+}
+.art-button-wrapper.hover .art-button, .art-button:hover
+{
+  color: #EEF3F6 !important;
+  text-decoration: none !important;
+}
+.art-button-wrapper.active .art-button
+{
+  color: #F3F5F7 !important;
+}
+.art-button-wrapper .l, .art-button-wrapper .r
+{
+  display: block;
+  position: absolute;
+  z-index: -1;
+  height: 99px;
+  margin: 0;
+  padding: 0;
+  background-image: url('/img/dashboard/button.png');
+}
+.art-button-wrapper .l
+{
+  left: 0;
+  right: 10px;
+}
+.art-button-wrapper .r
+{
+  width: 409px;
+  right: 0;
+  clip: rect(auto, auto, auto, 399px);
+}
+.art-button-wrapper.hover .l, .art-button-wrapper.hover .r
+{
+  top: -33px;
+}
+.art-button-wrapper.active .l, .art-button-wrapper.active .r
+{
+  top: -66px;
+}
+/* end Button */			
+</style>
+
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<div id="rtc_type_container" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h4 class="art-postheader">
+							<span class="art-postheader">نوع متن</span>
+						</h4>
+					</div>
+					<div class="art-postcontent" style="height:auto;overflow:hidden;">
+						<!-- article-content -->
+<?php
+$this->env = '/env/dsh#fragment-2';
+if(is_array($this->ctypes) )
+	foreach($this->ctypes as $ctype)
+	{
+?>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/rtcmanager/frmlistcnt/index/ctype/<?php echo $ctype['ts_ct_id'].$this->env; ?>"><?php echo $ctype['ct_title']; ?></a>
+</span>
+<?php } ?>
+
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/rtcmanager/frmlistcnt/index/ctype/0<?php echo $this->env; ?>">متن های بدون ویرایشگر</a>
+</span>
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+
+
+<div class="art-postmetadataheader"><h3><?php echo $this->escape($this->title);?></h3></div>
+<?php 
+
+	if (!empty($this->errormsg))
+	{
+		echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+		foreach ($this->errormsg as $errormsg)
+		{
+			   echo  "<h4>".$errormsg."</h4>";
+		}
+		echo'</blockquote>';
+	}
+?>
+	
+
+<?php if(!empty($this->editor)){ echo $this->editor; ?>
+
+<div id="apply_submit_button">
+<br />
+	<span class="art-button-wrapper active" >
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a id="submit-button"  class="art-button" ><?php echo $this->translate->_('aa'); ?></a>
+	</span>
+	<span class="art-button-wrapper" >
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a id="apply-button"  class="art-button" onclick="submitForm();return false;" ><?php echo $this->translate->_('ab'); ?></a>
+	</span>
+<script type="text/javascript">
+$(function(){
+		$('#submit-button')
+				.click(function(event){
+							var formAction	= $('form').eq(0).attr('action').replace(/\/actiontype\/save[^\/]*/, '/actiontype/saveandback');
+							$('form').eq(0).attr('action', formAction)//.submit(); 
+							submitForm();
+						});
+	})
+</script>
+</div>
+<style>
+#apply_submit_button .art-button{height:30px; font-family:tahoma;font-size:12px;}
+</style>
+<?php } ?>
+

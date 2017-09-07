@@ -1,0 +1,67 @@
+<script type="text/javascript">
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tb_epay").addClass("ui-state-active");
+})
+function submitForm()
+{
+	document.forms[0].submit();
+}
+</script>
+<style>
+.f1{width:100px;text-align:right;}
+.f2{width:100px;text-align:center;}
+#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:750px;border:1px solid;height:auto;}
+li{padding:3px;padding-right:13px;margin-right:20px;}
+p{padding-top:3px;padding-bottom:3px;}
+</style>
+	<div id="div_tbl" style="margin-bottom:5px;text-align:right;border: #99CCFF 1px solid;" class="ui-corner-all">
+		<p>
+	<span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;"><span style="color: rgb(0, 0, 128);">رستاک در طرح نوروزی، تخفیف های ویژه ای برای کاربران گرامی خود در نظر گرفته است که شرح آن در جدول ذیل آورده شده است.</span></span></span></p>
+<p>
+	<span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;"><strong><span style="color: rgb(178, 34, 34);">توجه: </span></strong></span></span></p>
+<ul>
+	<li>
+		<span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">متناسب با هر نوع شارژی که از جانب شما صورت می گیرد، به تاریخ انقضای پورتال شما افزوده خواهد شد.</span></span></li>
+	<li>
+		<span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">در ضمن پورتال شما در ابتدا، برای مدت چند روز به صورت رایگان شارژ شده است.</span></span></li>
+</ul>
+
+</div>
+	<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+	<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+	<form method="post" autocomplete="off" action="<?php echo $this->baseUrl().$this->escape($this->action)?>">
+		<table border="1" cellspacing="0"  class="showborder ui-widget" style="table-layout:fixed;width:80%; margin:10px auto;">
+			<tr title="" align="center" class="ui-widget-header">
+				<th class="f1"><center>نوع</center></th>
+				<th class="f2">قیمت(تومان)</th>
+			</tr>	
+<!--			<tr title="">
+				<td class="f1"><input name="rdo_typ_pay" value="3_month" type="radio"  /> دو ماهه</td>
+				<td class="f2">9,800</td>
+			</tr>	
+			<tr title="">
+				<td class="f1"><input name="rdo_typ_pay" value="6_month" type="radio"  /> شش ماهه</td>
+				<td class="f2">23,500</td>
+			</tr>				
+-->			<tr title="">
+				<td class="f1"><input name="rdo_typ_pay" value="1_year" type="radio"  checked /> یک ساله</td>
+				<td class="f2">1,000,000</td>
+			</tr>				
+			<tr title="">
+				<td class="f1"><input name="rdo_typ_pay" value="2_year" type="radio"  /> دو ساله</td>
+				<td class="f2">1,800,000</td>
+			</tr>						
+		</table>
+<br /><br />
+		<div class="ui-corner-all" style="border:1px solid;margin-top:5px;">
+		<center>
+			<a  class='btn ui-state-default ui-corner-all' title="تائید و ارسال فرم" href="#"	onclick="javascript :submitForm();" >مرحله بعد</a>
+			<a  class='btn ui-state-default ui-corner-all' title="انصراف و بازگشت به صفحه اصلی" href="/godpanel/panel/" >انصراف</a>
+		</center>
+		</div>
+	</form>
+	</div>
+
+
+

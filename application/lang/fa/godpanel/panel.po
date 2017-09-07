@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-07-13 03:24+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "dir"
+msgstr "rtl"
+
+msgid "exit"
+msgstr "خروج"
+
+msgid "a"
+msgstr "یوتوپیا"
+
+msgid "b"
+msgstr "پروفایل"
+
+msgid "c"
+msgstr "دوستان"
+
+msgid "d"
+msgstr "گفتگو"
+
+msgid "e"
+msgstr "بازنشریات"
+
+msgid "f"
+msgstr "منو"
+
+msgid "g"
+msgstr "خانه"
+
+msgid "h"
+msgstr "دوستان آنلاین"
+
+msgid "i"
+msgstr "تماس با ما"
+
+msgid "j"
+msgstr "قوانین و مقررات"
+
+msgid "k"
+msgstr "سیاست حفظ حریم خصوصی"
+
+msgid "l"
+msgstr "تبلیغات در یوتوپیا"
+
+msgid "m"
+msgstr "سرگرمی"
+
+msgid "n"
+msgstr "خبرنامه ها"
+
+msgid "o"
+msgstr "تقویم"
+
+msgid "p"
+msgstr "یادداشت"
+
+msgid "q"
+msgstr "تنظیمات"
+
+msgid "r"
+msgstr "بلاگ"
+
+msgid "s"
+msgstr "وبسایت"
+
+msgid "t"
+msgstr "آگهی"
+
+msgid "u"
+msgstr ""
+
+msgid "v"
+msgstr ""
+
+msgid "w"
+msgstr ""
+
+msgid "x"
+msgstr ""
+
+msgid "y"
+msgstr ""
+
+msgid "z"
+msgstr ""
+

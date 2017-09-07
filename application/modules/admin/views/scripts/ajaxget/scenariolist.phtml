@@ -1,0 +1,11 @@
+<?php
+foreach($this->result as $value)
+{
+	echo '<div class="rasta-buttonset">'
+		.	'<a>ویرایش</a>'
+		.	'<a>مشاهده در پنجره جدید</a>'
+		.	'<a class="scenariotitle" scenarioid="'.$value['id'].'" url="'.$value['uri'].'" title="'.$value['title'].'">'.$value['title'].'</a>'
+		.'</div>';
+}
+echo "<div><input type='hidden' id='count' value='".$this->count."' /></div>";
+?>

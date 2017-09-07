@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2013-11-09 03:09+0330\n"
+"Last-Translator: a.ram\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "stylea"
+msgstr "width:49%;float:right;text-align:right; line-height:1.7;"
+
+msgid "user group"
+msgstr "گروه کاربری"
+
+msgid "a"
+msgstr "ویرایش صفحه"
+
+msgid "b"
+msgstr "عنوان صفحه:*"
+
+msgid "c"
+msgstr "با استفاده از این امکان می توانید صفحه را غیر فعال یا معلق کنید"
+
+msgid "d"
+msgstr "وضعیت صفحه:"
+
+msgid "e"
+msgstr "در حالت فعال، این صفحه نمایش داده خواهد شد"
+
+msgid "f"
+msgstr "فعال"
+
+msgid "g"
+msgstr "در حالت غیر فعال پیغامی مبنی بر اینکه صفحه در دست ساخت می باشد، نمایش داده خواهد شد"
+
+msgid "h"
+msgstr "در دست ساخت"
+
+msgid "i"
+msgstr "در حالت معلق پیغامی مبنی بر اینکه صفحه پیدا نشد، نمایش داده خواهد شد"
+
+msgid "j"
+msgstr "غیرفعال"
+
+msgid "k"
+msgstr "شعار مربوط به صفحه شما می باشد"
+
+msgid "l"
+msgstr "شعار صفحه:"
+
+msgid "m"
+msgstr "تایید"
+
+msgid "n"
+msgstr "انصراف"
+
+msgid "o"
+msgstr "در صورت تمایل می توانید نام موِلّفان صفحه خود را ذکر کنید"
+
+msgid "p"
+msgstr "نویسندگان صفحه:"
+
+msgid "q"
+msgstr "این توضیحات جهت ارائه به موتور های جستجو می باشد"
+
+msgid "r"
+msgstr "توضیحات:"
+
+msgid "s"
+msgstr "کلمات کلیدی دسترسی افراد مختلف را از طریق موتور جستجو به سایت شما آسان می کند"
+
+msgid "t"
+msgstr "کلمات کلیدی:"
+
+msgid "u"
+msgstr "خطا در داده های ورودی"
+
+msgid "v"
+msgstr "صفحه مورد نظر یافت نشد"
+
+msgid "w"
+msgstr "محتوای صفحه:"
+
+msgid "x"
+msgstr "کد xal که محتوا و چیدمان آن در صفحه را مشخص می کند."
+
+msgid "y"
+msgstr ""
+
+msgid "z"
+msgstr "درصورت انتخاب گروه کاربری فقط کاربران عضو گروه / گروه های انتخاب شده می توانند این صفحه را مشاهده نمایند. <br />درصورتی که هیچ گروه کاربری انتخاب نشود همه بازدیدکنندگان می توانند این صفحه را مشاهده کنند."
+
+msgid "aa"
+msgstr "نام صفحه:"
+
+msgid "ab"
+msgstr " از نام صفحه می توان برای فراخوانی آن استفاده نمود به همین خاطر این گزینه باید بین صفحات یکتا باشد."
+
+msgid "ac"
+msgstr "پوسته صفحه:"
+
+msgid "ad"
+msgstr "درصورت عدم انتخاب پوسته برای صفحه از پوسته پیش فرض سایت استفاده خواهد شد"
+
+msgid "ae"
+msgstr "انتخاب"
+
+msgid "af"
+msgstr "حذف"
+

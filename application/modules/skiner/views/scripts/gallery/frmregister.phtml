@@ -1,0 +1,120 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function submitForm()
+	{
+		document.forms[0].submit();
+		return false;
+	})
+})
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.td_title{width:135px;}.td_box{width:420px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+</style>
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		}
+	?>
+</div>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->title_site; ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+	<form action="<?php echo $this->form_action;?>" method="post">
+	<table style="width: 840px; margin: 0pt auto; text-align: right; direction:<?php echo $this->translate->_('dir');?>;">
+		<tbody>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('title'); ?>*</label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" maxlength="100" name="title" value="<?php echo $this->data['title']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('q'); ?></label></td>
+				<td class="td_box">
+					<textarea name="hfiles" dir="ltr" rows="5" cols="60"><?php echo stripslashes($this->data['hfiles']); ?></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('l'); ?>*</label></td>
+				<td class="td_box">
+					<textarea name="fblock" dir="ltr" rows="5" cols="60"><?php echo stripslashes($this->data['fblock']); ?></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('p'); ?></label></td>
+				<td class="td_box">
+					<textarea name="rblock" dir="ltr" rows="5" cols="60"><?php echo stripslashes($this->data['rblock']); ?></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('o'); ?></label></td>
+				<td class="td_box">
+					<input type="text" dir="ltr" style="text-align:left;" class="inputBox" size="7" maxlength="3" name="max" value="<?php echo $this->data['max']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('r'); ?></label></td>
+				<td class="td_box">
+					<textarea name="jsoptions" dir="ltr" rows="5" cols="60"><?php echo stripslashes($this->data['jsoptions']); ?></textarea>
+				</td>
+			</tr>
+
+
+
+		</tbody>
+	</table>
+	<input type="hidden" value="<?php echo $this->data['gid']; ?>" name="gid" />
+	</form>
+			
+
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="#"><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/skiner/gallery/frmlist#fragment-4" ><?php echo $this->translate->_('cancel');?></a>
+</span>
+<br />
+<br />
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>

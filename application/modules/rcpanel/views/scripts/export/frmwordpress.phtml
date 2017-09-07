@@ -1,0 +1,51 @@
+﻿<style>
+.td_title{width:100px;}
+.td_box{width:420px;}
+#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:650px;border:1px solid;height:auto;}
+li{background-image:url(/img/panel/circle.gif);background-position:right center; background-repeat:no-repeat;padding:3px;padding-right:13px;margin-right:20px;}
+p{padding-top:3px;padding-bottom:3px;}
+</style>
+<div id="div_tbl" style="margin-bottom:5px;text-align:right;border: #99CCFF 1px solid;" class="">
+<p><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;"><span style="color: rgb(0, 0, 128);">رستاک در راستای اطمینان خاطر کاربران خود، امکان ایجاد خروجی جهت استفاده در وردپرس را فعال نموده است.</span></span></span></p>
+<p><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;"><strong><span style="color: rgb(178, 34, 34);">توجه: </span></strong></span></span></p>
+<ul>
+	<li>در صورتی که پیشوند جداول تان را در ورد پرس تغییر داده اید باید آنرا در فیلد مشخص شده در قسمت پایین وارد کنید.</li>
+	<li>تمامی سناریو های شما، به عنوان دسته در ورد پرس شناخته خواهد شد.</li>
+	<li>مطالب مشخص شده در سناریو ها نیز در دسته ها گنجانده خواهد شد.</li>
+	<li>همچنین تمامی لینکهای شما به عنوان پیوند در وردپرس شناخته خواهد شد.</li>
+</ul>
+</div>
+
+<div id="div_tbl"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+<div id="div_tbl">
+<form method="post" action="/rcpanel/export/wordpress" name="wpnamespaceform">
+	<table style="width:540px; margin:0 auto;text-align:right;">
+		<tr title="در صورت خالی گذاشتن این فیلد حالت  پیش فرض  اعمال خواهد شد">
+			<td class="td_title"><label class="label">پیشوند جدولها:</label></td>
+			<td class="td_box">
+			<div style="float:right;direction:ltr; width:105px;"><label class="label"></label></div>
+			<div style="float:right;direction:ltr; width:132px;"><input type="text" name="db_prefix" maxlength="50" size="22" class="inputBox" ></div>
+			<div style="float:right;direction:ltr; width:190px;"><label class="label"> wp_ = پیش فرض</label></div>
+			</td>
+		</tr>	
+	</table>
+</form>
+</div>
+<div id="div_tbl">
+<center>
+	<span class="art-button-wrapper">
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a  class='art-button' onclick="document.forms.wpnamespaceform.submit();"  href="#" style="width:70px;text-align:center;">دانلود</a>
+	</span>
+	<span class="art-button-wrapper">
+		<span class="l"> </span>
+		<span class="r"> </span>
+		<a  class='art-button' href="/rcpanel/panel/" style="width:70px;text-align:center;">بازگشت</a>
+	</span>
+</center>
+</div>
+
+
+
+

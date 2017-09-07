@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title><?php echo $this->escape($this->title);?></title>
+
+    <link rel="stylesheet" href="/modules/rcpanel/loginform/style.css" type="text/css" media="screen" />
+    <!--[if IE 6]><link rel="stylesheet" href="/modules/rcpanel/loginform/style.ie6.css" type="text/css" media="screen" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" href="/modules/rcpanel/loginform/style.ie7.css" type="text/css" media="screen" /><![endif]-->
+
+    <script type="text/javascript" src="/modules/rcpanel/loginform/script.js"></script>
+</head>
+<body>
+<div id="art-page-background-glare">
+        <div id="art-page-background-glare-image"></div>
+    </div>
+    <div id="art-main">
+        <div class="art-sheet">
+            <div class="art-sheet-tl"></div>
+            <div class="art-sheet-tr"></div>
+            <div class="art-sheet-bl"></div>
+            <div class="art-sheet-br"></div>
+            <div class="art-sheet-tc"></div>
+            <div class="art-sheet-bc"></div>
+            <div class="art-sheet-cl"></div>
+            <div class="art-sheet-cr"></div>
+            <div class="art-sheet-cc"></div>
+            <div class="art-sheet-body">
+                <div class="art-nav">
+                	<div class="l"></div>
+                	<div class="r"></div>
+                	<ul class="art-menu" style="direction:rtl;font-family:tahoma;font-size:12px;color:#ff0000;"><?php echo $this->description;?>
+                		<!--<li>
+                			<a href="#" class="active"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+                		</li>
+                		<li>
+                			<a href="#"><span class="l"></span><span class="r"></span><span class="t">Menu Item</span></a>
+                		</li>		
+                		<li>
+                			<a href="#"><span class="l"></span><span class="r"></span><span class="t">About</span></a>
+                		</li>-->
+                	</ul>
+                </div>
+                <div class="art-header">
+                    <div class="art-header-jpeg"></div>
+                    <script type="text/javascript" src="/modules/rcpanel/loginform/swfobject.js"></script>
+                    <div id="art-flash-area">
+                    <div id="art-flash-container">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1235" height="350" id="art-flash-object">
+                        <param name="movie" value="/modules/rcpanel/loginform/images/flash.swf" />
+                        <param name="quality" value="high" />
+                    	<param name="scale" value="exactfit" />
+                    	<param name="wmode" value="transparent" />
+                    	<param name="flashvars" value="color1=0xFFFFFF&amp;alpha1=.50&amp;framerate1=24" />
+                        <param name="swfliveconnect" value="true" />
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="/modules/rcpanel/loginform/images/flash.swf" width="1235" height="350">
+                            <param name="quality" value="high" />
+                    	    <param name="scale" value="exactfit" />
+                    	    <param name="wmode" value="transparent" />
+                    	    <param name="flashvars" value="color1=0xFFFFFF&amp;alpha1=.50&amp;framerate1=24" />
+                            <param name="swfliveconnect" value="true" />
+                        <!--<![endif]-->
+                          	<!--<div class="art-flash-alt"><a href="http://www.adobe.com/go/getflashplayer"><img src="#" alt="Get Adobe Flash player" /></a></div>-->
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                    </div>
+                    </div>
+                    <script type="text/javascript">swfobject.switchOffAutoHideShow();swfobject.registerObject("art-flash-object", "9.0.0", "/modules/rcpanel/loginform/expressInstall.swf");</script>
+                    <div class="art-logo">
+					
+<style type="text/css">
+.art-logo td{font-family:tahoma;font-size:12px;color:#FFFFFF;}
+</style>
+<table dir="rtl">
+
+	<tr><td style="width:49%;">
+		<form action="/rcpanel/user/login" method="post" class="frmup">
+				<table cellpadding="5" width="75%">
+					<thead>
+					<tr><th colspan="2" style="font-family:arial;font-size:18px;">
+						فرم ورود
+					</th></tr>
+					</thead>
+					<tbody><tr>
+					  <td class="tdtitle">نام کاربری:</td>
+					  <td><input type="text" name="login_username" class="frminputtxt"></td>
+					</tr>
+					<tr>
+						<td colspan="2">نام کاربری همان ایمیل شما می باشد</td>
+					<tr>
+					  <td class="tdtitle">کلمه عبور:</td>
+					  <td><input type="password" name="login_password" class="frminputtxt"></td>
+					</tr>	
+					<tr>
+						<td colspan="2">در صورت نیاز با خالی گذاشتن فیلد رمز، لینک ورود به سیستم به ایمیل شما ارسال خواهد شد</td>
+					<tr>
+					<tr>
+						<td colspan="2">
+						</td>
+					<tr>
+					<tr>
+						<td class="tdtitle">کد امنیتی:</td>
+						<td><input type="text" name="captcha" class="frminputtxt"></td>
+					</tr>	
+					<tr>
+					  <td colspan="2">
+				</td>
+					  <td>
+					  </td>
+					</tr>	
+			  </tbody></table>
+		</form>
+	</td>
+				<?php
+				if ($this->acc_level != 'just_admin')
+					{
+				?>
+	<td style="width:49%;">
+
+
+			<form name="reguser" method="post" autocomplete="off" action="/rcpanel/user/reguser">
+			  <table border="0" cellpadding="3">
+					<thead>
+					<tr><th colspan="2" style="font-family:arial;font-size:18px;">
+						فرم ثبت نام
+					</th></tr>
+					</thead>
+					<tbody>
+				<tr>
+				  <td>نام:</td>
+				  <td><input type="text" name="first_name"></td>
+				</tr>
+				<tr>
+				  <td>نام خانوادگی:</td>
+				  <td><input type="text" name="last_name"></td>
+				</tr>	
+				<tr>
+				  <td>نام کاربری - ایمیل معتبر:</td>
+				  <td><input type="text" name="username"></td>
+				</tr>	
+			    <tr>
+				  <td>کلمه عبور:</td>
+				  <td><input type="password" name="password_1"></td>
+				</tr>
+			    <tr>
+				  <td>تکرار کلمه عبور:</td>
+				  <td><input type="password" name="password_2"></td>
+				</tr>	
+				<tr>
+				  <td>کد امنیتی:</td>
+				  <td ><input type="text" name="captcha"></td>
+				</tr>	
+				</tbody>
+			  </table>
+		  </form>
+
+
+
+
+	</td>
+				<?php 
+					}
+				?>
+	</tr>
+	<tr><td <?php	if ($this->acc_level != 'just_admin') echo 'colspan="2"'; ?> >
+						<center>
+							<img src="/admin/public/generatecaptcha" style="padding: 0px; border: 0pt none;" id="siimage" title="کد امنیتی">
+							<a onclick="document.getElementById('siimage').src = '/admin/public/generatecaptcha/t/'+ Math.random();return false;" title="کد امنیتی جدید" href="#" tabindex="-1">
+							<img border="0" onclick="this.blur()" alt="Reload Image" src="/img/refresh.png"></a> 
+						</center>       					
+	
+	</td></tr>
+	<tr>
+	<td>
+<center>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='art-button' onclick="document.forms[0].submit();"  href="#" style="width:150px;text-align:center;"><?php //echo $this->translate->_('m');?>ورود</a>
+</span>
+</center>
+	</td>
+				<?php
+				if ($this->acc_level != 'just_admin')
+					{
+				?>
+	<td>
+<center>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='art-button' onclick="document.forms[1].submit();"  href="#" style="width:150px;text-align:center;"><?php //echo $this->translate->_('m');?>ثبت کاربر جدید</a>
+</span>
+</center>
+	</td>
+				<?php 
+					}
+				?>
+	</tr>
+</table>
+			
+			
+                    </div>
+                </div>
+
+                <div class="cleared"></div><div class="art-footer">
+                    <div class="art-footer-inner">
+                        <div class="art-footer-text">
+                        </div>
+                    </div>
+                    <div class="art-footer-background"></div>
+                </div>
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        <div class="cleared"></div>
+    </div>
+	<center>
+    <p style="text-align:center">
+	<!--<a href="#">Contact Us</a>&nbsp;|&nbsp;<a href="#">Terms of Use</a>&nbsp;|&nbsp;<a href="#">Trademarks</a>&nbsp;|&nbsp;<a href="#">Privacy Statement</a>-->
+	<br />Copyright &copy; 2010&nbsp;---.&nbsp;All Rights Reserved.</p>
+	</center>
+</body>
+</html>

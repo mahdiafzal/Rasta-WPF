@@ -1,0 +1,17 @@
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<div>';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h2>".$msg."</h2>";
+			}
+		 	echo'</div>';
+		}
+	?>
+</div>
+<?php //echo $this->escape($this->title_site); ?> <br/>
+<style>
+.items{ display:block;}
+</style>

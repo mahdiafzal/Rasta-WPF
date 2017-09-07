@@ -1,0 +1,79 @@
+<script type="text/javascript">
+//--------------------------
+$(document).ready(function() {
+	$("li").removeClass("ui-state-active");
+	$("#tb_adddomain").addClass("ui-state-active");
+	$('#chk_domain').click(function(){
+		$.ajax({
+		  url: "<?php echo $this->baseUrl(); ?>/rcpanel/public/ajaxvalidator/",
+		  type:"post",
+		  data: {'domain':$(":input[name=s_subdomain]").val(), 'act':'domain'},
+		  success: function(data) {
+		  $('.err').html(data)
+		  			.addClass('ui-state-error ui-corner-all');
+		  }
+		});
+	})
+})
+function submitForm()
+{
+	document.forms[0].submit();
+}
+</script>
+<style>
+.td_title{width:100px;}.td_box{width:420px;}#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:650px;border:1px solid;height:auto;}
+li{background-image:url(/img/panel/circle.gif);background-position:right center; background-repeat:no-repeat;padding:3px;padding-right:13px;margin-right:20px;}
+p{padding-top:3px;padding-bottom:3px;}
+</style>
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h2>".$msg."</h2>";
+			}
+		 echo'</div>';
+		}
+	?>
+</div>
+
+	<div id="div_tbl" style="margin-bottom:5px;text-align:right;border: #99CCFF 1px solid;" class="ui-corner-all">
+	<p>
+	<span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;"><span style="color: rgb(0, 0, 128);">قابلیت پارک دامنه یکی از امکاناتی است که رستاک برای کاربران خود فراهم نموده است. یعنی شما با استفاده از دامنه مورد علاقه خود به سایتتان دسترسی خواهید داشت.</span></span></span></p>
+<p>
+	<span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;"><strong><span style="color: rgb(178, 34, 34);">مراحل: </span></strong></span></span></p>
+<ul>
+<li><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">ابتدا دامنه مورد نظر خود را ثبت کنید(مثلا www.yourSite.com).</span></span></li>
+<li><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">دی ان اس (DNS) دامنه خود را به <strong>ns1.dnameserver.info</strong>  و  <strong>ns2.dnameserver.info</strong>  تغییر دهید.</span></span></li>
+<li><span style="font-size: 14px;"><span style="font-family: Tahoma,Geneva,sans-serif;">پس از تغییر دی ان اس(DNS) از این قسمت(پارک دامنه) اقدام به اضافه کردن دامنه، به سایت خود کنید.</span></span></li>
+</ul>
+</div>
+
+
+<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+<form method="post" action="<?php echo $this->baseUrl(); ?>/rcpanel/panel/parkdomain">
+	<table style="width:540px; margin:0 auto;text-align:right;">
+		<tr title="دامنه پیش فرض خود را وارد کنید(کلمات ممنوعه نباشد و بیش از 3 کاراکتر باشد)">
+			<td class="td_title"><label class="label">دامنه سایت:* </label></td>
+			<td class="td_box">
+			<div style="float:right;direction:ltr; width:105px;"><label class="label">مثال: yourSite.com</label></div>
+			<div style="float:right;direction:ltr; width:132px;"><input type="text" name="s_subdomain" maxlength="50" size="22" class="inputBox" ></div>
+			<div style="float:right;direction:ltr; width:90px;"><label class="label"><strong>http://www.</strong></label></div>
+			<div style="float:right;direction:ltr; width:90px;"><input class='ui-state-default ui-corner-all' type="button" id="chk_domain" value="بررسی دامنه" /></div>
+			</td>
+		</tr>	
+	</table>
+</div>
+<div id="div_tbl" class="ui-corner-all ui-state-highlight">
+<center>
+	<a  class='btn ui-state-default ui-corner-all' href="#"	onclick="javascript :submitForm();" >تایید</a>
+	<a  class='btn ui-state-default ui-corner-all' href="/rcpanel/panel/" >انصراف</a>
+</center>
+</div>
+
+
+
+

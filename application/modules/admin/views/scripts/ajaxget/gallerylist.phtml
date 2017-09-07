@@ -1,0 +1,12 @@
+<?php
+foreach($this->result as $value)
+{
+	echo '<div class="rasta-buttonset">'
+		.	'<a>ویرایش</a>'
+		.	'<a>مشاهده در پنجره جدید</a>'
+		.	'<a class="Gallerytitle" galleryid="'.$value['gallery_id'].'" galleryname="'.$value['gallery_title']
+		.	'" title="'.$value['gallery_title'].'">'.$value['gallery_title'].'</a>'
+		.	'</div>';
+}
+echo "<div><input type='hidden' id='count' value='".$this->count."' /></div>";
+?>

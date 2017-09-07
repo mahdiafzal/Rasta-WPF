@@ -1,0 +1,206 @@
+<?php
+ foreach($this->wbs_blocks as $block)
+ {
+ 	if		($block['type']=='h')		$hBlocks[]	= $block;
+ 	elseif	($block['type']=='m')		$mBlocks[]	= $block;
+ 	elseif	($block['type']=='q')		$nqBlocks[]	= $block;
+ 	elseif	($block['type']=='n')		$nqBlocks[]	= $block;
+}
+ ?>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function submitForm()
+	{
+		document.forms[0].submit();
+		return false;
+	})
+})
+function addSectionBlock()
+{
+
+
+	var nodeIndex	= $('.section-blocks').size();
+	var selWbsBlocks= '<?php 
+ if(is_array($nqBlocks))
+{
+	echo '<select name="blocks[nq][\'+nodeIndex+\'][block]" class="blockbody">';
+	foreach($nqBlocks as $nqblock) 
+		echo '<option value="'.$nqblock['id'].'__'.$nqblock['type'].'" >&nbsp;&nbsp;'.$nqblock['block_title'].'&nbsp;&nbsp;</option>';
+	echo '</select>';
+}
+ ?>';
+	var secBlHtml	= '<tr class="section-blocks"><td class="td_title"><label class="label"><?php echo $this->translate->_('n');?> </label><br /><br /><br /><br /><span class="art-button-wrapper"><span class="l"> </span><span class="r"> </span><a  class="art-button" href="#" onclick="return delthisrow(this);"><?php echo $this->translate->_('delete');?></a></span></td><td class="td_box"><br /><br /><?php echo $this->translate->_('o');?><input class="inputBox" type="text" name="blocks[nq]['+nodeIndex+'][sect]" /><br /><br /><font size="1"><?php echo $this->translate->_('p');?></font><br /><br />'+selWbsBlocks+'<br /><br /></td></tr>';
+	$('.art-postcontent table tbody').append(secBlHtml);
+}
+function delthisrow(elem)
+{
+	if($('.section-blocks').size()<=1) return false;
+	$(elem).parents('.section-blocks').remove();
+	return false;
+}
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.td_title{width:100px;}.td_box{width:420px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+select.blockbody{width:200px;}
+</style>
+<div class="err">
+  	<?php 
+		if ( !empty($this->msg))
+		{
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		}
+	?>
+</div>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->title_site; ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+	<form action="<?php echo $this->form_action;?>" method="post">
+	<table style="width: 820px; margin: 0pt auto; text-align: right; direction:<?php echo $this->translate->_('dir');?>;">
+		<tbody>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('title');?></label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" maxlength="100" name="title" value="<?php echo $this->data['title']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td><label class="label"><?php echo $this->translate->_('r');?></label></td>
+				<td class="td_box" dir="ltr">
+					<input type="text" class="inputBox" size="65" name="dirfile" value="<?php echo $this->data['dirfile']; ?>" dir="ltr"> rtl.css - ltr.css - screenshot.jpg
+					
+				</td>
+			</tr>
+
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('s');?> </label></td>
+				<td class="td_box"><br />
+<?php
+ if(is_array($hBlocks))
+{
+	echo '<select name="blocks[h]" class="blockbody">';
+		echo '<option value="0">&nbsp;&nbsp;&nbsp;&nbsp;</option>';
+	foreach($hBlocks as $hblock) 
+		echo '<option value="'.$hblock['id'].'" '.(($hblock['id']==$this->data['blocks']['h'])?'selected="selected"':'').'>&nbsp;&nbsp;'.$hblock['block_title'].'&nbsp;&nbsp;</option>';
+	echo '</select>';
+}
+ ?>
+				<br /><br /></td> 
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('k');?> </label></td>
+				<td class="td_box"><br />
+<?php
+ //print_r($this->wbs_bodies); 
+ if(is_array($this->wbs_bodies) and count($this->wbs_bodies)>0)
+{
+	echo '<select name="body" class="blockbody">';
+	foreach($this->wbs_bodies as $body) 
+		echo '<option value="'.$body['body_id'].'" '.(($body['body_id']==$this->data['body'])?'selected="selected"':'').'>&nbsp;&nbsp;'.$body['body_title'].'&nbsp;&nbsp;</option>';
+	echo '</select>';
+}
+else echo $this->translate->_('ae');
+ ?>
+				<br /><br /></td> 
+			</tr>
+			<tr>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('m');?> </label></td>
+				<td class="td_box"><br />
+<?php
+ if(is_array($mBlocks))
+{
+	echo '<select name="blocks[m]" class="blockbody">';
+		echo '<option value="0">&nbsp;&nbsp;&nbsp;&nbsp;</option>';
+	foreach($mBlocks as $mblock) 
+		echo '<option value="'.$mblock['id'].'" '.(($mblock['id']==$this->data['blocks']['m'])?'selected="selected"':'').'>&nbsp;&nbsp;'.$mblock['block_title'].'&nbsp;&nbsp;</option>';
+	echo '</select>';
+}
+ ?>
+				<br /><br /></td> 
+			</tr>
+		<?php $i=0; if(is_array($this->data['blocks']['nq'])) foreach($this->data['blocks']['nq'] as $sBlock){$nameAttr = '[nq]['.$i.']'; ?>
+			<tr class="section-blocks">
+			<?php if(is_array($nqBlocks)) foreach($nqBlocks as $nqblock) if($nqblock['id']==$sBlock['block']) break; $sBlock['type']	= $nqblock['type']; ?>
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('n');?> </label>
+<br /><br /><br /><br /><span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='art-button' href="#" onclick="return delthisrow(this);"><?php echo $this->translate->_('delete');?></a>
+</span>
+				</td>
+				<td class="td_box"><br />
+					<br />
+					<?php echo $this->translate->_('o');?>
+					<input class="inputBox" type="text" name="blocks<?php echo $nameAttr; ?>[sect]" value="<?php echo $sBlock['sect']; ?>" dir="ltr" style="text-align:left;" /><br /><br />
+					<font size="1"><?php echo $this->translate->_('p');?></font><br /><br />
+<?php
+ if(is_array($nqBlocks))
+{
+	echo '<select name="blocks'.$nameAttr.'[block]" class="blockbody">';
+	foreach($nqBlocks as $nqblock) 
+		echo '<option value="'.$nqblock['id'].'__'.$nqblock['type'].'" '.(($nqblock['id']==$sBlock['block'])?'selected="selected"':'').'>&nbsp;&nbsp;'.$nqblock['block_title'].'&nbsp;&nbsp;</option>';
+	echo '</select>';
+}
+ ?>
+				<br /><br /></td>
+			</tr>
+		<?php $i++;} if(!is_array($this->data['blocks']['nq'])){?><script type="text/javascript">$(document).ready(function(){addSectionBlock()})</script><?php } ?>
+		</tbody>
+	</table>
+	<input type="hidden" value="<?php echo $this->data['sid']; ?>" name="sid" />
+	</form>
+			
+
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="#"><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/skiner/skin/frmlist#fragment-4" ><?php echo $this->translate->_('cancel');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="#" onclick="addSectionBlock();return false;" ><?php echo $this->translate->_('q');?></a>
+</span>
+<br />
+<br />
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>

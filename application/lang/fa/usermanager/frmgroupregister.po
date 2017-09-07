@@ -1,0 +1,336 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2012-08-08 07:26+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "dir"
+msgstr "rtl"
+
+msgid "a"
+msgstr "ایجاد گروه کاربری جدید"
+
+msgid "b"
+msgstr "ویرایش گروه کاربری"
+
+msgid "c"
+msgstr "گروه کاربری یافت نشد."
+
+msgid "d"
+msgstr "عنوان گروه کاربری"
+
+msgid "e"
+msgstr "مجوزهای دسترسی"
+
+msgid "f"
+msgstr "مشاهده ویرایشگر صفحات"
+
+msgid "g"
+msgstr "مشاهده فرم تنظیمات سایت"
+
+msgid "h"
+msgstr "ویرایش تنظیمات سایت"
+
+msgid "i"
+msgstr "ایجاد سناریوی جدید در محیط ویرایشگر صفحات"
+
+msgid "j"
+msgstr "ویرایش سناریو در محیط ویرایشگر صفحات"
+
+msgid "k"
+msgstr "ایجاد آلبوم تصاویر جدید"
+
+msgid "l"
+msgstr "ویرایش آلبوم تصاویر"
+
+msgid "m"
+msgstr "تأیید"
+
+msgid "n"
+msgstr "انصراف"
+
+msgid "o"
+msgstr "ایجاد منوی جدید"
+
+msgid "p"
+msgstr "ویرایش منو"
+
+msgid "q"
+msgstr "ایجاد صفحه جدید در محیط ویرایشگر صفحات"
+
+msgid "r"
+msgstr "ویرایش نام سایر صفحات در محیط ویرایشگر صفحات"
+
+msgid "s"
+msgstr "ایجاد پیوند جدید در محیط ویرایشگر صفحات"
+
+msgid "t"
+msgstr "ویرایش پیوندها در محیط ویرایشگر صفحات"
+
+msgid "u"
+msgstr "ذخیره محتوای صفحه"
+
+msgid "v"
+msgstr "انتخاب پوسته"
+
+msgid "w"
+msgstr "لیست قالب های عمومی"
+
+msgid "x"
+msgstr "مشاهده فرم ایجاد و ویرایش متن"
+
+msgid "y"
+msgstr "ایجاد متن جدید"
+
+msgid "z"
+msgstr "ویرایش متن های موجود"
+
+msgid "aa"
+msgstr "مشاهده لیست متن ها"
+
+msgid "ab"
+msgstr "فعال و غیرفعال کردن متن ها از طریق لیست"
+
+msgid "ac"
+msgstr "حذف کردن متن ها"
+
+msgid "ad"
+msgstr "مشاهده صفحه اصلی محیط میزکار"
+
+msgid "ae"
+msgstr "مشاهده لیست پیوند ها در محیط میزکار"
+
+msgid "af"
+msgstr "حذف پیوند ها در محیط میزکار"
+
+msgid "ag"
+msgstr "ویرایش پیوند ها در محیط میزکار"
+
+msgid "ah"
+msgstr "ایجاد پیوند جدید در محیط میزکار"
+
+msgid "ai"
+msgstr "مشاهده لیست سناریوها در محیط میزکار"
+
+msgid "aj"
+msgstr "حذف سناریو در محیط میزکار"
+
+msgid "ak"
+msgstr "ویرایش سناریوها در محیط میزکار"
+
+msgid "al"
+msgstr "ایجاد سناریوی جدید در محیط میزکار"
+
+msgid "am"
+msgstr "مشاهد لیست صفحات در محیط میزکار"
+
+msgid "an"
+msgstr "حذف صفحه در محیط میزکار"
+
+msgid "ao"
+msgstr "ویرایش تنظیمات صفحه در محیط میزکار"
+
+msgid "ap"
+msgstr "ایجاد صفحه جدید در محیط میزکار"
+
+msgid "aq"
+msgstr "مشاهده لیست کاربران"
+
+msgid "ar"
+msgstr "ایجاد کاربر جدید"
+
+msgid "as"
+msgstr "ویرایش مشخصات کاربران موجود"
+
+msgid "at"
+msgstr "حذف کاربران بصورت یک به یک"
+
+msgid "au"
+msgstr "حذف کاربران بصورت مجموعه ای"
+
+msgid "av"
+msgstr "فعال ساختن کاربران"
+
+msgid "aw"
+msgstr "غیرفعال ساختن کاربران"
+
+msgid "ax"
+msgstr "مشاهده لیست گروه کاربران"
+
+msgid "ay"
+msgstr "ایجاد گروه کاربری جدید"
+
+msgid "az"
+msgstr "ویرایش گروه های کاربری موجود"
+
+msgid "ba"
+msgstr "حذف گروه های کاربری بصورت یک به یک"
+
+msgid "bb"
+msgstr "حذف گروه های کاربری بصورت مجموعه ای"
+
+msgid "bc"
+msgstr "مشاهده لیست قاصدک ها"
+
+msgid "bd"
+msgstr "حذف قاصدک"
+
+msgid "be"
+msgstr "ویرایش قاصدک"
+
+msgid "bf"
+msgstr "ایجاد قاصدک"
+
+msgid "bg"
+msgstr "مشاهده لیست پوسته ها"
+
+msgid "bh"
+msgstr "حذف پوسته"
+
+msgid "bi"
+msgstr "ویرایش پوسته"
+
+msgid "bj"
+msgstr "ایجاد پوسته"
+
+msgid "bk"
+msgstr "مشاهده لیست مدیریتی دیدگاه ها"
+
+msgid "bl"
+msgstr "حذف دیدگاه"
+
+msgid "bm"
+msgstr "انتشار / عدم انتشار دیدگاه"
+
+msgid "bn"
+msgstr "مشاهده لیست بدنه ها"
+
+msgid "bo"
+msgstr "حذف بدنه"
+
+msgid "bp"
+msgstr "ویرایش بدنه"
+
+msgid "bq"
+msgstr "ایجاد بدنه جدید"
+
+msgid "br"
+msgstr "مشاهده لیست بلوک ها"
+
+msgid "bs"
+msgstr "حذف بلوک"
+
+msgid "bt"
+msgstr "ویرایش بلوک"
+
+msgid "bu"
+msgstr "ایجاد بلوک جدید"
+
+msgid "bv"
+msgstr "مشاهده لیست داشبوردهای اختصاصی"
+
+msgid "bw"
+msgstr "حذف داشبورد اختصاصی"
+
+msgid "by"
+msgstr "ویرایش داشبورد اختصاصی"
+
+msgid "bz"
+msgstr "ایجاد داشبورد اختصاصی جدید"
+
+msgid "ca"
+msgstr "مشاهده لیست قالب های متن"
+
+msgid "cb"
+msgstr "حذف قالب متن"
+
+msgid "cc"
+msgstr "مشاهده فرم ایجاد و ویرایش قالب متن"
+
+msgid "cd"
+msgstr "ویرایش قالب متن"
+
+msgid "ce"
+msgstr "ایجاد قالب متن جدید"
+
+msgid "cf"
+msgstr "مشاهده ابزار"
+
+msgid "cg"
+msgstr "تغییر پیکربندی داخلی ابزار"
+
+msgid "ch"
+msgstr "ویرایش محتوا توسط ابزار"
+
+msgid "ci"
+msgstr "ایجاد محتوا توسط ابزار"
+
+msgid "cj"
+msgstr "مشاهده لیست ابزارهای عمومی"
+
+msgid "ck"
+msgstr "مشاهده لیست ابزارهای اختصاصی"
+
+msgid "cl"
+msgstr "ایجاد ابزار اختصاصی"
+
+msgid "cm"
+msgstr "ویرایش ابزار اختصاصی"
+
+msgid "cn"
+msgstr "حذف ابزار اختصاصی"
+
+msgid "co"
+msgstr "تغییر تنظیمات ابزارها"
+
+msgid "cp"
+msgstr "مشاهده لیست آلبوم ها"
+
+msgid "cq"
+msgstr "حذف آلبوم"
+
+msgid "cr"
+msgstr "مشاهده لیست منوها"
+
+msgid "cs"
+msgstr "حذف منو"
+
+msgid "ct"
+msgstr "مشاهده لیست پوسته های اختصاصی آلبوم"
+
+msgid "cu"
+msgstr "حذف پوسته اختصاصی آلبوم"
+
+msgid "cv"
+msgstr "ویرایش پوسته اختصاصی آلبوم"
+
+msgid "cw"
+msgstr "ایجاد پوسته اختصاصی آلبوم"
+
+msgid "cy"
+msgstr "گروه های کاربری زیرمجموعه"
+
+msgid "cz"
+msgstr ""
+
+msgid "stylea"
+msgstr "text-align:right; line-height:1.6;"
+
+msgid "styleb"
+msgstr ""
+
+msgid "stylec"
+msgstr ""
+
+msgid "styled"
+msgstr ""
+

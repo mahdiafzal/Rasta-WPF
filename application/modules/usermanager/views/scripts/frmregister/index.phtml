@@ -1,0 +1,133 @@
+<script type="text/javascript">
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.td_title{width:100px;}.td_box{width:420px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+</style>
+
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+			<div class="art-post-inner">
+				<div class="art-postmetadataheader">
+					<h2 class="art-postheader">
+						<span class="art-postheader"><?php echo $this->escape($this->title_site); ?></span>
+					</h2>
+				</div>
+				<div class="art-postcontent">
+					<!-- article-content -->
+					
+	<?php 
+	if (!empty($this->errormsg))
+	{
+	//echo '<div class="ui-state-error ui-corner-all"	>';
+	echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+	foreach ($this->errormsg as $errormsg)
+	{
+		   echo  "<h4>".$errormsg."</h4>";
+	}
+	echo'</blockquote>';
+	}
+	?>
+	
+	<form action="<?php echo $this->formAction; ?>" method="post" autocomplete="off">
+	<table style="width: 540px; margin: 0pt auto; text-align: right; direction:rtl;">
+	<tbody>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('d');?></label></td>
+			<td class="td_box">
+				<input type="text" class="inputBox" size="35" maxlength="100" name="f_name" value="<?php echo $this->userParams['f_name']; ?>">
+			</td>
+		</tr>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('e');?></label></td>
+			<td class="td_box">
+				<input type="text" class="inputBox" size="35" maxlength="100" name="l_name" value="<?php echo $this->userParams['l_name']; ?>">
+			</td>
+		</tr>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('f');?></label></td>
+			<td class="td_box">
+				<input type="text" class="inputBox" size="35" maxlength="100" name="u_name" value="<?php echo $this->userParams['u_name']; ?>">
+			</td>
+		</tr>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('g');?></label></td>
+			<td class="td_box">
+				<input type="password" class="inputBox" size="35" maxlength="100" name="p_word" value="<?php echo $this->userParams['p_word']; ?>">
+			</td>
+		</tr>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('h');?></label></td>
+			<td class="td_box">
+				<input type="password" class="inputBox" size="35" maxlength="100" name="p_word_r"  value="<?php echo $this->userParams['p_word_r']; ?>">
+			</td>
+		</tr>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('i');?></label></td>
+			<td class="td_box">
+				<select style="width:120px" name="u_status" id="u_status">
+				<?php
+					if($this->userParams['u_status']==1) echo '<option value="1" >'. $this->translate->_('j') .'</option>';
+					echo '<option value="0" >'. $this->translate->_('k') .'</option>';
+					if($this->userParams['u_status']!=1) echo '<option value="1" >'. $this->translate->_('j') .'</option>';
+				?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="td_title"><label class="label"><?php echo $this->translate->_('l');?></label></td>
+			<td id="userGroups" class="td_box">
+			<style>#userGroups div{<?php echo $this->translate->_('stylea'); ?>}</style>
+			<?php
+				$u_group	= array();
+				if(!empty($this->userParams['u_group'])) $u_group = explode('/',$this->userParams['u_group']);
+				foreach($this->userGroups as $value) 
+				{
+					echo '<div>&nbsp;&nbsp;<input type="checkbox" name="g_'.$value['id'].'" ';
+					echo (in_array($value['id'],$u_group))?'checked="checked"':'';
+					echo '>&nbsp;&nbsp;';
+					echo $value['title'];
+					echo "</div>\n";
+				}
+			?>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+	</form>
+	<br />
+	<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="javascript:document.forms[0].submit()"><?php echo $this->translate->_('m');?></a>
+	</span>
+	<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/usermanager/frmlist/index<?php echo $this->newUriParams; ?>" ><?php echo $this->translate->_('n');?></a>
+	</span>
+	<br />
+	<br />
+					<!-- /article-content -->
+				</div>
+				<div class="cleared"></div>
+			</div>
+				<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+
+

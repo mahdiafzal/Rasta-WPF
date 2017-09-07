@@ -1,0 +1,93 @@
+﻿<script type="text/javascript">
+//--------------------------
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tb_listuser").addClass("ui-state-active");
+})
+</script><div id="left_bar">
+	<div id="cnt2_left_help">
+		<div id="cnt2_left_help_up"></div>
+		<div id="cnt2_left_help_inside">
+		  <h1><?php echo $this->escape($this->title);?></h1>
+		  <table border="1" cellspacing="0">
+		    <tr>
+			  <th>ردیف</th>
+			  <th>نام کاربری</th>	  
+			  <th>دسترسی</th>	  
+			  <th>نام</th>	  
+			  <th>نام خانوادگی</th>	  
+			  <th>حالت</th>
+			  <th colspan ="2">عمل</th>	  
+			</tr>
+<?php 		
+	$datas = $this->datas;
+	$j=1;
+    foreach( $datas as $i)
+    {		
+		if ($i['id']==1)
+		{
+?>
+			<tr>
+			  <td><?php echo $j;?></td>	
+			  <td><?php echo $i['username']?></td>
+			  <td><?php echo $i['permission']?></td>
+			  <td><?php echo $i['first_name']?></td>	  
+			  <td><?php echo $i['last_name']?></td>	  
+			  <td><?php
+			  		switch ($i['is_active'])
+			  		{
+			  		case -1: echo 'معلق';	break;
+			  		case  0: echo 'غیرفعال';break;
+			  		case  1: echo 'فعال';	break;
+			  		}
+			  	  ?>
+			  </td>	  
+				<td>	
+					 ويرايش | حذف
+				</td>	  
+				<td>	
+					معلق | فعال | غیرفعال
+				</td>	  
+			</tr>
+<?php 
+		}  
+	   	else 
+	   	{
+?>
+			<tr>
+			  <td><?php echo $j;?></td>	
+			  <td><?php echo $i['username']?></td>
+			  <td><?php echo $i['permission']?></td>
+			  <td><?php echo $i['first_name']?></td>	  
+			  <td><?php echo $i['last_name']?></td>	  
+			  <td><?php
+			  		switch ($i['is_active'])
+			  		{
+			  		case -1: echo 'معلق';	break;
+			  		case  0: echo 'غیرفعال';break;
+			  		case  1: echo 'فعال';	break;
+			  		}
+			  ?></td>	  
+				<td>	<a href="<?php echo $this->baseUrl();?>/godpanel/user/frmeditusers/id/<?php echo $i['id']?>">ويرايش</a>|
+					<a href="<?php echo $this->baseUrl();?>/godpanel/user/frmdel/id/<?php echo $i['id']?>">حذف</a>
+				</td>	  
+				<td>	<a href="<?php echo $this->baseUrl();?>/godpanel/user/act/typ/1/id/<?php echo $i['id']?>">فعال</a>|
+						<a href="<?php echo $this->baseUrl();?>/godpanel/user/act/typ/0/id/<?php echo $i['id']?>">غیرفعال</a>|
+						<a href="<?php echo $this->baseUrl();?>/godpanel/user/act/typ/-1/id/<?php echo $i['id']?>">معلق</a>
+				</td>	  
+			</tr>			
+<?php		    
+   		}
+   		$j++;
+    }
+?>
+		  </table>
+			<br />
+
+		</div>
+		<div id="cnt2_left_help_down"></div>				
+	</div>				
+</div>
+
+ 
+		

@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-07-15 03:56+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "next page"
+msgstr "صفحه بعد"
+
+msgid "previous page"
+msgstr "صفحه قبل"
+
+msgid "a"
+msgstr "نظرات وبسایت"
+
+msgid "b"
+msgstr "نظر شما"
+
+msgid "c"
+msgstr "وبسایت"
+
+msgid "d"
+msgstr "نویسنده"
+
+msgid "e"
+msgstr "<h4 dir=\"rtl\">هیچ دیدگاهی با این مشخصات ثبت نشده است.</h4>"
+
+msgid "f"
+msgstr "ردیف"
+
+msgid "g"
+msgstr "زمان ارسال"
+
+msgid "h"
+msgstr "ایمیل"
+
+msgid "i"
+msgstr "عمل"
+
+msgid "j"
+msgstr "وضعیت"
+
+msgid "k"
+msgstr "خصوصی"
+
+msgid "l"
+msgstr "تأیید شده"
+
+msgid "m"
+msgstr "تأیید نشده"
+
+msgid "n"
+msgstr "عنوان محتوا"
+
+msgid "o"
+msgstr "نوع"
+
+msgid "p"
+msgstr "تعداد کل دیدگاه ها"
+
+msgid "q"
+msgstr "دیدگاه بصورت خصوصی"
+
+msgid "r"
+msgstr "دیدگاه بصورت عمومی"
+
+msgid "s"
+msgstr "<center><br /><br /><h4 style=\"color:#CC3300;line-height:1.5;\">درصورت تأیید دیدگاه انتخاب شده حذف خواهد شد.<br />آیا تأیید می نمایید؟</h4></center>"
+
+msgid "t"
+msgstr "تأیید"
+
+msgid "u"
+msgstr "انصراف"
+
+msgid "v"
+msgstr "دیدگاه مورد نظر با موفقیت حذف شد"
+
+msgid "w"
+msgstr "خطا در فرایند حذف دیدگاه"
+
+msgid "x"
+msgstr "خطا در داده های ورودی، شاید نیاز به بارگذاری مجدد صفحه باشد."
+
+msgid "y"
+msgstr "خطا در عملیات، دوباره تلاش نمایید."
+
+msgid "z"
+msgstr ""
+
+msgid "dir"
+msgstr "rtl"
+

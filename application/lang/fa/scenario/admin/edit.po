@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-04-30 12:41+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "a"
+msgstr "عنوان سناریو نامعتبر می باشد"
+
+msgid "b"
+msgstr "فیلد عنوان لاتین نباید خالی و تنها باید از حروف لاتین، عدد و علامت های (: - آندر لاین) باشد"
+
+msgid "c"
+msgstr "فیلد تعداد باید عدد باشد"
+
+msgid "d"
+msgstr "صفحه انتخاب شده نامعتبر میباشد"
+
+msgid "e"
+msgstr "فیلد آدرس نباید خالی و تنها باید از حروف لاتین، عدد و علامت (/) باشد و نباید با (/) شروع شود"
+
+msgid "f"
+msgstr "آدرس وارد شده تکراری میباشد"
+
+msgid "g"
+msgstr "سناریو مورد نظر با موفقیت اصلاح شد"
+
+msgid "h"
+msgstr ""
+
+msgid "i"
+msgstr ""
+
+msgid "j"
+msgstr ""
+
+msgid "k"
+msgstr ""
+
+msgid "l"
+msgstr ""
+
+msgid "m"
+msgstr ""
+
+msgid "n"
+msgstr ""
+
+msgid "o"
+msgstr ""
+
+msgid "p"
+msgstr ""
+
+msgid "q"
+msgstr ""
+
+msgid "r"
+msgstr ""
+
+msgid "s"
+msgstr ""
+
+msgid "t"
+msgstr ""
+
+msgid "u"
+msgstr ""
+
+msgid "v"
+msgstr ""
+
+msgid "w"
+msgstr ""
+
+msgid "x"
+msgstr ""
+
+msgid "y"
+msgstr ""
+
+msgid "z"
+msgstr ""
+

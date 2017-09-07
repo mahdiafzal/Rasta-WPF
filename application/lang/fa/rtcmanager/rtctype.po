@@ -1,0 +1,129 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2012-08-21 20:01+0330\n"
+"Last-Translator: Ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "dir"
+msgstr "rtl"
+
+msgid "language"
+msgstr "زبان"
+
+msgid "status"
+msgstr "وضعیت"
+
+msgid "active"
+msgstr "فعال"
+
+msgid "inactive"
+msgstr "غیرفعال"
+
+msgid "ok"
+msgstr "تأیید"
+
+msgid "cancel"
+msgstr "انصراف"
+
+msgid "stylea"
+msgstr "width:49%;float:right;text-align:right; line-height:1.7;"
+
+msgid "title"
+msgstr "عنوان"
+
+msgid "a"
+msgstr ""
+
+msgid "b"
+msgstr "نوع متن عمومی"
+
+msgid "c"
+msgstr "نوع متن اختصاصی"
+
+msgid "d"
+msgstr "<h1>هیچ نوع متن عمومی ای که نصب نشده باشد، یافت نشد!</h1>"
+
+msgid "e"
+msgstr "<h1>هیچ نوع متن اختصاصی ای یافت نشد!</h1>"
+
+msgid "f"
+msgstr "ویرایش نوع متن"
+
+msgid "g"
+msgstr "ایجاد نوع متن"
+
+msgid "h"
+msgstr "گروه کاربری دارای مجوز"
+
+msgid "i"
+msgstr "گروه های کاربری مورد استفاده در نوع متن"
+
+msgid "j"
+msgstr "سناریوهای مورد استفاده در نوع متن"
+
+msgid "k"
+msgstr "صفحه تکنما"
+
+msgid "l"
+msgstr "کد ویرایشگر"
+
+msgid "m"
+msgstr "هیچیک"
+
+msgid "n"
+msgstr "خطا در داده های ورودی، شاید لازم باشد صفحه دوباره بارگذاری شود"
+
+msgid "o"
+msgstr "<center><br /><br /><h4 style=\"color:#CC3300;line-height:1.5;direction:rtl;\">درصورت تأیید نوع متن انتخاب شده حذف خواهد شد.<br />آیا تأیید می نمایید؟</h4></center>"
+
+msgid "p"
+msgstr "نوع متن با موفقیت حذف شد"
+
+msgid "q"
+msgstr "خطا در فرایند حذف نوع متن"
+
+msgid "r"
+msgstr ""
+
+msgid "s"
+msgstr ""
+
+msgid "t"
+msgstr ""
+
+msgid "u"
+msgstr "عنوان نوع متن نباید خالی باشد."
+
+msgid "v"
+msgstr ""
+
+msgid "w"
+msgstr ""
+
+msgid "x"
+msgstr "خطا در فرایند ثبت نوع متن"
+
+msgid "y"
+msgstr "نوع متن با موفقیت ویرایش شد"
+
+msgid "z"
+msgstr "نوع متن جدید با موفقیت ثبت شد"
+
+msgid "la"
+msgstr ""
+
+msgid "lb"
+msgstr ""
+
+msgid "lc"
+msgstr ""
+

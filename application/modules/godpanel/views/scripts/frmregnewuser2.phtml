@@ -1,0 +1,90 @@
+﻿<script type="text/javascript">
+//--------------------------
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tb_crtuser").addClass("ui-state-active");
+})
+
+function submitForm()
+{
+	document.forms[0].submit();
+}
+
+
+</script>
+<style>
+.td_title
+{
+	width:100px;
+}
+.td_box
+{
+	width:420px;
+}
+#div_tbl
+{
+margin:0 auto;
+padding:10px;
+margin-top:5px;
+width:650px;
+border:1px solid;
+height:auto;
+}
+</style>  	<?php 
+		if (isset($this->msg))
+		{
+			foreach ($this->msg as $msg)
+  			{
+				echo '<div class="ui-state-error ui-corner-all"	>'.
+				     "<h2>".$msg."</h2>".
+				     '</div>';
+			}
+		}
+	?>
+
+	<?php if (isset($this->description)){echo '<div class="ui-state-error ui-corner-all"><h2>'.$this->description.'</h2></div>';}?>	 
+	<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+	<form name="reguser" method="post" autocomplete="off" action="/godpanel/user/reguser">
+	<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+		  <table style="width:540px; margin:0 auto;text-align:right;">
+			<tr title="نام کاربر جدید">
+			  <td class="td_title"><label class="label">نام:</label></td>
+			  <td class="td_box"><input class="inputBox" size="35" type="text" name="first_name" value=<?php echo $this->data['first_name']; ?>></td>
+			</tr>
+			<tr title="نام خانوادگی کاربر جدید">
+			  <td class="td_title"><label class="label">نام خانوادگی:</label></td>
+			  <td class="td_box"><input class="inputBox" size="35" type="text" name="last_name" value=<?php echo $this->data['last_name']; ?>></td>
+			</tr>	
+			<tr title="کلمه کاربری">
+			  <td class="td_title"><label class="label">ایمیل معتبر:</label></td>
+			  <td class="td_box"><input class="inputBox" size="35" type="text" name="username" value="<?php echo $this->data['username']; ?>"></td>
+			</tr>	
+			<tr title="رمز عبور بیش از 5 کاراکتر">
+			  <td class="td_title"><label class="label">کلمه عبور:</label></td>
+			  <td class="td_box"><input class="inputBox" size="35" type="password" name="password_1" ></td>
+			</tr>
+			<tr title="تکرار رمز عبور">
+			  <td class="td_title"><label class="label">تکرار کلمه عبور:</label></td>
+			  <td class="td_box"><input class="inputBox" size="35" type="password" name="password_2" ></td>
+			</tr>	
+			<tr title="این کد جهت بالابردن امنیت سیستم استفاده شده است">
+			  <td class="td_title"></td>
+			  <td class="td_box"><img id="siimage" align="right" style="padding-right: 20px; border: 0;" src="/godpanel/public/generatecaptcha"  />        
+				<!-- pass a session id to the query string of the script to prevent ie caching -->
+				<a tabindex="-1" style="border-style: none;" href="#" title="ایجاد کد امنیتی جدید" onClick="document.getElementById('siimage').src = '/godpanel/public/generatecaptcha/t/'+ Math.random();return false;"><img src="/img/refresh.png" alt="Reload Image" border="0" onClick="this.blur()"/></a>					
+			  </td>
+			</tr>	
+			<tr title="کد امنیتی بالا را در اینجا وارد کنید">
+			  <td class="td_title"><label class="label">کد امنیتی:</label></td>
+			  <td class="td_box"><input class="inputBox" size="35" type="text" name="captcha"></td>
+			</tr>		
+		  </table>
+	</div>
+	<div id="div_tbl" class="ui-corner-all ui-state-highlight">
+	<center>
+		<a  class='btn ui-state-default ui-corner-all' title="تائید و ارسال فرم" href="#"	onclick="javascript :submitForm();" >تائید </a>
+		<a  class='btn ui-state-default ui-corner-all' title="انصراف و بازگشت به صفحه اصلی" href="/godpanel/panel/" >انصراف</a>
+	</center>
+	</div>
+	</form>
+

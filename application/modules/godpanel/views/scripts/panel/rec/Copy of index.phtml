@@ -1,0 +1,173 @@
+<script type="text/javascript">
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tb_main").addClass("ui-state-active");
+
+		$('#selskin').css('background-image','url(/img/skins/<?php if (isset($this->skin)){echo $this->skin;}else{echo '1';} ?>.gif)');
+})
+
+function aa(skinID)
+{
+	$('#skinMsg').html("<div class='ui-state-error ui-corner-all'><h2> پوسته با موفقیت تغییر داده شد </h2></div>");
+	$('#selskin').css('background-image','url(/img/skins/'+ skinID +'.gif)');
+}
+
+function tempSelect()
+{
+	window.open('/godpanel/index/template',"tempSelector","location=1,status=1,scrollbars=1,resizable=1");
+}
+</script>
+ 
+  	<?php 
+		if (!empty($this->msg))
+		{
+			echo '<div class="ui-state-error ui-corner-all"	>';
+			foreach ($this->msg as $msg)
+  			{
+			  echo "<h2>".$msg."</h2>";
+			}
+			echo  '</div>';
+		}
+	?>
+
+<style>
+#crtsite:hover{color:#FF0000;}
+#crtsite{color:#009900;}
+table td{font-family:Tahoma ;font-size:11px;}
+#div_tbl{margin:15px auto;overflow:hidden;width:705px;border:1px solid;height:auto;}
+.obj{width:128px;height:128px;margin:22px;float:right;border:dashed 1px #CCCCCC;}
+.obj a{display:block;height:100%;width:100%;font-family:Tahoma;font-size:14px;}
+.dtl{font-family:Tahoma;font-size:12px;height:15px;margin:5px auto;overflow:hidden;float:right;}
+.clr{color:red;text-align:right;}
+.button_title{position:relative;bottom:0;border:dashed 1px #CCCCCC;padding:3px;margin-top:3px;font-family:Tahoma;font-size:10px;}
+#homeview{background-image:url(/img/panel/homeview.gif);}
+#edithome{background-image:url(/img/panel/edithome.gif);}
+#rastakinfo{background-image:url(/img/panel/rastakinfo.gif);}
+#help{background-image:url(/img/panel/help.gif);}
+#errorreport{background-image:url(/img/panel/errorreport.gif);}
+#unlockview{background-image:url(/img/panel/unlock.gif);}
+#lockview{background-image:url(/img/panel/lock.gif);}
+#selluck{background-image:url(/img/panel/selluck.gif);}
+#saman{background-image:url(/img/panel/saman.gif);}
+#adddomain{background-image:url(/img/panel/adddomain.gif);}
+#exportdb{background-image:url(/img/panel/exportdb.gif);}
+#selskin{background-image:url(/img/skins/1.gif);background-repeat:no-repeat;background-position:center;}
+#sitesetting{background-image:url(/img/panel/sitesetting.gif);}
+#usersetting{background-image:url(/img/panel/usersetting.gif);}
+#shutdown{background-image:url(/img/panel/shutdown.gif);}
+</style>
+
+
+
+<div id="skinMsg"></div>
+<div id="div_tbl" class="ui-corner-all" style="padding:0 15px;">
+	<?php
+//-------------
+function ger_to_fa($date)
+{
+	if ($date=='')
+	{
+		return	 NULL;
+	}
+	else 
+	{
+		$arr	= explode(' ',$date)	;
+		$d		= explode('-',$arr[0])	;
+		$pdate	= new Rasta_Pdate;
+		$arr[0] = implode('-',$pdate->gregorian_to_persian($d[0],$d[1],$d[2]));
+		return  $arr[0] ;//implode(' در ساعت ',$arr);
+	}	
+}
+			if (isset($this->siteData))//false)
+			{
+	?>			
+			<div style="margin:0 auto;width:100%;">
+				<div class="dtl" style="width:65px;">خوش آمدید</div>	
+				<div class="dtl clr" style="width:235px;"><?php echo $this->first_name.' ' .$this->last_name; ?></div>	
+				<div class="dtl" style="width:100px;"><b>تاریخ ایجاد پورتال:</b></div>	
+				<div class="dtl" style="width:100px;"><?php echo ger_to_fa($this->siteData['wb_creation']); ?></div>	
+				<div class="dtl" style="width:100px;"><b>تاریخ اتمام اعتبار:</b></div>	
+				<div class="dtl" style="width:100px;"><?php echo ger_to_fa($this->siteData['wb_expirdate']); ?></div>	
+			</div>					
+	<?php	}
+			else
+			{ 
+		?>						
+				<div class="dtl" style="width:70px;">خوش آمدید</div>	
+				<div class="dtl clr" style="width:235px;"><?php echo $this->first_name.' ' .$this->last_name; ?></div>	
+				<div class="dtl" style="width:380px;">با کلیک بر روی <strong><a id="crtsite" href="/godpanel/panel/frmcrtsite"> ایجاد پورتال </a></strong>اقدام به ایجاد پورتال خود کنید</div>	
+		<?php
+			}	
+		?>
+</div>
+
+<div id="div_tbl" class="ui-corner-all" style="padding:15px;">
+		<?php 	
+			if (isset($this->siteData))
+			{
+				$att1	= ' title="مشاهده پورتال" target="_blank"';
+				$att2	= ' title="ویرایش محتویات پورتال" target="_blank"';
+				$att3	= ' title="ویرایش تنظیمات پورتال"';
+				$att4	= ' title="پارک کردن دامنه های دیگر"';
+				$att5	= ' title="تغییر پوسته ی پیش فرض پورتال" '; //onclick="javascript: tempSelect();"
+				
+				
+				$editSiteUrl	= ' /godpanel/panel/frmeditsite';
+				$parkDomainUrl	= '/godpanel/panel/frmparkdomain';
+				if($this->siteData['wb_status']=='1')
+				{	
+					$href	= '/godpanel/panel/publishsite/id/0' ;
+					$title	= 'عدم انتشار پورتال';
+					$id		= 'unlockview';
+				}else{
+					$href='/godpanel/panel/publishsite/id/1';
+					$title	= 'انتشار پورتال';
+					$id		= 'lockview';
+				}
+				
+				if (isset($this->domainData))
+				{
+					$siteUrl		= 'http://www.' .$this->domainData['domain'];
+					$siteAdminUrl 	= 'http://www.' .$this->domainData['domain']. '/login';
+				}
+				else
+				{
+					$siteUrl		= '#';
+					$siteAdminUrl	= '#';
+				}
+				
+			}
+			else
+			{
+				$att1	= ' title="این قسمت پس از ایجاد پورتال فعال خواهد شد"';
+				$att2	= ' title="این قسمت پس از ایجاد پورتال فعال خواهد شد"';
+				$att3	= ' title="این قسمت پس از ایجاد پورتال فعال خواهد شد"';
+				$att4	= ' title="این قسمت پس از ایجاد پورتال فعال خواهد شد"';
+				$att5	= ' title="تغییر پوسته ی پورتال"';
+				$siteUrl		= '#';
+				$siteAdminUrl	= '#';
+				$editSiteUrl	= '#';
+				$parkDomainUrl	= '#';
+				$id		= 'selluck';
+				$href	= '#';
+				$title	= 'این قسمت پس از ایجاد پورتال فعال خواهد شد';			
+			}
+		
+		?>
+	<div class="obj ui-corner-all"><a id="homeview" href="<?php echo $siteUrl;?>" <?php echo $att1; ?> ></a><div  class="ui-corner-all ui-state-default  button_title">مشاهده پورتال</div></div>
+	<div class="obj ui-corner-all"><a id="edithome" href="<?php echo $siteAdminUrl;?>" <?php echo $att2; ?> ></a><div  class="ui-corner-all ui-state-default button_title">ویرایش محتویات پورتال</div>	</div>
+	<div class="obj ui-corner-all"><a id="sitesetting" href="<?php echo $editSiteUrl;?>" <?php echo $att3; ?> ></a><div  class="ui-corner-all ui-state-default button_title">ویرایش تنظیمات پورتال</div></div>
+	<div class="obj ui-corner-all"><a id="rastakinfo" href="/" title="پرتال رستاک" target="_blank"></a><div  class="ui-corner-all ui-state-default button_title">پرتال رستاک</div></div>
+	<div class="obj ui-corner-all"><a id="help" href="/help" title="راهنمای استفاده از پورتال" target="_blank"></a> <div  class="ui-corner-all ui-state-default button_title">راهنمای استفاده از پورتال</div></div>
+	<div class="obj ui-corner-all"><a id="errorreport" href="/page/20" title="گزارش خطا" target="_blank"></a><div  class="ui-corner-all ui-state-default button_title">گزارش خطا</div></div>
+	<div class="obj ui-corner-all"><a id="<?php echo $id;?>" href="<?php echo $href;?>" title="<?php echo $title;?>"></a><div  class="ui-corner-all ui-state-default button_title">انتشار یا عدم انتشار پورتال</div></div>	
+	<div class="obj ui-corner-all"><a id="saman" href="/godpanel/epay/index" title="شارژ اعتبار پورتال"></a><div  class="ui-corner-all ui-state-default button_title">شارژ اعتبار پورتال</div></div>
+	
+	<div class="obj ui-corner-all"><a id="exportdb" href="/godpanel/export/frmwordpress" title="ایجاد نسخه قابل نصب در نرم افزار های مدیریت محتوا"></a><div  class="ui-corner-all ui-state-default button_title">گرفتن خروجی وردپرس</div></div>
+	
+<!--	<div class="obj ui-corner-all"><a id="adddomain" href="<?php //echo $parkDomainUrl;?>" <?php //echo $att4; ?> ></a><div  class="ui-corner-all ui-state-default button_title">پارک دامنه های دلخواه</div></div>-->
+	
+	<div class="obj ui-corner-all"><a id="selskin"href="#" <?php echo $att5; ?> ></a><div  class="ui-corner-all ui-state-default button_title">تغییر پوسته ی پورتال</div></div>
+	<div class="obj ui-corner-all"><a id="usersetting" href="/godpanel/User/frmedit" title="اصلاح مشخصات کاربری"></a><div  class="ui-corner-all ui-state-default button_title">اصلاح مشخصات کاربری</div></div>
+	<div class="obj ui-corner-all"><a id="shutdown" href="/godpanel/user/logout" title="خروج از کنترل پنل"></a><div  class="ui-corner-all ui-state-default button_title">خروج از کنترل پنل</div></div>
+</div>

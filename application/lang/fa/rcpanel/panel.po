@@ -1,0 +1,210 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-09-03 19:21+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "dir"
+msgstr "rtl"
+
+msgid "exit"
+msgstr "خروج"
+
+msgid "a"
+msgstr "صفحه اصلی"
+
+msgid "b"
+msgstr "خوش آمدید"
+
+msgid "c"
+msgstr "تاریخ ایجاد سایت:"
+
+msgid "d"
+msgstr "تاریخ اتمام اعتبار:"
+
+msgid "e"
+msgstr "با کلیک بر روی "
+
+msgid "f"
+msgstr "ایجاد سایت"
+
+msgid "g"
+msgstr "اقدام به ایجاد سایت خود کنید"
+
+msgid "h"
+msgstr "مشاهده سایت"
+
+msgid "i"
+msgstr "ویرایش محتویات سایت"
+
+msgid "j"
+msgstr "تنظیمات سایت"
+
+msgid "k"
+msgstr "صفحه اصلی"
+
+msgid "l"
+msgstr "تک نما"
+
+msgid "m"
+msgstr "عنوان سایت"
+
+msgid "n"
+msgstr "عنوان لاتین سایت شما در صورت استفاده از خاصیت چپ به راست به نمایش در خواهد آمد"
+
+msgid "o"
+msgstr "عنوان لاتین سایت"
+
+msgid "p"
+msgstr "دامنه سایت"
+
+msgid "q"
+msgstr "بررسی دامنه"
+
+msgid "r"
+msgstr "شعار سایت"
+
+msgid "s"
+msgstr "نویسندگان سایت"
+
+msgid "t"
+msgstr "این توضیحات جهت ارائه به موتور های جستجو می باشد"
+
+msgid "u"
+msgstr "توضیحات"
+
+msgid "v"
+msgstr "کلمات کلیدی دسترسی از طریق موتور جستجو به سایت شما آسان می کند"
+
+msgid "w"
+msgstr "کلمات کلیدی"
+
+msgid "x"
+msgstr "توافقنامه&zwnj;ی سایت ساز رستاک را مطالعه کرده و مفاد آن را می پذیرم"
+
+msgid "y"
+msgstr "توافقنامه"
+
+msgid "z"
+msgstr "<style>#agreement p{font-size: 12px;font-family: tahoma, geneva, sans-serif;direction:rtl;text-align:right;text-align:justify;}</style>	<p style=\"text-align:left;margin:0;padding:0;\"><strong><a href=\"#\" onclick=\"$('#agreement').slideToggle(1000);return false;\" style=\"color:#FF0000;\">x</a></strong></p>	<p style=\"text-align: center\">به نام خدا</p>	<p style=\"text-align: center\"><strong>شرایط استفاده از سایت ساز رستاک</strong></p>	<p>جهت استفاده از خدمات سایت ساز رستاک، به منظور حفظ حقوق مخاطبان و نیز فراهم نمودن زمینه ی فعالیت سایت شما، رعایت قوانین و مقرراتی که در زیر به آن اشاره شده الزامی میباشد و وبسایت ارائه دهنده این خدمات در خصوص عدم رعایت این مقررات از طرف شما هیچگونه مسئولیتی ندارد.</p>	<p>1.&nbsp;رستاک ضمن دفاع از آزادی بیان و قلم از شما می خواهد، مطالبی که منتشر می نمایید با قوانین، مقررات و عرف حاکم بر جمهوری اسلامی ایران مغایرت نداشته باشد.</p>	<p>2.&nbsp;درج هرگونه مطلب، عکس و فیلم که موجب توهین به ادیان رسمی کشور یا اشخاص حقیقی و یا حقوقی باشد غیر مجاز است.</p>	<p>3.&nbsp;هرگونه فعالیت سیاسی، اجتماعی، مذهبی، تجاری و... که نیاز به اخذ مجوز از مراجع قانونی و ذیربط داشته باشد بدون اخذ مجوز از این مراجع، مجاز نمی باشد.</p>	<p>4.&nbsp;در جهت حفظ منابع سایت و همچنین جلوگیری از سوء استفاده، سایت های آزمایشی، غیر فعال و بدون محتوا حذف خواهند شد.</p>	<p>5.&nbsp;مسئولیت مطالب و محتوای ارسال شده از سوی شما و کاربران سایت شما به عهده ی خودتان میباشد و رستاک هیچ گونه مسئولیتی در قبال این قبیل محتواها ندارد.</p>	<p>6.&nbsp;اطلاعات شخصی شما محرمانه تلقی شده و بدون مجوز مراجع قضایی در اختیار اشخاص حقیقی یا حقوقی قرار نخواهد گرفت.</p>	<p>7.&nbsp;رستاک این حق را دارد تا در صورت عدم رعایت هریک از بندهای مندرج فوق، بدون اطلاع قبلی اقدام به تعلیق سایت شما کند.</p>	<p><strong>شما با مطالعه و توافق با مقررات بالا، میتوانید نسبت به ایجاد سایت خود اقدام نمایید.</strong></p>"
+
+msgid "aa"
+msgstr "تایید"
+
+msgid "ab"
+msgstr "انصراف"
+
+msgid "ac"
+msgstr "فقط در صورت پذیرش توافقنامه می توانید سایت خود را ایجاد نمایید"
+
+msgid "ad"
+msgstr "پارک کردن دامنه"
+
+msgid "ae"
+msgstr "عدم انتشار سایت"
+
+msgid "af"
+msgstr "انتشار سایت"
+
+msgid "ag"
+msgstr "این قسمت پس از ایجاد سایت فعال خواهد شد"
+
+msgid "ah"
+msgstr "اصلاح مشخصات کاربری"
+
+msgid "ai"
+msgstr "انتشار یا عدم انتشار سایت"
+
+msgid "aj"
+msgstr "پارک دامنه های دلخواه"
+
+msgid "ak"
+msgstr "ایجاد نسخه قابل نصب در نرم افزار های مدیریت محتوا"
+
+msgid "al"
+msgstr "گرفتن خروجی وردپرس"
+
+msgid "am"
+msgstr "پرداخت الکترونیک"
+
+msgid "an"
+msgstr "پورتال سایت ساز رستاک"
+
+msgid "ao"
+msgstr "راهنمای استفاده از سایت ساز رستاک"
+
+msgid "ap"
+msgstr "گزارش خطا"
+
+msgid "aq"
+msgstr "خروج از کنترل پنل"
+
+msgid "ar"
+msgstr ""
+
+msgid "as"
+msgstr ""
+
+msgid "at"
+msgstr ""
+
+msgid "au"
+msgstr ""
+
+msgid "av"
+msgstr ""
+
+msgid "aw"
+msgstr ""
+
+msgid "ay"
+msgstr ""
+
+msgid "az"
+msgstr ""
+
+msgid "ga"
+msgstr "کنترل پنل::"
+
+msgid "gb"
+msgstr "نمایش اخطارها"
+
+msgid "gc"
+msgstr "صفحه اصلی"
+
+msgid "gd"
+msgstr "سایت جدید"
+
+msgid "ge"
+msgstr "پرداخت الکترونیک"
+
+msgid "gf"
+msgstr "خروجی وردپرس"
+
+msgid "gg"
+msgstr "پارک دامنه"
+
+msgid "gh"
+msgstr "درحال بارگذاری .."
+
+msgid "gi"
+msgstr "اصلاح مشخصات"
+
+msgid "gj"
+msgstr "خروج"
+
+msgid "gk"
+msgstr "ثبت نام"
+
+msgid "gl"
+msgstr "ورود"
+

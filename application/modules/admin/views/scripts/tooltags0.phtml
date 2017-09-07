@@ -1,0 +1,582 @@
+<!--[if gte IE 5.5]>
+<![if lt IE 7]>
+<style type="text/css">
+div#verticalPanel {
+  /* IE5.5+/Win - this is more specific than the IE 5.0 version */
+  left: expression( ( ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+  top: expression( ( 32 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+div#createmenu {
+  rigth: expression( ( ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+  top: expression( ( 33 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+div#toolbar {
+  top: expression( ( ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+</style>
+<![endif]>
+<![endif]-->
+<script>
+function testfn(){alert('');} ;
+</script>
+<div id="verticalPanel">
+	<div id="verticalPanel_accordion">
+			<h3><a class="attention0" href="#"><?php echo $this->translate->_('a');?></a></h3>
+			<div id="pagesttingPanel">
+				<form>
+						 <input type="hidden" name="mlmskin" value=""  />
+						 <input type="hidden" name="page_dir" value="2"  />
+					<fieldset>
+						<legend><?php echo $this->translate->_('aa');?></legend>
+						<?php echo $this->translate->_('b');?> <input type="text" name="title" readonly="readonly" autocomplete="off"  value=""  /><br />
+						<?php echo $this->translate->_('c');?><br /> <textarea  name="slogan"></textarea><br />
+
+							<div id="dir_radio" dir="ltr" style="width:99%; height:35px; margin:0;padding:0;border:0;padding-top:15px;">
+								<input type="radio" id="radio1" value="1" name="radio" checked="checked" /><label for="radio1"><?php echo $this->translate->_('d');?></label>
+								<input type="radio" id="radio2" value="2" name="radio" /><label for="radio2"><?php echo $this->translate->_('e');?></label>
+							</div>
+					</fieldset>
+					<fieldset>
+						<legend><?php echo $this->translate->_('ab');?></legend>
+							 <input type="text" name="skin" readonly="readonly" autocomplete="off" value="" size="2"  />
+							 <a id="tempReset"><?php echo $this->translate->_('f');?></a>
+							 <a id="tempSelect"><?php echo $this->translate->_('g');?></a>
+					</fieldset>
+					<fieldset>
+						<legend><?php echo $this->translate->_('h');?></legend>
+						<?php echo $this->translate->_('i');?> <br /><textarea  name="authors"></textarea><br /><br />
+						<?php echo $this->translate->_('j');?> <br /><textarea  name="description"></textarea><br /><br />
+						<?php echo $this->translate->_('k');?> <br /><textarea  name="keywords"></textarea><br /><br />
+					</fieldset>
+					 
+				</form>
+			</div>
+			<h3><a href="#"><?php echo $this->translate->_('l');?><span id="listTitle">&nbsp;:&nbsp; <?php echo $this->translate->_('o');?></span></a></h3>
+			<div id="accorContent">
+				<div id="accorContentButton">
+					<a icon='note' class="ui-state-highlight"><?php echo $this->translate->_('o');?></a>
+					<a icon='image'><?php echo $this->translate->_('q');?></a>
+					<a icon='calculator'><?php echo $this->translate->_('r');?></a>
+				</div>
+
+				<div id="rtclistpanel">
+					<div class="listtools">
+						<a icon='plus'><?php echo $this->translate->_('s');?></a>
+						<a icon='refresh' onclick="$var.paging.refresh('rtc',1);return false;"><?php echo $this->translate->_('refresh');?></a>
+					</div>
+					<div id="RTClist">
+						<ul id="tablist">
+							<li><a href="#tabs-1"><?php echo $this->translate->_('t');?></a></li>
+							<li><a href="#tabs-2"><?php echo $this->translate->_('u');?></a></li>
+							<li><a href="/admin/public/help/state/rtclist"><?php echo $this->translate->_('v');?></a></li>
+						</ul>
+						<div id="tabs-1">
+							<?php 
+							foreach($this->sitertcs[1] as $value)
+							{
+								echo '<div class="rasta-buttonset">'
+									.	'<a>'.$this->translate->_('w').'</a>'
+									.	'<a>'.$this->translate->_('x').'</a>'
+									.	'<a>'.$this->translate->_('y').'</a>'
+									.	'<a class="RTCtitle" rtcid="'.$value['id'].'" rtcname="'.$value['ltn_name'].'" title="'.$value['title'].'">'.$value['title'].'</a>'
+									.'</div>';
+							}
+							$paginglimit = 8;
+								echo '<div class="pagingButtons">';
+							if($this->sitertcs[0] > $paginglimit)
+							{
+								for($i=0; $i< ceil($this->sitertcs[0]/$paginglimit); $i++)
+								{
+									$start	= $i*8;
+									$j		= $i+1;
+									echo '<a>'.$j .'</a>';
+								}
+							}
+								echo '</div>';
+							?>
+						</div>
+						<div id="tabs-2">
+							<div class="ui-widget dir-rtl">
+								<label for="rtcs" class="float-rtl"><?php echo $this->translate->_('b');?> </label>
+								<input id="rtcsSearch" class="float-rtl" />
+							</div>
+							<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+								<span class="float-rtl dir-rtl"><?php echo $this->translate->_('ac');?></span>
+								<div id="LogRtcsSearch" style="min-height: 200px; width: 99%; padding-top:5px;" class="ui-widget-content float-rtl">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="gallerylistpanel" style="display:none">
+					<div class="listtools">
+						<a icon='plus'><?php echo $this->translate->_('ad');?></a>
+						<a icon='refresh' onclick="$var.paging.refresh('gallery',1);return false;"><?php echo $this->translate->_('refresh');?></a>
+					</div>
+					<div id="Gallerylist">
+						<ul id="tablist">
+							<li><a href="#tabs-1"><?php echo $this->translate->_('t');?></a></li>
+							<li><a href="#tabs-2"><?php echo $this->translate->_('u');?></a></li>
+							<li><a href="/admin/public/help/state/gallerylist"><?php echo $this->translate->_('v');?></a></li>
+						</ul>
+						<div id="tabs-1">
+							<?php 
+							foreach($this->sitegallerys[1] as $value)
+							{
+								echo '<div class="rasta-buttonset">'
+									.	'<a>'.$this->translate->_('w').'</a>'
+									.	'<a>'.$this->translate->_('y').'</a>'
+									.	'<a class="Gallerytitle" Galleryid="'.$value['gallery_id'].'" Galleryname="'
+									.$value['gallery_title'].'" title="'.$value['gallery_title'].'">'.$value['gallery_title'].'</a>'
+									.'</div>';
+							}
+							$paginglimit = 8;
+								echo '<div class="pagingButtons">';
+							if($this->sitegallerys[0] > $paginglimit)
+							{
+								for($i=0; $i< ceil($this->sitegallerys[0]/$paginglimit); $i++)
+								{
+									$start	= $i*8;
+									$j		= $i+1;
+									echo '<a>'.$j .'</a>';
+								}
+							}
+								echo '</div>';
+							?>						
+						</div>
+						<div id="tabs-2">
+							<div class="ui-widget dir-rtl">
+								<label for="gallerys" class="float-rtl"><?php echo $this->translate->_('b');?> </label>
+								<input id="gallerySearch" class="float-rtl" />
+							</div>
+							<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+								<span class="float-rtl dir-rtl"><?php echo $this->translate->_('ac');?></span>
+								<div id="LogGallerySearch" style="min-height: 200px; width: 99%; padding-top:5px;" class="ui-widget-content float-rtl">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div id="menulistpanel" style="display:none">
+					<div class="listtools">
+						<a icon='plus' id="addnewsvm"><?php echo $this->translate->_('ae');?></a>
+						<a icon='refresh' onclick="$var.paging.refresh('menu',1);return false;"><?php echo $this->translate->_('refresh');?></a>
+					</div>
+					<div id="menulist">
+						<ul id="tablist">
+							<li><a href="#tabs-1"><?php echo $this->translate->_('t');?></a></li>
+							<li><a href="#tabs-2"><?php echo $this->translate->_('u');?></a></li>
+							<li><a href="/admin/public/help/state/menulist"><?php echo $this->translate->_('v');?></a></li>
+						</ul>
+						<div id="tabs-1">
+						<?php 
+						foreach($this->sitesvms[1] as $value)
+						{
+							echo '<div class="rasta-buttonset">'
+								.	'<a>'.$this->translate->_('w').'</a>'
+								.	'<a>'.$this->translate->_('p').'</a>'
+								.	'<a class="menutitle" menuid="'.$value['id'].'" title="'.$value['menu_title'].'">'.$value['menu_title'].'</a>'
+								.'</div>';
+						}
+						$paginglimit = 8;
+							echo '<div class="pagingButtons">';
+						if($this->sitesvms[0] > $paginglimit)
+						{
+							for($i=0; $i< ceil($this->sitesvms[0]/$paginglimit); $i++)
+							{
+									$start	= $i*8;
+									$j		= $i+1;
+									echo '<a>'.$j .'</a>';
+							}
+						}
+							echo '</div>';
+						?>
+						</div>
+						<div id="tabs-2">
+							<div class="ui-widget dir-rtl">
+								<label for="rtcs" class="float-rtl"><?php echo $this->translate->_('b');?> </label>
+								<input id="menuSearch" class="float-rtl" />
+							</div>
+							<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+								<span class="float-rtl dir-rtl"><?php echo $this->translate->_('ac');?></span>
+								<div id="LogMenuSearch" style="min-height: 200px; width: 99%; padding-top:5px;" class="ui-widget-content float-rtl">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h3><a href="#"><?php echo $this->translate->_('af');?><span id="listTitle">&nbsp;:&nbsp;<?php echo $this->translate->_('ag');?></span></a></h3>
+			<div id="accorDesign">
+				<div id="accorDesignButton">
+					<!--<a icon='contact' class="ui-state-highlight"><?php echo $this->translate->_('ah');?></a>-->
+					<a icon='bookmark' class="ui-state-highlight"><?php echo $this->translate->_('ag');?></a>
+				</div>
+				<!--<div id="pagethemelistpanel">
+					<div id="pagethemelist">
+						<ul id="tablist">
+							<li><a href="#tabs-1"><?php echo $this->translate->_('t');?></a></li>
+							<li><a href="/admin/public/help/state/pagethemelist"><?php echo $this->translate->_('v');?></a></li>
+						</ul>
+						<div id="tabs-1" >
+							<div style="height:auto; overflow:hidden">
+							<a class="themeIcon" style="background:url(/flsimgs/public/images/RSDthemepic/1-1.gif) no-repeat center top #fff"></a>
+							<a class="themeIcon" style="background:url(/flsimgs/public/images/RSDthemepic/1-1.gif) no-repeat center top #fff"></a>
+							<a class="themeIcon" style="background:url(/flsimgs/public/images/RSDthemepic/1-1.gif) no-repeat center top #fff"></a>
+							<a class="themeIcon" style="background:url(/flsimgs/public/images/RSDthemepic/1-1.gif) no-repeat center top #fff"></a>
+							<a class="themeIcon" style="background:url(/flsimgs/public/images/RSDthemepic/1-1.gif) no-repeat center top #fff"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<style>
+				#pagethemelistpanel{ margin-top:2em;}
+				#pagethemelist .themeIcon{ width:90%; height:9em; display:block; float:none; margin:0.7em auto;}
+				</style>-->
+				<div id="mlmthemelistpanel">
+					<div id="mlmthemelist">
+						<ul id="tablist">
+							<li><a href="#tabs-1"><?php echo $this->translate->_('t');?></a></li>
+							<li><a href="/admin/public/help/state/mlmthemelist"><?php echo $this->translate->_('v');?></a></li>
+						</ul>
+						<div id="tabs-1" style="min-height:58em">
+							<div class="mlmthemegroup">
+								<a class="themeIcon" Mtempid="4" style="background-position: 0px 0px"></a>
+									<a class="themeOption" style="background-color:#8A2BE2"></a>
+									<a class="themeOption" style="background-color:#4682B4"></a>
+									<a class="themeOption" style="background-color:#228B22"></a>
+									<a class="themeOption" style="background-color:#FF0000"></a>
+									<a class="themeOption" style="background-color:#808080"></a>
+									<a class="themeOption" style="background-color:#696969"></a>
+							</div>
+							<div class="mlmthemegroup">
+								<a class="themeIcon" Mtempid="5" style="background-position: 0px -76px"></a>
+									<a class="themeOption" style="background-color:#DCDCDC"></a>
+									<a class="themeOption" style="background-color:#4682B4"></a>
+									<a class="themeOption" style="background-color:#006400"></a>
+									<a class="themeOption" style="background-color:#FF0000"></a>
+									<a class="themeOption" style="background-color:#808080"></a>
+									<a class="themeOption" style="background-color:#1F1F1F"></a>
+							</div>
+							<div class="mlmthemegroup">
+								<a class="themeIcon" Mtempid="6" style="background-position: 0px -152px"></a>
+									<a class="themeOption" style="background-color:#DCDCDC"></a>
+									<a class="themeOption" style="background-color:#191970"></a>
+									<a class="themeOption" style="background-color:#1F1F1F"></a>
+									<a class="themeOption" style="background-color:#20B2AA"></a>
+									<a class="themeOption" style="background-color:#228B22"></a>
+									<a class="themeOption" style="background-color:#800000"></a>
+							</div>
+							<div class="mlmthemegroup">
+								<a class="themeIcon" Mtempid="8" style="background-position: 0px -304px"></a>
+									<a class="themeOption" style="background-color:#DCDCDC"></a>
+									<a class="themeOption" style="background-color:#00BFFF"></a>
+									<a class="themeOption" style="background-color:#9ACD32"></a>
+									<a class="themeOption" style="background-color:#FF4500"></a>
+									<a class="themeOption" style="background-color:#696969"></a>
+									<a class="themeOption" style="background-color:#1F1F1F"></a>
+							</div>
+							<div class="mlmthemegroup">
+								<a class="themeIcon" Mtempid="9" style="background-position: 0px -380px"></a>
+									<a class="themeOption" style="background-color:#ADFF2F"></a>
+									<a class="themeOption" style="background-color:#7B68EE"></a>
+									<a class="themeOption" style="background-color:#708090"></a>
+									<a class="themeOption" style="background-color:#00BFFF"></a>
+									<a class="themeOption" style="background-color:#B8860B"></a>
+									<a class="themeOption" style="background-color:#1F1F1F"></a>
+							</div>
+							<div class="mlmthemegroup">
+								<a class="themeIcon" Mtempid="11" style="background-position: 0px -532px"></a>
+									<a class="themeOption" style="background-color:#1F1F1F"></a>
+									<a class="themeOption" style="background-color:#4682B4"></a>
+									<a class="themeOption" style="background-color:#CD853F"></a>
+									<a class="themeOption" style="background-color:#556B2F"></a>
+									<a class="themeOption" style="background-color:#9ACD32"></a>
+									<a class="themeOption" style="background-color:#8B4513"></a>
+							</div>
+							<div class="mlmthemegroup">
+								<a class="themeIcon" Mtempid="12" style="background-position: 0px -608px"></a>
+									<a class="themeOption" style="background-color:#4682B4"></a>
+									<a class="themeOption" style="background-color:#228B22"></a>
+									<a class="themeOption" style="background-color:#808080"></a>
+									<a class="themeOption" style="background-color:#A0522D"></a>
+									<a class="themeOption" style="background-color:#008080"></a>
+									<a class="themeOption" style="background-color:#1F1F1F"></a>
+							</div>	
+							<div class="mlmthemegroup lastgroup">
+								<a class="themeIcon" Mtempid="13" style="background-position: 0px -684px"></a>
+									<a class="themeOption" style="background-color:#FF1493"></a>
+									<a class="themeOption" style="background-color:#00BFFF"></a>
+									<a class="themeOption" style="background-color:#DCDCDC"></a>
+									<a class="themeOption" style="background-color:#7CFC00"></a>
+									<a class="themeOption" style="background-color:#FF7F50"></a>
+									<a class="themeOption" style="background-color:#808080"></a>
+							</div>											
+						</div>
+						
+					</div>
+				</div>
+				<style type="text/css">
+				#mlmthemelistpanel{ margin-top:2em;}
+				.mlmthemegroup{ width:100%; height:7.7em; border-bottom:dotted 0.15em; margin-bottom:0.5em}
+				#mlmthemelist .lastgroup{ border-bottom:none;}
+				.mlmthemegroup a{float:right;}
+				#mlmthemelist .themeIcon{width:122px;height:76px;margin:.3em;display:block;background:url(/flsimgs/public/images/RSDmenuImages/MenuImages.gif);cursor:default }
+				#mlmthemelist .themeOption{width:2em;height:2em; margin:.2em;border:none;background-image:url(/flsimgs/public/images/RSDmenuIco/Square-Effect.png);display:block;background-position:0 0;}
+				</style>
+<!--[if gte IE 5.5]>
+<![if lt IE 7]>
+<style type="text/css">
+#mlmthemelist .themeOption{width:2em;height:2em; margin:.2em;border:none;background-image:none}
+</style>
+<![endif]>
+<![endif]-->
+			</div>
+			<h3><a href="#"><?php echo $this->translate->_('aj');?><span id="listTitle">&nbsp;:&nbsp;<?php echo $this->translate->_('ak');?></span></a></h3>
+			<div id="accorOthers">
+				<div id="accorOthersButton">
+					<a icon='document' class="ui-state-highlight"><?php echo $this->translate->_('ak');?></a>
+					<a icon='suitcase'><?php echo $this->translate->_('al');?></a>
+					<a icon='link'><?php echo $this->translate->_('am');?></a>
+				</div>
+			
+				<div id="pagelistpanel">
+					<div class="listtools">
+						<a icon='plus'><?php echo $this->translate->_('an');?></a>
+						<a icon='refresh' onclick="$var.paging.refresh('page',1);return false;"><?php echo $this->translate->_('refresh');?></a>
+					</div>
+					<div id="pagelist">
+						<ul id="tablist">
+							<li><a href="#tabs-1"><?php echo $this->translate->_('t');?></a></li>
+							<li><a href="#tabs-2"><?php echo $this->translate->_('u');?></a></li>
+							<li><a href="/admin/public/help/state/pagelist"><?php echo $this->translate->_('v');?></a></li>
+						</ul>
+						<div id="tabs-1">
+							<?php 
+							foreach($this->pageslist[1] as $key=>$value)
+							{
+								echo '<div class="rasta-buttonset">'
+									.	'<a>'.$this->translate->_('w').'</a>'
+									.	'<a>'.$this->translate->_('z').'</a>'
+									.	'<a>'.$this->translate->_('y').'</a>'
+									.	'<a class="pagetitle" pageid="'.$value['local_id'].'" title="'.$value['wb_page_title'].'">'.$value['wb_page_title'].'</a>'
+									.'</div>';
+							}
+							$paginglimit = 8;
+							//echo count($this->pageslist);
+								echo '<div class="pagingButtons">';
+							if($this->pageslist[0] > $paginglimit)
+							{
+								for($i=0; $i< ceil($this->pageslist[0]/$paginglimit); $i++)
+								{
+									$start	= $i*8;
+
+									$j		= $i+1;
+									echo '<a>'.$j .'</a>';
+								}
+							}
+								echo '</div>';
+							?>
+						</div>
+						<div id="tabs-2">
+							<div class="ui-widget dir-rtl">
+								<label for="rtcs" class="float-rtl"><?php echo $this->translate->_('b');?> </label>
+								<input id="pageSearch"  class="float-rtl"/>
+							</div>
+							<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+								<span class="float-rtl dir-rtl"><?php echo $this->translate->_('ac');?></span>
+								<div id="LogPageSearch" style="min-height: 200px; width: 99%; padding-top:5px;" class="ui-widget-content float-rtl">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="scenariolistpanel" style="display:none">
+					<div class="listtools">
+						<a icon='plus'><?php echo $this->translate->_('ao');?></a>
+						<a icon='refresh' onclick="$var.paging.refresh('scenario',1);return false;"><?php echo $this->translate->_('refresh');?></a>
+					</div>
+					<div id="scenariolist">
+						<ul id="tablist">
+							<li><a href="#tabs-1"><?php echo $this->translate->_('t');?></a></li>
+							<li><a href="#tabs-2"><?php echo $this->translate->_('u');?></a></li>
+							<li><a href="/admin/public/help/state/scenariolist"><?php echo $this->translate->_('v');?></a></li>
+						</ul>
+						<div id="tabs-1">
+							<?php 
+							foreach($this->sitescenarios[1] as $key=>$value)
+							{
+								echo '<div class="rasta-buttonset">'
+									.	'<a>'.$this->translate->_('w').'</a>'
+									.	'<a>'.$this->translate->_('y').'</a>'
+									.	'<a class="scenariotitle" scenarioid="'.$value['id'].'" url="'.$value['uri'].'" title="'.$value['title'].'">'.$value['title'].'</a>'
+									.'</div>';
+							}
+							$paginglimit = 8;
+								echo '<div class="pagingButtons">';
+							if($this->sitescenarios[0] > $paginglimit)
+							{
+								for($i=0; $i< ceil($this->sitescenarios[0]/$paginglimit); $i++)
+								{
+									$start	= $i*8;
+
+									$j		= $i+1;
+									echo '<a>'.$j .'</a>';
+								}
+							}
+								echo '</div>';
+							?>
+						</div>
+						<div id="tabs-2">
+							<div class="ui-widget dir-rtl">
+								<label for="rtcs" class="float-rtl"><?php echo $this->translate->_('b');?> </label>
+								<input id="scenarioSearch"  class="float-rtl"/>
+							</div>
+							<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+								<span class="float-rtl dir-rtl"><?php echo $this->translate->_('ac');?></span>
+								<div id="LogScenarioSearch" style="min-height: 200px; width: 99%; padding-top:5px;" class="ui-widget-content float-rtl">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- sdaf  -->
+
+
+				<div id="extlinklistpanel"  style="display:none">
+					<div class="listtools">
+						<a icon='plus' id="addnewlink"><?php echo $this->translate->_('ap');?></a>
+						<a icon='refresh' onclick="$var.paging.refresh('extlink',1);return false;"><?php echo $this->translate->_('refresh');?></a>
+					</div>
+					<div id="extlinklist">
+						<ul id="tablist">
+							<li><a href="#tabs-1"><?php echo $this->translate->_('t');?></a></li>
+							<li><a href="#tabs-2"><?php echo $this->translate->_('u');?></a></li>
+							<li><a href="/admin/public/help/state/extlinklist"><?php echo $this->translate->_('v');?></a></li>
+						</ul>
+						<div id="tabs-1">
+							<?php 
+							foreach($this->extLinks[1] as $value)
+							{
+								
+								echo '<div class="rasta-buttonset">'
+									.	'<a>'.$this->translate->_('w').'</a>'
+									.	'<a url="'.$value['url'].'">'.$this->translate->_('y').'</a>'
+									.	'<a class="extlinktitle" extlinkid="'.$value['id'].'" title="'.$value['title'].'">'.$value['title'].'</a>'
+									.'</div>';
+							}
+							$paginglimit = 8;
+								echo '<div class="pagingButtons">';
+							if($this->extLinks[0] > $paginglimit)
+							{
+								for($i=0; $i< ceil($this->extLinks[0]/$paginglimit); $i++)
+								{
+									$start	= $i*8;
+									$j		= $i+1;
+									echo '<a>'.$j .'</a>';
+								}
+							}
+								echo '</div>';
+							?>
+						</div>
+						<div id="tabs-2">
+							<div class="ui-widget dir-rtl">
+								<label for="rtcs" class="float-rtl"><?php echo $this->translate->_('b');?> </label>
+								<input id="extLinkSearch"  class="float-rtl" />
+							</div>
+							<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+								<span class="float-rtl dir-rtl"><?php echo $this->translate->_('ac');?></span>
+								<div id="LogExtLinkSearch" style="min-height: 200px; width: 99%; padding-top:5px;" class="ui-widget-content float-rtl">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div id="verticalPanel_silder">
+		<span id="verticalPanel_silder_icon" class="ui-icon ui-icon-triangle-1-e"></span>
+	</div>
+</div>
+
+
+<ul id="contextMenu" class="contextMenu">
+	<li class='disabled'>
+		<span class="rasta-icon ui-icon-pencil"></span>
+		<span class="vseparator"></span>
+		<a id="" targ=""><?php echo $this->translate->_('aq');?></a>
+	</li>
+	<li class='separator disabled'>
+		<span class="rasta-icon ui-icon-close"></span>
+		<span class="vseparator"></span>
+		<a id="" targ=""><?php echo $this->translate->_('ar');?></a>
+	</li>
+	<li id="SaveThisPage" class=''>
+		<span class="rasta-icon ui-icon-disk"></span>
+		<span class="vseparator"></span>
+		<a  targ=""><?php echo $this->translate->_('as');?></a></li>
+	<li id="FileManager" class=''>
+		<span class="rasta-icon ui-icon-folder-open">
+		</span><span class="vseparator"></span>
+		<a  targ=""><?php echo $this->translate->_('at');?></a>
+	</li>
+	<li class='separator'>
+		<span class="rasta-icon ui-icon-battery-3"></span>
+		<span class="vseparator"></span>
+		<a  targ=""><?php echo $this->translate->_('au');?></a>
+	</li>
+	<li id="ShowContentPanel" class=''>
+		<span class="rasta-icon ui-icon-cart"></span>
+		<span class="vseparator"></span>
+		<a  targ=""><?php echo $this->translate->_('l');?></a>
+	</li>
+	<li id="ShowThemePanel" class=''>
+		<span class="rasta-icon ui-icon-image"></span>
+		<span class="vseparator"></span>
+		<a  targ=""><?php echo $this->translate->_('af');?></a>
+	</li>
+	<li id="ShowPagesPanel" class='separator'>
+		<span class="rasta-icon ui-icon-document"></span>
+		<span class="vseparator"></span>
+		<a  targ=""><?php echo $this->translate->_('aj');?></a>
+	</li>
+	<li id="ShowPropertiesPanel" class='separator'>
+		<span class="rasta-icon ui-icon-gear"></span>
+		<span class="vseparator"></span>
+		<a  targ=""><?php echo $this->translate->_('a');?></a>
+	</li>
+</ul>
+
+
+<link type="text/css" href="/modules/admin/createmenu/5/menu.css" rel="stylesheet" />
+<style type="text/css">
+	div#createmenu { position:absolute; top:33px; right:0px;z-index:1100; display:none; }
+	body > div#createmenu { position:fixed; }
+	#createmenu li div {
+	right:100%;
+	left:auto;
+	display:none;
+	visibility:visible;
+	}
+	#createmenu li:hover > div {
+		visibility: visible;
+	}
+	div#createmenu ul.createmenu {
+		width:100%;
+	}
+	div#createmenu li a{ /*direction:rtl*/ }
+	div#createmenu ul  span, div#createmenu ul ul span { /*direction:rtl;*/ text-align:right;}
+.rasta-section{ min-height:30px}
+
+</style>
+<div id="createmenu">
+		<ul class="createmenu">
+			<li><a href="#" ><span><?php echo $this->translate->_('av');?></span></a>
+			</li>
+		</ul>
+</div>
+<div id="paneldialogAuto"></div>

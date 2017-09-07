@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;/*width:650px;border:1px solid;*/height:auto;}
+td.d0,th.d0{width:5%;} td.d1,th.d1{width:40%;} td.d2,th.d2{width:25%;text-align:center;} td.d3,th.d3{width:10%;}
+th.d1, th.d2, th.d3{ text-align:center;}
+</style>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->title_site;?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+			<form method="post" action="/db/admin/tbregister/tb/<?php echo $this->tbname;?>" name="tbregister">
+			<table border="1" cellspacing="0"  class="showborder" style="table-layout:fixed;width:700px;margin:0 auto;">
+				<tr>
+				  <th class="d0" ><?php echo $this->translate->_('c');?></th>  
+				  <th class="d1" ><?php echo $this->translate->_('c');?></th>  
+				  <th class="d2" ><?php echo $this->translate->_('title');?></th>
+				  <th class="d3" ><img src="/modules/db/imgs/b_primary.png" /></th>	  
+				  <th class="d3" ><img src="/modules/db/imgs/b_unique.png" /></th>	  
+				  <th class="d3" >...</th>	  
+				</tr>
+				<?php for($i=0; $i<$this->fcount; $i++){ ?>
+				<tr>
+					<td class="d0"><?php echo $i+1;?></td>
+					<td class="d1"><input type="text" name="fls[<?php echo $i;?>][title]" value="" /></td>
+					<td class="d2"><select name="fls[<?php echo $i;?>][type]">
+						<option value="1"><?php echo $this->translate->_('g');?></option>
+						<option value="2"><?php echo $this->translate->_('h');?></option>
+						<option value="3"><?php echo $this->translate->_('i');?></option>
+					</select></td>
+					<td class="d3"><input type="radio" name="fls[<?php echo $i;?>][pu]" value="pk" /></td>
+					<td class="d3"><input type="radio" name="fls[<?php echo $i;?>][pu]" value="un" /></td>
+					<td class="d3"><input type="radio" name="fls[<?php echo $i;?>][pu]" value="non" checked="checked" /></td>
+				</tr>
+				<?php } ?>
+			</table>
+			</form>
+
+<br />
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a class='btn art-button' onclick="document.forms.tbregister.submit()" ><?php echo $this->translate->_('ok');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a class='btn art-button' href="/db/admin/frmlist#fragment-1"><?php echo $this->translate->_('cancel');?></a>
+</span>
+<br />
+<br />
+
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,195 @@
+﻿<div id="page_registerform" class="page" style="width:600px;margin:0 auto;float:none;">
+<div class="art-post">
+	<div class="art-post-tl"></div>
+	<div class="art-post-tr"></div>
+	<div class="art-post-bl"></div>
+	<div class="art-post-br"></div>
+	<div class="art-post-tc"></div>
+	<div class="art-post-bc"></div>
+	<div class="art-post-cl"></div>
+	<div class="art-post-cr"></div>
+	<div class="art-post-cc"></div>
+	<div class="art-post-body">
+<div class="art-post-inner">
+				<h2 class="art-postheader">
+					<span class="art-postheader"></span>
+				</h2>
+				<div class="art-postcontent">
+					<!-- article-content -->
+			<form name="reguser" method="post" autocomplete="off" action="/rcpanel/user/reguser">
+			  <table border="0" cellpadding="3" width="60%">
+					<thead>
+					<tr><th colspan="2" style="font-family:arial;font-size:18px;text-align:right;"><?php echo $this->title_site;?>
+						<!--فرم ثبت نام-->
+					</th></tr>
+					</thead>
+					<tbody>
+				<tr>
+				  <td><?php echo $this->translate->_('ag');?>:</td>
+				  <td><input type="text" name="first_name" value="<?php echo $this->data['first_name'];?>"></td>
+				</tr>
+				<tr>
+				  <td><?php echo $this->translate->_('ah');?>:</td>
+				  <td><input type="text" name="last_name" value="<?php echo $this->data['last_name'];?>"></td>
+				</tr>	
+				<tr>
+				  <td><?php echo $this->translate->_('ai');?>:</td>
+				  <td><input type="text" name="username" value="<?php echo $this->data['username'];?>"></td>
+				</tr>	
+			    <tr>
+				  <td><?php echo $this->translate->_('c');?>:</td>
+				  <td><input type="password" name="password_1" value="<?php echo $this->data['password_1'];?>"></td>
+				</tr>
+			    <tr>
+				  <td><?php echo $this->translate->_('aj');?>:</td>
+				  <td><input type="password" name="password_2"></td>
+				</tr>	
+				<tr>
+				  <td><?php echo $this->translate->_('z');?>:</td>
+				  <td ><input type="text" name="captcha"></td>
+				</tr>	
+				</tbody>
+			  </table>
+		  </form>
+	<center>
+		<img src="/admin/public/generatecaptcha/t/<?php echo rand(0,900); ?>" style="padding: 0px; border: 0pt none;" id="siimageregu" title="<?php echo $this->translate->_('z');?>">
+		<a onclick="document.getElementById('siimageregu').src = '/admin/public/generatecaptcha/t/'+ Math.random();return false;" title="<?php echo $this->translate->_('af');?>" href="#" tabindex="-1">
+		<img border="0" onclick="this.blur()" alt="Reload Image" src="/img/refresh.png"></a> 
+	</center>       					
+	
+	<center>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='art-button' onclick="document.forms.reguser.submit();"  href="#" style="width:100px;text-align:center;"><?php echo $this->translate->_('a');?></a>
+</span>
+	</center>
+
+					<!-- /article-content -->
+				</div>
+				<div class="cleared"></div>
+</div>
+
+		<div class="cleared"></div>
+	</div>
+</div>
+
+<style type="text/css">
+#page_registerform .art-logo td{font-family:tahoma;font-size:12px;color:#FFFFFF;}
+
+
+#page_registerform .art-post
+{
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+  min-width: 49px;
+  min-height: 49px;
+}
+
+#page_registerform .art-post-body
+{
+  position: relative;
+  z-index: 1;
+  padding: 21px;
+}
+
+#page_registerform .art-post-tr, #page_registerform .art-post-tl, #page_registerform .art-post-br, #page_registerform .art-post-bl, #page_registerform .art-post-tc, #page_registerform .art-post-bc,#page_registerform .art-post-cr, #page_registerform .art-post-cl
+{
+  position: absolute;
+  z-index: -1;
+}
+
+#page_registerform .art-post-tr, #page_registerform .art-post-tl, #page_registerform .art-post-br, #page_registerform .art-post-bl
+{
+  width: 88px;
+  height: 88px;
+  background-image: url('/modules/rcpanel/images/post_s.png');
+}
+
+#page_registerform .art-post-tl
+{
+  top: 0;
+  left: 0;
+  clip: rect(auto, 44px, 44px, auto);
+}
+
+#page_registerform .art-post-tr
+{
+  top: 0;
+  right: 0;
+  clip: rect(auto, auto, 44px, 44px);
+}
+
+#page_registerform .art-post-bl
+{
+  bottom: 0;
+  left: 0;
+  clip: rect(44px, 44px, auto, auto);
+}
+
+#page_registerform .art-post-br
+{
+  bottom: 0;
+  right: 0;
+  clip: rect(44px, auto, auto, 44px);
+}
+
+#page_registerform .art-post-tc, #page_registerform .art-post-bc
+{
+  left: 44px;
+  right: 44px;
+  height: 88px;
+  background-image: url('/modules/rcpanel/images/post_h.png');
+}
+
+#page_registerform .art-post-tc
+{
+  top: 0;
+  clip: rect(auto, auto, 44px, auto);
+}
+
+#page_registerform .art-post-bc
+{
+  bottom: 0;
+  clip: rect(44px, auto, auto, auto);
+}
+
+#page_registerform .art-post-cr, #page_registerform .art-post-cl
+{
+  top: 44px;
+  bottom: 44px;
+  width: 88px;
+  background-image: url('/modules/rcpanel/images/post_v.png');
+}
+
+#page_registerform .art-post-cr
+{
+  right: 0;
+  clip: rect(auto, auto, auto, 44px);
+}
+
+#page_registerform .art-post-cl
+{
+  left: 0;
+  clip: rect(auto, 44px, auto, auto);
+}
+
+#page_registerform .art-post-cc
+{
+  position: absolute;
+  z-index: -1;
+  top: 44px;
+  left: 44px;
+  right: 44px;
+  bottom: 44px;
+  background-color: #FFFFFF;
+}
+
+#page_registerform .art-post
+{
+  margin: 7px;
+}
+#page_registerform table{ float:none;margin:0 auto; direction:<?php echo $this->translate->_('dir'); ?>;}
+</style>
+</div>

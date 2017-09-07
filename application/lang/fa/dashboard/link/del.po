@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-05-04 17:51+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "a"
+msgstr "لینک مورد نظر با موفقیت حذف شد"
+
+msgid "b"
+msgstr "خطا در فرآیند حذف لینک"
+
+msgid "c"
+msgstr ""
+
+msgid "d"
+msgstr ""
+
+msgid "e"
+msgstr ""
+
+msgid "f"
+msgstr ""
+
+msgid "g"
+msgstr ""
+
+msgid "h"
+msgstr ""
+
+msgid "i"
+msgstr ""
+
+msgid "j"
+msgstr ""
+
+msgid "k"
+msgstr ""
+
+msgid "l"
+msgstr ""
+
+msgid "m"
+msgstr ""
+
+msgid "n"
+msgstr ""
+
+msgid "o"
+msgstr ""
+
+msgid "p"
+msgstr ""
+
+msgid "q"
+msgstr ""
+
+msgid "r"
+msgstr ""
+
+msgid "s"
+msgstr ""
+
+msgid "t"
+msgstr ""
+
+msgid "u"
+msgstr ""
+
+msgid "v"
+msgstr ""
+
+msgid "w"
+msgstr ""
+
+msgid "x"
+msgstr ""
+
+msgid "y"
+msgstr ""
+
+msgid "z"
+msgstr ""
+

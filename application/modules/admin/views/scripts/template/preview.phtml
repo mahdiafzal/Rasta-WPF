@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en"  style="overflow:scroll;">
+<head>
+	<link rel="icon" type="image/gif" href="/img/RSDFavIconlogo.gif" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+		<link type="text/css" rel="stylesheet" href="/css/jqui/jquery.ui.all.css" />
+		<script type="text/javascript" src="/js/jQuery/jquery.js"></script>
+		<script type="text/javascript" src="/js/jQuery/jquery-ui.js"></script>
+	<?php echo $this->pageHead;?>
+<script>
+$(function() {
+$('body').find( ".selecttheme" ).button().click(function()
+									{
+										if(window.opener!=null)
+										{
+											$(this).parents('.skintheme').find('form').submit();
+										}
+									});
+$('body').find( ".previewtheme" ).button().click(function()
+									{
+											$(this).parents('.skintheme').find('form')
+												.attr('action', '/admin/template/')//env/<?php //$this->env; ?>/
+												.submit();
+									});
+$('#selectThisSkin').button().click(function(){	if(window.opener!=null) $('body').find('form#thisSkin').submit(); });
+$('#publictemplates, #privateskins').button();
+$( "#layout_radio, #theme_radio" )
+				.buttonset().find('input')
+				.click(function()
+				{
+					var formelem = $(this).parents('form');
+					var group = formelem.find('input[name="group"]').val();
+					var layout = formelem.find('#layout_radio input:checked').val();
+					var theme = formelem.find('#theme_radio input:checked').val();
+					var imgurl = '/templates/skin/scholar/screenshots/'+group+'/'+layout+'/'+theme+'/scr.gif';
+					$(this).parents('.skintheme').find('.screenshot img').attr('src', imgurl); 
+					//alert(imgurl);
+				});
+//$('body').dblclick(function(){	if(window.opener!=null) $('body').find('form#thisSkin').submit(); })
+var whref = window.location.href.split('group/')[1].split('/');
+var thisSkin = $('body').find('form#thisSkin');
+thisSkin.find('[name="group"]').val(whref[0]);
+thisSkin.find('[name="layout"]').val(whref[2]);
+thisSkin.find('[name="theme"]').val(whref[4]);
+$('#thisskinimg').attr('src', '/templates/skin/scholar/screenshots'+window.location.pathname.split('preview')[1].replace(/(group\/)|(layout\/)|(theme\/)/g,'')+'/scr.gif');
+//alert()
+})											
+</script>
+<style> 
+.temptitle{width:100%; height:35px; float:right;}
+.temptitle h3{ font-family:arial; font-size:17px; font-weight:bold; padding-right:5px; margin:5px 0;}
+.skintheme{width:100%;height:235px; border-bottom:solid 1px #999; position:relative;}
+.screenshot{width:150px;height:135px; float:right; padding-top:5px; position:relative; right:10px;}
+.buttons{width:240px;height:auto; float:right; position:absolute; top:198px; right:12px;}
+.options{width:240px;height:auto; float:right; position:absolute; top:40px; right:180px; font-family:tahoma; font-size:13px;}
+.options fieldset{width:210px; height:60px; }
+#layout_radio, #theme_radio{width:210px; height:35px; margin:0;padding:0;border:0;text-align:center; font-size:11px;}
+#theme_radio .ui-button-text{font-family:tahoma; font-size:11px;}
+.previewtheme, .selecttheme{ /*width:85px; height:20px; padding:10px 5px; position:relative; float:right; border:solid 1px; margin:10px;*/ font-family:tahoma; font-size:13px; text-align:center;}
+</style>
+
+</head>
+<body style="margin-top:35px;">
+<div style="width:100%;height:35px;position:absolute;top:0;left:0;background-color:#999999;font-size:12px;">
+	<center>
+		<!--<a id="publictemplates" href="/admin/template/" style="font-family:tahoma;"><?php echo $this->translate->_('a') ?></a>-->
+		<a id="privateskins" href="/dashboard/skin/frmlist" style="font-family:tahoma;"><?php echo $this->translate->_('b') ?></a>
+	</center>
+</div>
+<form id="thisSkin" action="/admin/template/select">
+	<input name="group" value="" type="hidden">
+	<input name="layout" value="" type="hidden">
+	<input name="theme" value="" type="hidden">
+<?php /*?>	<input name="env" value="<?php echo $this->env; ?>" type="hidden"><?php */?>
+</form>
+	<?php echo $this->layout()->content ?>
+</body>
+</html>

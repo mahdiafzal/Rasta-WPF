@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.art-postcontent, .art-postcontent p{direction:<?php echo $this->translate->_('dir');?>;text-align:justify;font-family:tahoma;font-size:13px;line-height:1.5;}
+p{margin:6px 0;}
+.next-link{
+text-align:<?php echo ( ($this->translate->_('dir')=='rtl')?'left':'right');?>;
+width:96%; padding:5px 2%;
+}
+</style>
+
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->stitle;?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<div class="next-link">
+							<a href="/help/directory/list#fragment-6"><?php echo $this->translate->_('b'); ?></a>&nbsp;|&nbsp;
+							<a href="<?php echo $this->nextlink; ?>"><?php echo $this->nexttitle; ?></a></div>
+						<?php echo $this->scontent; ?>
+						<div class="next-link">
+							<a href="/help/directory/list#fragment-6"><?php echo $this->translate->_('b'); ?></a>&nbsp;|&nbsp;
+							<a href="<?php echo $this->nextlink; ?>"><?php echo $this->nexttitle; ?></a></div>
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>

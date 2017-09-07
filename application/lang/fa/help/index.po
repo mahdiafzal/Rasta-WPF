@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2012-07-13 16:07+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "dir"
+msgstr "rtl"
+
+msgid "title"
+msgstr "عنوان"
+
+msgid "edit"
+msgstr "ویرایش"
+
+msgid "delete"
+msgstr "حذف"
+
+msgid "preview"
+msgstr "پیش نمایش"
+
+msgid "select"
+msgstr "انتخاب"
+
+msgid "ok"
+msgstr "تأیید"
+
+msgid "cancel"
+msgstr "انصراف"
+
+msgid "type"
+msgstr "نوع"
+
+msgid "normal"
+msgstr "عادی"
+
+msgid "menu"
+msgstr "منو"
+
+msgid "previous page"
+msgstr "صفحه قبل"
+
+msgid "next page"
+msgstr "صفحه بعد"
+
+msgid "a"
+msgstr "پارامترهای سیستمی"
+
+msgid "b"
+msgstr "راهنما"
+
+msgid "c"
+msgstr "ردیف"
+
+msgid "d"
+msgstr ""
+
+msgid "e"
+msgstr ""
+
+msgid "f"
+msgstr "شرح"
+
+msgid "g"
+msgstr ""
+
+msgid "h"
+msgstr ""
+
+msgid "i"
+msgstr ""
+
+msgid "j"
+msgstr ""
+
+msgid "k"
+msgstr ""
+
+msgid "l"
+msgstr ""
+
+msgid "m"
+msgstr ""
+
+msgid "n"
+msgstr ""
+
+msgid "o"
+msgstr ""
+
+msgid "p"
+msgstr ""
+
+msgid "q"
+msgstr ""
+
+msgid "r"
+msgstr ""
+
+msgid "s"
+msgstr ""
+
+msgid "t"
+msgstr ""
+
+msgid "u"
+msgstr ""
+
+msgid "v"
+msgstr ""
+
+msgid "w"
+msgstr ""
+
+msgid "x"
+msgstr ""
+
+msgid "y"
+msgstr ""
+
+msgid "z"
+msgstr ""
+
+msgid "#rasta-sitetitle#"
+msgstr "عنوان وبسایت - از بخش تنظیمات سایت"
+
+msgid "#rasta-site-description#"
+msgstr "توضیحات وبسایت - از بخش تنظیمات سایت"
+
+msgid "#rasta-site-keywords#"
+msgstr "کلمات کلیدی سایت - از بخش تنظیمات سایت"
+
+msgid "#rasta-site-authors#"
+msgstr "نویسندگان وبسایت - از بخش تنظیمات سایت"
+
+msgid "#rasta-slogantext#"
+msgstr "شعار صفحه - از بخش تنظیمات صفحه"
+
+msgid "#rasta-pagetitle#"
+msgstr "عنوان صفحه"
+
+msgid "#rasta-page-description#"
+msgstr "توضیحات صفحه - از بخش تنظیمات صفحه"
+
+msgid "#rasta-page-keywords#"
+msgstr "کلمات کلیدی صفحه - از بخش تنظیمات صفحه"
+
+msgid "#rasta-page-authors#"
+msgstr "نویسندگان صفحه - از بخش تنظیمات صفحه"
+
+msgid "#rasta-skinroot#"
+msgstr "آدرس پوشه ی اصلی پوسته - از بخش مدیریت پوسته ها، فرم ویرایش پوسته"
+
+msgid "#rasta-feedlink-rss#"
+msgstr "لینک خوراک آر اس اس -  بصورت اتوماتیک برای سناریوهایی که عملکرد آن ها نمایش آخرین پست ها است ایجاد می شود"
+
+msgid "#rasta-feedlink-atom#"
+msgstr "لینک خوراک اتم -  بصورت اتوماتیک برای سناریوهایی که عملکرد آن ها نمایش آخرین پست ها است ایجاد می شود"
+

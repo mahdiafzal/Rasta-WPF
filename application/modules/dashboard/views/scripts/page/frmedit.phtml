@@ -1,0 +1,186 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function submitForm()
+	{
+		document.forms[0].submit();
+	})
+
+$("#ddown_page_state").val('<?php echo $this->data['page_state']; ?>').attr('option','selected');
+
+$var={};
+$var.tempSelect = selectTemplateFun;
+});
+function selectTemplateFun(tempid)
+{
+	$('input[name=s_skin]').val(tempid);
+}
+function skinSelectPopup()
+{
+	var popupwin	= window.open('/skiner/template/frmlist', 
+								'skinSelectPopup',
+								'location=1,status=1,scrollbars=1,resizable=1,width=980,height=500');
+	popupwin.moveTo(100,50);
+}
+function removeSkin()
+{
+	$('input[name=s_skin]').val(0);
+}
+
+</script>
+<link rel="stylesheet" href="/css/rasta/dashboardii.css" />
+<style>
+.td_title{width:100px;}.td_box{width:420px;}.btn{margin:3px;background:#F4F4F4}
+#div_tbl{margin:0 auto;padding:10px;margin-top:2px;height:auto;}
+</style>
+
+
+<div class="err">
+  	<?php //print_r($this->info); 
+		if ( !empty($this->msg))
+		{
+			echo '<blockquote style="color:#CC3300;line-height:1.5;">';
+			foreach ($this->msg as $msg)
+  			{
+				   echo  "<h4>".$msg."</h4>";
+			}
+			echo'</blockquote>';
+		}
+	?>
+</div>
+<div id="div_tbl" class="art-article" > 
+
+	<div class="art-post">
+		<div class="art-post-tl"></div>
+		<div class="art-post-tr"></div>
+		<div class="art-post-bl"></div>
+		<div class="art-post-br"></div>
+		<div class="art-post-tc"></div>
+		<div class="art-post-bc"></div>
+		<div class="art-post-cl"></div>
+		<div class="art-post-cr"></div>
+		<div class="art-post-cc"></div>
+		<div class="art-post-body">
+	<div class="art-post-inner">
+					<div class="art-postmetadataheader">
+						<h2 class="art-postheader">
+							<span class="art-postheader"><?php echo $this->escape($this->title_site); ?></span>
+						</h2>
+					</div>
+					<div class="art-postcontent">
+						<!-- article-content -->
+
+<!--<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title_site); ?></h1></center></div>
+<div id="div_tbl" class="ui-corner-all ui-widget-content" >--> 
+	<form action="/dashboard/page/edit" method="post">
+	<table style="width: 540px; margin: 0pt auto; text-align: right; direction:rtl;">
+		<tbody>
+			<tr title="">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('b');?></label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" maxlength="100" name="s_title" value="<?php echo $this->data['wb_page_title']; ?>">
+				</td>
+			</tr>
+			
+			<tr title="<?php echo $this->translate->_('ab');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('aa');?> </label></td>
+				<td class="td_box">
+					<input type="text" class="inputBox" size="35" maxlength="100" name="s_name" value="<?php echo $this->data['name']; ?>">
+				</td>
+			</tr>
+			
+			<tr title="<?php echo $this->translate->_('c');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('d');?></label></td>
+				<td class="td_box">
+				<select style="width:120px" name="ddown_page_state" id="ddown_page_state">
+					<option value="1" title="<?php echo $this->translate->_('e');?>"><?php echo $this->translate->_('f');?></option>
+					<option value="0" title="<?php echo $this->translate->_('g');?>"><?php echo $this->translate->_('h');?></option>
+					<option value="2" title="<?php echo $this->translate->_('i');?>"><?php echo $this->translate->_('j');?></option>
+				</select>
+				</td>
+			</tr>			
+
+			<tr title="<?php echo $this->translate->_('ad');?>">
+				<td class="td_title"><?php echo $this->translate->_('ac');?> </td>
+				<td class="td_box">
+					<input type="text" value="<?php echo $this->data['skin_id']; ?>" size="15" name="s_skin" readonly="readonly" dir="ltr"/>
+<span class="art-button-wrapper" style="float:none;">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' onclick="skinSelectPopup()" href="#"><?php echo $this->translate->_('ae');?></a>
+</span>
+<span class="art-button-wrapper" style="float:none;">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' onclick="removeSkin()" href="#"><?php echo $this->translate->_('af');?></a>
+</span>
+									
+				</td>
+			</tr>
+
+			
+			<tr title="<?php echo $this->translate->_('k');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('l');?></label></td>
+				<td class="td_box"><textarea class="inputBox" cols="45" rows="2" name="s_slogan" ><?php echo $this->data['wb_page_slogan']; ?></textarea></td> 
+			</tr>
+			<tr title="<?php echo $this->translate->_('o');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('p');?></label></td>
+				<td class="td_box"><textarea class="inputBox" cols="45" rows="2" name="s_authors"><?php echo $this->data['authors']; ?></textarea></td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('q');?>">
+				<td class="td_title" width="25"><label class="label"><?php echo $this->translate->_('r');?></label></td>
+				<td class="td_box"><textarea class="inputBox" cols="45" rows="2" name="s_description"><?php echo $this->data['description']; ?></textarea></td>
+			</tr>
+			<tr title="<?php echo $this->translate->_('s');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('t');?></label></td>
+				<td class="td_box"><textarea class="inputBox" cols="45" rows="2" name="s_keywords"><?php echo $this->data['keywords']; ?></textarea></td> 
+			</tr>
+			<tr title="<?php echo $this->translate->_('x');?>">
+				<td class="td_title"><label class="label"><?php echo $this->translate->_('w');?></label></td>
+				<td class="td_box"><textarea class="inputBox" cols="75" rows="8" name="s_xml" style="direction:ltr;text-align:left;"><?php echo $this->data['wb_xml']; ?></textarea></td> 
+			</tr>
+			<tr>
+				<td><label class="label"><?php echo $this->translate->_('user group');?></label></td>
+				<td id="userGroups" class="td_box">
+				<style>#userGroups div{<?php echo $this->translate->_('stylea'); ?>}</style>
+				<?php
+					$currentGroups	= array();
+					if(!empty($this->data['user_group'])) $currentGroups	= array_filter(explode('/', $this->data['user_group']));
+					if(is_array($this->wbsUserGroups))
+						foreach($this->wbsUserGroups as $value)
+						{
+							$checkedState = '';
+							if( in_array($value['id'],$currentGroups) ) $checkedState = 'checked="checked"';
+							echo '<div><input type="checkbox" name="ugroup[]" value="'.$value['id'].'" '.$checkedState.' /><label>&nbsp;'.$value['title'].'</label></div>'; 
+						}
+				?>
+					<div style="width:99.9%;float:left;"><br /><span style="font-size:90%;color:#0000CC;"><?php echo $this->translate->_('z');?></span><br /><br /></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<input type="hidden" value="<?php echo $this->data['local_id']; ?>" name="id" />
+	</form>
+<br />
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' id="submit" href="#"><?php echo $this->translate->_('m');?></a>
+</span>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="/dashboard/page/frmlist#fragment-2" ><?php echo $this->translate->_('n');?></a>
+</span>
+<br />
+<br />
+						<!-- /article-content -->
+					</div>
+					<div class="cleared"></div>
+	</div>
+	
+			<div class="cleared"></div>
+		</div>
+	</div>
+
+</div>
+

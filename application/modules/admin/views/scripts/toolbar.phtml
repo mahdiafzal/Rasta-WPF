@@ -1,0 +1,12 @@
+<div id="toolbar" class="ui-widget ui-widget-header ui-corner-all">	
+			<a class="toolbutt" icon="disk" 		act="savePage"		><?php echo $this->translate->_('as');?></a>
+			<a class="toolbutt" icon="search"		act="prevPage"		><?php echo $this->translate->_('aw');?></a>
+			<a class="toolbutt" icon="script" 		act="rtcManager"	><?php echo $this->translate->_('ax');?></a>
+			<?php if(!empty($_SESSION['MyApp']['hostSize']) and $_SESSION['MyApp']['hostSize']>0){ ?>
+			<a class="toolbutt" icon="folder-open"	act="fileManager"	><?php echo $this->translate->_('at');?></a>
+			<?php } ?>
+			<a class="toolbutt" icon="gear"			act="siteSetting"	><?php echo $this->translate->_('ay');?></a>
+			<a class="toolbutt" icon="note"			act="dash"			href="/dashboard"><?php echo $this->translate->_('az');?></a>
+			<a class="toolbutt" icon="power" 		act="logout"		><?php echo $this->translate->_('ai');?></a>
+<img id="loading" src="/img/ajax-loader-c.gif"  style="display:none; position:absolute; top:9px; left:10px;" />
+</div>	

@@ -1,0 +1,86 @@
+<script>
+$(document).ready(function() {
+
+//tabs code
+	$(".tb").hover(
+		function(){ 
+			$(this).addClass("ui-state-hover"); 
+		},
+		function(){ 
+			$(this).removeClass("ui-state-hover"); 
+		}
+	);
+	//--------------------------
+	$(".tb").mousedown(function(){
+		$("li").removeClass("ui-state-active");
+		$(this).addClass("ui-state-active");
+	});
+	//---------------------------
+	$(".tb").blur(function(){
+		$(this).removeClass("ui-state-active");
+	});
+//end tabs code
+
+//botton code	
+	$( ".btn"	).button();
+//end botton code
+
+//theme selector code
+//	$('#switcher').themeswitcher();
+//end theme selector code
+
+//text box code	
+	$(":input[@type=text]").focus(function(){
+		$(this).css('border','1px solid #6699FF');
+	});
+	$(":input[@type=text]").blur(function(){
+		$(this).css('border','1px solid silver');
+	});
+//end text box code
+}); 	
+</script>
+
+
+<style>
+	.tb{
+		width:110px;
+		height:25px;
+		float:right;
+		margin:0.3em 0.04em 2px 1px;
+		border-bottom:0 none ;
+		list-style:none outside none;
+		padding:0;
+		position:relative;
+		white-space:nowrap;
+		vertical-align:middle;	
+		}
+	.tb a{
+		text-decoration:none;
+		display:block;
+		width:100%;
+		height:100%;
+		padding-top:6px;
+		font-size:13px;
+		font-weight:bold;
+	}
+	#switcher{
+		margin:0.3em 0.04em 2px 1px;
+	}
+</style>
+
+<div id="tabs" class="ui-widget" >
+<ul class="ui-tabs-nav ui-helper-clearfix ui-widget-header ui-corner-all" >
+	<li  id="tb_main" class="tb ui-state-default ui-corner-top"><a href="/godpanel/panel/">صفحه اصلی</a></li>
+	<li id="tb_crtsite" class="tb ui-state-default ui-corner-top"><a href="/godpanel/panel/frmcrtsite">پورتال جدید</a></li>
+	<li id="tb_listsite" class="tb ui-state-default ui-corner-top"><a href="/godpanel/panel/frmlistsite">لیست پورتال ها</a></li>
+	<li id="tb_crtuser" class="tb ui-state-default ui-corner-top"><a href="/godpanel/User/frmreguser">ثبت مدیر پورتال</a></li>
+	<li id="tb_listuser" class="tb ui-state-default ui-corner-top"><a href="/godpanel/User/frmlistuser">لیست مدیران پورتال</a></li>
+	<!--<li  id="tb_parkDomain" class="tb ui-state-default ui-corner-top"><a href="/godpanel/panel/frmparkdomain">پارک دامنه</a></li>-->
+	<li id="tb_edit" class="tb ui-state-default ui-corner-top">	<a href="/godpanel/User/frmedit">اصلاح مشخصات</a></li>
+	<li id="tb_logout" class="tb ui-state-default ui-corner-top"><a href="/godpanel/user/logout">خروج</a></li>
+</ul>
+
+</div>
+
+
+

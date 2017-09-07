@@ -1,0 +1,54 @@
+<script type="text/javascript">
+$(document).ready(function() {
+		$("li").removeClass("ui-state-active");
+		$("#tb_epay").addClass("ui-state-active");
+	$('#goPay').click(function()
+							{
+								$.ajax({
+								url		:'/godpanel/public/exportation',
+								type	:'post',
+								dataType:'json',
+								data	:{'ResNum':$('input[name=ResNum]').val()},
+								success:function(msg)
+											{
+												if (msg.result='true')
+												{
+													$('form').submit();
+												}
+												else
+												{
+													window.location.href = "/godpanel/epay";
+												}
+											}	
+								});
+							}					
+	);
+})
+</script>
+
+<style>
+.f1{width:100px;text-align:right;}
+.f2{width:100px;text-align:center;}
+#div_tbl{margin:0 auto;padding:10px;margin-top:5px;width:750px;border:1px solid;height:auto;}
+p{text-align:right;font-family:Tahoma;font-size:12px;padding:15px;}
+</style>
+	<div id="div_tbl" class="ui-corner-all ui-widget-header"><center><h1><?php echo $this->escape($this->title);?></h1></center></div>
+	<div id="div_tbl" class="ui-corner-all ui-widget-content" >
+	<form method="post" autocomplete="off" action="<?php echo $this->baseUrl().$this->escape($this->action)?>">
+		<div class="ui-corner-all" style="border:1px solid;margin-top:5px;">
+		<p>شما سرویس <?php  echo $this->data['txt'] ?> را انتخاب نموده اید هزینه شارژ <?php  echo $this->data['txt'] ?> برابر <?php  echo $this->data['Amount'] ?> ریال میباشد.</p><p>در صورت تائید از پورتال رستاک خارج شده و به صفحه پرداخت <strong>بانک سامان </strong>هدایت خواهید شد. مسوولیت این پرداخت با بانک خواهد بود و پس از پرداخت شما مجدداً به پورتال رستاک باز خواهید گشت.</p>
+		</div>
+<br /><br /><br /><br /><br /><br />
+		<div class="ui-corner-all" style="border:1px solid;margin-top:5px;">
+		<center>
+			<input type="hidden" name="Amount" value="<?php  echo $this->data['Amount'] ?>" />
+			<input type="hidden" name="MID" value="<?php  echo $this->data['MID'] ?>" />
+			<input type="hidden" name="ResNum" value="<?php  echo $this->data['ResNum'] ?>" />
+			<input type="hidden" name="RedirectURL" value="<?php  echo $this->data['RedirectURL'] ?>" />
+
+	<a  id="goPay" class='btn ui-state-default ui-corner-all' href="#" >پرداخت</a>
+	<a  class='btn ui-state-default ui-corner-all' href="/godpanel/epay/index" >مرحله قبل</a>		
+	</center>
+		</div>
+	</form>
+	</div>

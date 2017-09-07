@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2011-10-23 08:15+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "a"
+msgstr "<div style=\"color:#000\">لطفا نام کاربري و رمز عبور را وارد کنيد</div>"
+
+msgid "b"
+msgstr "<b>کلمه کاربري و رمز عبور نا معتبر است!</b>"
+
+msgid "c"
+msgstr "<b>حساب کاربری شما هنوز فعال نشده است.<br/> باید از طریق ایمیل خود آنرا فعال کنید</b>"
+
+msgid "d"
+msgstr "<b>پست الکترونیکی نا معتبر است!</b>"
+
+msgid "e"
+msgstr "<b>شما باید از سوی مدیر سایت فعال شوید. لطفا بعدا دوباره تلاش کنید</b>"
+
+msgid "f"
+msgstr "<b>شما اول باید ثبت نام کنید</b>"
+
+msgid "g"
+msgstr "<b>ایمیلی مبنی بر فعال سازی شما ارسال شده است.لطفا تا پایان روز نسبت به فعال سازی حساب خود اقدام کنید</b>"
+
+msgid "h"
+msgstr "<b>خطا در ارسال ایمیل!</b>&nbsp;&nbsp;لطفا دوباره تلاش کنید "
+
+msgid "i"
+msgstr "<b>کد امنیتی اشتباه است</b>"
+
+msgid "j"
+msgstr "<b>لطفا از سایت خود اقدام به ورود به صفحه ی مدیریت کنید.</b>"
+
+msgid "k"
+msgstr "<b>لینک ورود به سایت به ایمیل شما ارسال شد</b>"
+
+msgid "l"
+msgstr "شما مجاز به مشاهده این بخش نیستید. لطفا وارد حساب کاربری خود شوید."
+
+msgid "m"
+msgstr "کد فعال سازی نا معتبر می باشد."
+
+msgid "n"
+msgstr "تاریخ انقضای کد فعال سازی شما به پایان رسیده است.<br/>لطفا لینک فعال سازی جدیدی دریافت کنید."
+
+msgid "o"
+msgstr "خطا در فرایند اعتبار سنجی."
+
+msgid "p"
+msgstr "فرم ورود"
+
+msgid "q"
+msgstr "نام کاربری"
+
+msgid "r"
+msgstr "رمز عبور"
+
+msgid "s"
+msgstr "ورود به سایت"
+
+msgid "t"
+msgstr "نام کاربری همان ایمیل شما می باشد"
+
+msgid "u"
+msgstr "در صورت نیاز با خالی گذاشتن فیلد رمز، لینک ورود به سیستم به ایمیل شما ارسال خواهد شد"
+
+msgid "v"
+msgstr "کد امنیتی"
+
+msgid "w"
+msgstr "ثبت کاربر جدید"
+
+msgid "x"
+msgstr "ورود"
+
+msgid "y"
+msgstr ""
+
+msgid "z"
+msgstr ""
+

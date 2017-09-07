@@ -1,0 +1,37 @@
+<center>
+<form action="/comment/register/crt<?php echo $this->newUriParams; ?>" method="post">
+	<input type="hidden" name="c_id" value="<?php echo $this->formId; ?>" />
+	<input type="hidden" name="c_type" value="<?php echo $this->formType; ?>" />
+	<table dir="<?php echo $this->translate->_('dir'); ?>">
+	<tr><td>
+	نام 
+	</td><td>
+		<input type="text" size="40" name="c_name" value="<?php echo $this->params['c_name']; ?>" />
+	</td></tr>
+	<tr><td>
+	ایمیل 
+	</td><td>
+		<input type="text" size="40" name="c_email" value="<?php echo $this->params['c_email']; ?>" />
+	</td></tr>
+	<tr><td>
+	وبسایت 
+	</td><td>
+		<input type="text" size="40" name="c_site" value="<?php echo $this->params['c_site']; ?>" />
+	</td></tr>
+	<tr><td>
+	پیام 
+	</td><td>
+		<textarea name="c_text" cols="40" rows="15"><?php echo $this->params['c_text']; ?></textarea>
+	</td></tr>
+	<tr><td>
+	 
+	</td><td>
+<span class="art-button-wrapper ">
+	<span class="l"> </span>
+	<span class="r"> </span>
+	<a  class='btn art-button' href="#" onclick="document.forms[0].submit();return false;" >ثبت</a>
+</span>
+	</td></tr>
+	</table>
+</form>
+</center>

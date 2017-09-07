@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rastakcms\n"
+"POT-Creation-Date: 2011-04-28 08:40+0330\n"
+"PO-Revision-Date: 2012-07-21 00:27+0330\n"
+"Last-Translator: ali\n"
+"Language-Team: ra, ah, mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "a"
+msgstr "اضافه کردن متن"
+
+msgid "b"
+msgstr "ثبت متن جدید"
+
+msgid "c"
+msgstr "ویرایش متن"
+
+msgid "d"
+msgstr "طبقه بندی محتوا"
+
+msgid "e"
+msgstr "تنظیمات نمایش"
+
+msgid "f"
+msgstr "&nbsp;نمایش نام نویسنده"
+
+msgid "g"
+msgstr "&nbsp;نمایش تاریخ"
+
+msgid "h"
+msgstr "&nbsp;نمایش ساعت"
+
+msgid "i"
+msgstr "تنظیمات دیدگاه:"
+
+msgid "j"
+msgstr "&nbsp;دیدگاه غیرفعال"
+
+msgid "k"
+msgstr "&nbsp;دیدگاه بصورت خصوصی"
+
+msgid "l"
+msgstr "&nbsp;دیدگاه بصورت عمومی"
+
+msgid "m"
+msgstr "&nbsp; لینک تک نما"
+
+msgid "n"
+msgstr "مشخصات متن"
+
+msgid "o"
+msgstr "عنوان متن:*"
+
+msgid "p"
+msgstr "عنوان دوم متن:"
+
+msgid "q"
+msgstr "وضعیت انتشار:"
+
+msgid "r"
+msgstr "فعال"
+
+msgid "s"
+msgstr "غیر فعال"
+
+msgid "t"
+msgstr "آغاز انتشار:"
+
+msgid "u"
+msgstr "پایان انتشار:"
+
+msgid "v"
+msgstr "چکیده:"
+
+msgid "w"
+msgstr "اطلاعات فراداده"
+
+msgid "x"
+msgstr "نویسنده:"
+
+msgid "y"
+msgstr "کلیدواژه ها:"
+
+msgid "z"
+msgstr "توضیحات:"
+
+msgid "aa"
+msgstr "ذخیره و بازگشت"
+
+msgid "ab"
+msgstr "ذخیره"
+
+msgid "ac"
+msgstr "گروه های کاربری"
+
+msgid "ad"
+msgstr "قالب متن"
+
+msgid "ae"
+msgstr ""
+
+msgid "af"
+msgstr ""
+
+msgid "ag"
+msgstr ""
+
+msgid "ah"
+msgstr ""
+
+msgid "la"
+msgstr "مدیریت متن::"
+
+msgid "lb"
+msgstr "متن جدید"
+
+msgid "lc"
+msgstr "لیست مطالب"
+
