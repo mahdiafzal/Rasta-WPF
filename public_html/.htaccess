@@ -1,0 +1,17 @@
+SetEnv APPLICATION_ENV production
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www.rasta-wpf.com [NC,OR]
+RewriteRule ^(.*)$ http://rasta-wpf.com/$1 [L,R=301,NC]
+
+
+RewriteRule ^sitemap\.xml$ /domains/%{HTTP_HOST}/sitemap.xml? [NC,L]
+RewriteRule ^image\-sitemap\.xml$ /domains/%{HTTP_HOST}/image-sitemap.xml? [NC,L]
+
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
